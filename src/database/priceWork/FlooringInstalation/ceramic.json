@@ -1,0 +1,52 @@
+{
+  "ceramicTiles": {
+    "size": [
+      {
+        "tile": "10x10",
+        "price": 2000
+      },
+      {
+        "tile": "Кирпичики",
+        "price": 1500
+      },
+      {
+        "tile": "20x20",
+        "price": 1300
+      },
+      {
+        "tile": "40x40, 30x40, 20x40",
+        "price": 1000
+      },
+      {
+        "tile": "50x50, 60x60,",
+        "price": 1200
+      },
+      {
+        "tile": "70x70, 80x80",
+        "price": 1350
+      },
+      {
+        "tile": "120x60, 90x90",
+        "price": 1500
+      },
+      {
+        "tile": "100x100",
+        "price": 1750
+      },
+      {
+        "tile": "Мозаика",
+        "price": 2500
+      }
+    ],
+    "fillSeam" : 100,
+    "prime" : 50,
+    "hole" : {
+      "ceramic" : 100,
+      "porcelain" : 200
+    },
+    "angle": {
+      "profile" : 300,
+      "degree" : 1200
+    }
+  }
+}
