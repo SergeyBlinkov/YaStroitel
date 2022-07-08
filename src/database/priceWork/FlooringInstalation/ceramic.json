@@ -46,7 +46,13 @@
     },
     "angle": {
       "profile" : 300,
-      "degree" : 1200
-    }
+      "degree" : 1000
+    },
+    "showerTray" : {
+      "square" : 5000,
+      "circle" : 7500,
+      "linear" : 4000
+    },
+    "antiWater" : 200
   }
 }

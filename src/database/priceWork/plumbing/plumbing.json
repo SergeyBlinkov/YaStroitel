@@ -1,0 +1,20 @@
+{
+  "bath" : {
+    "cast-iron" : {
+      "type": "cast-iron",
+      "price": 5000
+    },
+    "steel" : {
+      "type" : "steel",
+      "price" :3000
+    },
+    "acrylic" : {
+      "type": "acrylic",
+      "price" :3000
+    }
+  },
+  "toilet": {
+    "toilet": 2000,
+    "installation" : 5000
+  }
+}
