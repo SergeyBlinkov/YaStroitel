@@ -1,24 +1,43 @@
-import React, {useState} from 'react';
-import {Checkbox, FormControlLabel} from "@mui/material";
-import {ChangeEvent} from "../CalculatorBath/BathType";
+import React from 'react';
+import CCC from "../CalculatorChooseComponent/CCC";
+import WALL from './img/Wall.jpg'
+import BOX from './img/box.jpg'
+import BOX_BATH from './img/boxBath.jpg'
+import {useAppSelector} from "../../../Redux/ReduxConfigStore";
+import BathComponent from "./BathComponent/BathComponent";
 
-function DryWall() {
-    const [dryWall,setDryWall] = useState(false)
-    const handleChange = (e:ChangeEvent) => {
-        const check = e.target.checked
-        if(!check) {
-            console.log('10:string DryWall')
+const data = [{
+        type:'wall',
+        img:WALL,
+        description:'Необходима целая стена?',
+        label:'Установка стены из гипсокартона'
+}
+,{
+        type:'box',
+        img:BOX,
+        description: 'Закрыть коробом трубы?',
+        label:'Закрыть коробом трубы'
+},{
+        type:'bath',
+        img:BOX_BATH,
+        description: 'Экран из гипсокартона под ванной?',
+        label:'Экран под ванной'
+}]
+
+function DryWall({dryWall} : {dryWall:boolean}) {
+    const ChooseComponent = useAppSelector(state=>state.ChooseBathComponent)
+
+    const filtered = ChooseComponent.dryWall.filter(data => data.show)[0]||[]
+    const FilteredArray = () => {
+        if(filtered.type === 'bath') {
+            return <BathComponent name={'dryWall'} type={'bath'}/>
         }
-        return setDryWall(check)
     }
+
     return (
         <div className="dryWall">
-            <FormControlLabel
-                control={<Checkbox onChange={handleChange} />}
-                label={'Установка коробов из гипсокартона?'}/>
-            {dryWall && <div className="dryWallOpen">
-                open
-            </div>}
+            <CCC variable={data} bool={dryWall} name={'dryWall'}/>
+            {filtered.show && FilteredArray()}
         </div>
 
     );

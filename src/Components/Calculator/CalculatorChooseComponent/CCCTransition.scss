@@ -1,0 +1,14 @@
+.CCC-enter {
+  opacity: 0;
+}
+.CCC-enter-active {
+  transition: opacity 0.2s;
+  opacity: 1;
+}
+.CCC-exit {
+  opacity: 1;
+}
+.CCC-exit-active {
+  transition: opacity 0.2s;
+  opacity: 0;
+}

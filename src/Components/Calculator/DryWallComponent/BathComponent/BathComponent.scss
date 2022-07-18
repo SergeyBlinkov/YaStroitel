@@ -1,0 +1,16 @@
+.BathComponent {
+  margin: 15px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  justify-items:center;
+  border: 1px solid black;
+  .BathComponent_shelf {
+
+  }
+  .finalButton {
+    margin: 15px;
+    grid-column: 1/4;
+    grid-row: auto;
+  }
+}

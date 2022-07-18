@@ -87,4 +87,10 @@ h2 {
   text-align: left;
 }
 
+.calculatorBath-additionalWork {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-items: center;
+}
+
 /*# sourceMappingURL=CalculatorBathStyle.css.map */

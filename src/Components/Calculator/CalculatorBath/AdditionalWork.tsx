@@ -15,32 +15,15 @@ import {ChangeEvent,ButtonEvent} from "./BathType";
 
 
 //BATH-INSTALLATION
-export const BathInstallation = () => {
+export const BathInstallation = ({bathType}:{bathType:boolean}) => {
     const dispatch = useAppDispatch()
     const BathCalc = useAppSelector(state=>state.CalculatorBath)
-    const [checked,setChecked] = useState(Boolean)
-    const changeBathInstallation = (e:ChangeEvent) => {
-        const check = e.target.checked
-        if(!check) {
-            dispatch(bathInstallation('nothing'))
-        }
-        return setChecked(e.target.checked)
-    }
     const handleChange = (e:ButtonEvent) => {
         const name = (e.target as any).name
         return dispatch(bathInstallation(name))
     }
-    return  <div
-        className={'BathInstallation'}
-
-    > <FormControlLabel
-        control={<Checkbox
-        checked={checked}
-        onChange={changeBathInstallation}
-    />}
-        label={'Установка ванны'}
-    />
-        {checked && <ButtonGroup>
+    return  <div className={'BathInstallation'}>
+        {bathType && <ButtonGroup>
             <Button
                 onClick={handleChange}
                 name={'cast-iron'}
@@ -120,15 +103,10 @@ export const AntiWater = () => {
 }
 // Toilet installation
 
-export function ToiletInstallation () {
+export function ToiletInstallation ({toiletState}:{toiletState:boolean}) {
     const BathCalc = useAppSelector(state=>state.CalculatorBath)
     const dispatch = useAppDispatch()
-    const [toiletState, setToiletState] = useState(false)
-    const handleChange = (e:ChangeEvent) => {
-        const check = e.target.checked
-        if (!check) dispatch(toiletInstallation({type: '', price: 0}))
-        return setToiletState(check)
-    }
+
     const changeName = (e:ButtonEvent) => {
         const name = (e.target as any).name
         const toilet = plumbing.toilet
@@ -138,11 +116,6 @@ export function ToiletInstallation () {
     return <div
             className={'ToiletInstallation'}
             >
-        <FormControlLabel
-            control={<Checkbox
-                onChange={handleChange}
-                checked={toiletState}
-        />} label={'Установка туалета'}/>
         {toiletState && <ButtonGroup>
             <Button
                 name={'toilet'}
@@ -159,25 +132,16 @@ export function ToiletInstallation () {
 }
 // SHOWER_TRAY
 
- export function ShowerTray () {
-        const [showerTray,setShowerTray] = useState(false)
+ export function ShowerTray ({showerTray}:{showerTray:boolean}) {
         const BathCalc = useAppSelector(state=>state.CalculatorBath)
         const dispatch = useAppDispatch()
-        const handleChange = (e:ChangeEvent) => {
-            const check = e.target.checked
-            if(!check) {
-                dispatch(showerTrayClick('nothing'))
-            }
-            return setShowerTray(check)
-        }
+
         const handlePrice = (e:ButtonEvent) => {
             const name = (e.target as any).name
             return dispatch(showerTrayClick(name))
         }
         return <div className="showerTray">
-            <FormControlLabel
-                control={<Checkbox onChange={handleChange}/>}
-                label={'Установка душ поддона'}/>
+
             {showerTray && <div className="showerTray-open">
                 <ButtonGroup>
                     <Button

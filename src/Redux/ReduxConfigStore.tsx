@@ -1,10 +1,12 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 import CalculatorBathReducer from "./CalculatorBathSlice";
+import calculatorChooseComponentReducer from "./calculatorChooseComponentSlice";
 
 export const store = configureStore({
     reducer: {
-    CalculatorBath: CalculatorBathReducer
+        CalculatorBath: CalculatorBathReducer,
+        ChooseBathComponent: calculatorChooseComponentReducer
     },
 });
 
