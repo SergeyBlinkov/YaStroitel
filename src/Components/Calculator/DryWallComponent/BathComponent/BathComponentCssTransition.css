@@ -1,0 +1,19 @@
+.bathCssTransition-enter {
+  opacity: 0;
+}
+
+.bathCssTransition-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-out;
+}
+
+.bathCssTransition-exit-active {
+  opacity: 0;
+  transition: opacity 500ms ease-out;
+}
+
+.bathCssTransition-exit {
+  opacity: 0;
+}
+
+/*# sourceMappingURL=BathComponentCssTransition.css.map */

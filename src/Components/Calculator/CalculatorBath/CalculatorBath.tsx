@@ -96,7 +96,7 @@ const CalculatorBath = () => {
                     label={'Установка душ поддона'}/>
                 <FormControlLabel
                     control={<Checkbox onChange={handleChangeDryWall} />}
-                    label={'Установка коробов из гипсокартона?'}/>
+                    label={'Установка коробов из гипсокартона'}/>
             </div>
             <div className={'calculatorBath-additionalWork_opened'}>
                 <ShowerTray showerTray={showerTray} />

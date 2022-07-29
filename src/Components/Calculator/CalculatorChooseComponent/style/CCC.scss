@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=BIZ+UDGothic:wght@700&family=Lobster&family=Playfair+Display:wght@500&family=Raleway:wght@500&display=swap');
+.ellipsis {
+  color: white;
+  margin: 0 20px;
+  font-size: 15px;
+  display: flex;
+  align-self: flex-end;
+  padding: 10px;
+  justify-self: flex-end;
+  letter-spacing: 4px;
+}
+.calculatorChooseComponent {
+  height: 100%;
+  display: grid;
+  grid-gap: 125px;
+  margin: 5px 15px;
+  grid-template-rows: minmax(50px,auto) minmax(0, auto);
+  .calculatorChooseComponent_beforeElement {
+    display: grid;
+    height: auto;
+    justify-items: center;
+    justify-content: center;
+    padding: 10px;
+    grid-template-columns: 1fr;
+    position: fixed;
+    right: 25px;
+    bottom:25px;
+    width: 155px;
+    border-radius: 8px;
+    box-shadow: 0 0 5px 4px gray;
+    z-index: 10;
+    .calculatorChooseComponent_beforeElement__item {
+      width: 140px;
+      display: grid;
+      grid-template-columns: 115px 25px;
+      justify-self: center;
+      border-bottom: 2.5px solid #BFA67A;
+      background-color: transparent;
+      height: 38px;
+      font-family: 'Lobster', cursive;
+      font-size: 14px;
+      letter-spacing: 1px;
+      z-index: 10;
+      color: black;
+    }
+  }
+  .opened {
+
+  }
+  .calculatorChooseComponent_item {
+    max-width: 1280px;
+    display: grid;
+    grid-row: min(2/3);
+    height: 459px;
+    margin: 0 auto;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    border-radius: 15px;
+    position: relative;
+    .calculatorChooseComponent_item__img {
+      width: 100%;
+      height: 459px;
+    }
+    .calculatorChooseComponent_item__description {
+      position: absolute;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      align-self: center;
+      font-family: 'BIZ UDGothic', sans-serif;
+      font-weight: 700;
+      cursor:pointer;
+      font-size: 25px;
+      justify-content: center;
+      margin-left: -60px;
+      background: #F7F7F7;
+      right: 0;
+      width:  55%;
+      height: 380px;
+    }
+    .calculatorChooseComponent_item__openedComponent {
+      position: relative;
+      z-index: 2;
+      align-self: center;
+      font-family: 'BIZ UDGothic', sans-serif;
+      font-weight: 700;
+      padding-left: 60px;
+      width: calc(100% + 60px);
+      height: 380px;
+      background: #F7F7F7;
+      margin-left: -60px;
+    }
+  }
+}

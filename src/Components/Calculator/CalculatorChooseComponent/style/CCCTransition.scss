@@ -1,0 +1,51 @@
+.CCC-enter {
+  opacity: 0;
+}
+.CCC-enter-active {
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.CCC-exit {
+  opacity: 1;
+}
+.CCC-exit-active {
+  transition: opacity 0.5s;
+  opacity: 0;
+}
+
+.CCC_beforeElement-enter {
+  opacity: 0;
+}
+.CCC_beforeElement-enter-active {
+  transition: opacity 0.5s;
+  opacity: 1;
+}
+.CCC_beforeElement-exit {
+  opacity: 1;
+}
+.CCC_beforeElement-exit-active {
+  transition: opacity 0.5s;
+  opacity: 0;
+}
+
+
+.CCC_description-enter {
+  opacity: 0;
+}
+.CCC_description-enter-active {
+  transition: opacity 0.5s;
+  opacity: 1;
+}
+.CSS_description-enter-done {
+   opacity: 1;
+ }
+.CCC_description-exit {
+  opacity: 1;
+}
+.CCC_description-exit-active {
+  transition: opacity 0.5s;
+  opacity: 0;
+}
+.CSS_description-exit-done {
+  opacity: 1;
+}

@@ -1,16 +1,29 @@
-.BathComponent {
-  margin: 15px;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  align-items: center;
-  justify-items:center;
-  border: 1px solid black;
-  .BathComponent_shelf {
 
+@mixin CheckboxStyle() {
+  font-family: 'BIZ UDGothic', sans-serif;
+  font-weight: 700;
+  color: black;
+  display: flex;
+  justify-content: flex-start;
+}
+.BathComponent {
+  display: grid;
+  align-items: center;
+  justify-content: start;
+  color: #969896;
+  .BathComponent_bathLength{
+    display: grid;
+    grid-gap: 10px;
+    align-items: center;
+    grid-template-columns: 1fr 1fr;
+  }
+  .BathComponent_shelf {
+    @include CheckboxStyle()
+  }
+  .BathComponent_hatch {
+    @include CheckboxStyle()
   }
   .finalButton {
-    margin: 15px;
-    grid-column: 1/4;
     grid-row: auto;
   }
 }

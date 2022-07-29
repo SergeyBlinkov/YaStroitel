@@ -19,7 +19,6 @@ const init = {
         }
         ]
 }
-
 const calculatorChooseComponentSlice = createSlice({
     name:'calculatorChooseComponent',
     initialState:init,
@@ -32,18 +31,21 @@ const calculatorChooseComponentSlice = createSlice({
         },
         closeReducer:(state,action) => {
             const name = action.payload
-            if(name === 'dryWall') state.dryWall.map((data) => {
-                data.show = false
-                data.inPrice = false
-            })
+            if(name === 'dryWall')
+                state.dryWall.map((data) => data.inPrice = false)
+
         },
         inPriceReducer:(state, action) => {
             const {name,type} = action.payload
-            state[name as keyof typeof state].map((data) => data.type === type ? data.inPrice = true : data.inPrice = false)
+            state[name as keyof typeof state].map((data) => data.type === type ? data.inPrice = true : data.inPrice)
+        },
+        closeInPrice:(state, action) => {
+            const {name,type} = action.payload
+            state[name as keyof typeof state].map((data) => data.type === type ? data.inPrice = false : data.inPrice)
         }
     }
 })
 
-export const {openReducer,closeReducer,inPriceReducer} = calculatorChooseComponentSlice.actions
+export const {openReducer,closeReducer,inPriceReducer,closeInPrice} = calculatorChooseComponentSlice.actions
 
 export default calculatorChooseComponentSlice.reducer

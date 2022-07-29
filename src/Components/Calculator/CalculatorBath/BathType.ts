@@ -12,6 +12,27 @@ type Toilet = {
     type:string,
     price:number
 }
+type DryWallType = {
+    bath: {
+        board:number,
+        bathLength:number,
+        price:number
+    },
+    wall: {
+        wallLength:number,
+        price:number
+    },
+    box: {
+        boxLength:number,
+        price:number
+    },
+    shower: {
+        showerBoard : {
+            amount:number,
+            price:number
+        }
+    }
+}
 export type ChangeEvent = React.ChangeEvent<HTMLInputElement>
 export type ButtonEvent = React.MouseEvent<HTMLButtonElement>;
 type Angle = {
@@ -34,5 +55,6 @@ export interface BathCalc {
     antiWater:number,
     toilet:Toilet,
     bath:Toilet,
-    showerTray:Toilet
+    showerTray:Toilet,
+    dryWall:DryWallType
 }

@@ -1,14 +1,30 @@
 .BathComponent {
-  margin: 15px;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
-  justify-items: center;
-  border: 1px solid black;
+  justify-content: start;
+  color: #969896;
+}
+.BathComponent .BathComponent_bathLength {
+  display: grid;
+  grid-gap: 10px;
+  align-items: center;
+  grid-template-columns: 1fr 1fr;
+}
+.BathComponent .BathComponent_shelf {
+  font-family: "BIZ UDGothic", sans-serif;
+  font-weight: 700;
+  color: black;
+  display: flex;
+  justify-content: flex-start;
+}
+.BathComponent .BathComponent_hatch {
+  font-family: "BIZ UDGothic", sans-serif;
+  font-weight: 700;
+  color: black;
+  display: flex;
+  justify-content: flex-start;
 }
 .BathComponent .finalButton {
-  margin: 15px;
-  grid-column: 1/4;
   grid-row: auto;
 }
 
