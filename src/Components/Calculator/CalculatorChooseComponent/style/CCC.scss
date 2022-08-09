@@ -15,6 +15,17 @@
   grid-gap: 125px;
   margin: 5px 15px;
   grid-template-rows: minmax(50px,auto) minmax(0, auto);
+  .calculatorChooseComponent_h {
+    text-transform: uppercase;
+    font-family: 'Playfair Display', serif;
+    border-top: 1px solid black;
+    width: 100%;
+    padding-top: 25px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    margin-bottom: 0;
+    font-size: 22px;
+  }
   .calculatorChooseComponent_beforeElement {
     display: grid;
     height: auto;
@@ -34,6 +45,7 @@
       display: grid;
       grid-template-columns: 115px 25px;
       justify-self: center;
+      align-items: center;
       border-bottom: 2.5px solid #BFA67A;
       background-color: transparent;
       height: 38px;
@@ -44,8 +56,11 @@
       color: black;
     }
   }
-  .opened {
-
+  .arrowClick {
+    position: absolute;
+    z-index: 5;
+    top: 14%;
+    right: 2%
   }
   .calculatorChooseComponent_item {
     max-width: 1280px;
@@ -64,7 +79,8 @@
     .calculatorChooseComponent_item__description {
       position: absolute;
       z-index: 2;
-      display: flex;
+      display: grid;
+      padding: 50px;
       align-items: center;
       align-self: center;
       font-family: 'BIZ UDGothic', sans-serif;
@@ -75,8 +91,18 @@
       margin-left: -60px;
       background: #F7F7F7;
       right: 0;
-      width:  55%;
+      width:  54.7%;
       height: 380px;
+      span {
+        display: flex;
+        justify-content: center;
+        align-self: center;
+      }
+      p {
+        margin-top: -19px;
+        font-size: 17px;
+        font-weight: 500;
+      }
     }
     .calculatorChooseComponent_item__openedComponent {
       position: relative;
@@ -90,5 +116,23 @@
       background: #F7F7F7;
       margin-left: -60px;
     }
+  }
+}
+.CCCBigPicture{
+  display: grid;
+  grid-template-rows: 1fr 30px;
+  align-items: center;
+  grid-gap: 20px;
+  z-index: 10;
+  position: fixed;
+  width: 50%;
+  height: 70% !important;
+  min-width: 1050px;
+  background: #000 !important;
+  img {
+    width: 100% !important;
+    height: 100% !important;
+    max-height: 700px;
+
   }
 }

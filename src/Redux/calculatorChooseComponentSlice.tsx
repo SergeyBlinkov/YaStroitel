@@ -17,7 +17,24 @@ const init = {
             show:false,
             inPrice:false
         }
-        ]
+        ],
+    bathType:[
+        {
+            type:'cast-iron',
+            show:false,
+            inPrice:false
+        },
+        {
+            type:'acrylic',
+            show:false,
+            inPrice:false
+        },
+        {
+            type:'steel',
+            show:false,
+            inPrice:false
+        }
+    ]
 }
 const calculatorChooseComponentSlice = createSlice({
     name:'calculatorChooseComponent',
@@ -25,15 +42,14 @@ const calculatorChooseComponentSlice = createSlice({
     reducers: {
         openReducer: (state, action) => {
             const {name,type} = action.payload
-            if(name === 'dryWall') state.dryWall.map((data)=> data.type === type ?
-                data.show = !data.show :
-                data.show = false)
+            state[name as keyof typeof state].map((data) => data.type === type ?
+            data.show = !data.show :
+            data.show = false)
         },
         closeReducer:(state,action) => {
             const name = action.payload
-            if(name === 'dryWall')
-                state.dryWall.map((data) => data.inPrice = false)
-
+            state[name as keyof typeof state].map(data => data.inPrice = false)
+            state[name as keyof typeof state].map(data => data.show = false)
         },
         inPriceReducer:(state, action) => {
             const {name,type} = action.payload

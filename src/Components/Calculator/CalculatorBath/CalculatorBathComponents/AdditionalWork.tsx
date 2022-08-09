@@ -1,50 +1,17 @@
 import React from 'react'
 import {Button, ButtonGroup, Checkbox, FormControlLabel, FormGroup} from "@mui/material";
 import {useState} from "react";
-import {useAppDispatch, useAppSelector} from "../../../Redux/ReduxConfigStore";
+import {useAppDispatch, useAppSelector} from "../../../../Redux/ReduxConfigStore";
 import {
     antiWaterPrice,
-    bathInstallation,
     showerTrayClick,
     toiletInstallation
-} from "../../../Redux/CalculatorBathSlice";
-import ceramic from '../../../database/priceWork/FlooringInstalation/ceramic.json'
-import plumbing from '../../../database/priceWork/plumbing/plumbing.json'
-import {ChangeEvent,ButtonEvent} from "./BathType";
+} from "../../../../Redux/CalculatorBathSlice";
+import ceramic from '../../../../database/priceWork/FlooringInstalation/ceramic.json'
+import plumbing from '../../../../database/priceWork/plumbing/plumbing.json'
+import {ChangeEvent,ButtonEvent} from "../BathType";
 
 
-
-//BATH-INSTALLATION
-export const BathInstallation = ({bathType}:{bathType:boolean}) => {
-    const dispatch = useAppDispatch()
-    const BathCalc = useAppSelector(state=>state.CalculatorBath)
-    const handleChange = (e:ButtonEvent) => {
-        const name = (e.target as any).name
-        return dispatch(bathInstallation(name))
-    }
-    return  <div className={'BathInstallation'}>
-        {bathType && <ButtonGroup>
-            <Button
-                onClick={handleChange}
-                name={'cast-iron'}
-                disabled={BathCalc.bath.type === 'cast-iron'}
-            >
-                Чугунная</Button>
-            <Button
-                name={'steel'}
-                onClick={handleChange}
-                disabled={BathCalc.bath.type === 'steel'}
-            >
-                Акриловая</Button>
-            <Button
-                name={'acrylic'}
-                onClick={handleChange}
-                disabled={BathCalc.bath.type === 'acrylic'}
-            >
-                Стальная</Button>
-        </ButtonGroup>}
-    </div>
-}
 //ANTI-WATER
 type Checked = {floor:boolean,wall:boolean}
 const init:Checked = {floor:false,wall:false}

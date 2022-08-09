@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
 import {Button, TextField} from "@mui/material";
-import {useAppDispatch, useAppSelector} from "../../../Redux/ReduxConfigStore";
-import {fillMetres} from "../../../Redux/CalculatorBathSlice";
+import {useAppDispatch, useAppSelector} from "../../../../Redux/ReduxConfigStore";
+import {fillMetres} from "../../../../Redux/CalculatorBathSlice";
+import {toPeriod} from "../../../helperComponent/helperComponent";
 
 const init = {x:'',y:'',z:2.5}
 type InputEvent = React.ChangeEvent<HTMLInputElement>;
@@ -9,7 +10,7 @@ const CalculatorMetres = () => {
     const dispatch = useAppDispatch()
     const BathCalc = useAppSelector(state=>state.CalculatorBath)
     const [roomSize, setRoomSize] = useState(init)
-    const toPeriod = (data:string) => +data.replace(/,/,'.')
+
     const generalMetres = BathCalc.metres.floor + BathCalc.metres.wall
     const handleChangeMetres = (e: InputEvent) => {
         const m = e.target.value

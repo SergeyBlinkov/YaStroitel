@@ -1,7 +1,7 @@
 import React from "react";
-import ceramic from "../../../database/priceWork/FlooringInstalation/ceramic.json";
-import {useAppDispatch} from "../../../Redux/ReduxConfigStore";
-import {tileSize} from '../../../Redux/CalculatorBathSlice'
+import ceramic from "../../../../database/priceWork/FlooringInstalation/ceramic.json";
+import {useAppDispatch} from "../../../../Redux/ReduxConfigStore";
+import {tileSize} from '../../../../Redux/CalculatorBathSlice'
 
 interface CeramicSizeBlockProps {
         tile: string;

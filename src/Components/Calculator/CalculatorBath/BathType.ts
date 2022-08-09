@@ -12,10 +12,16 @@ type Toilet = {
     type:string,
     price:number
 }
+type Hatch = {
+    type:string,
+    price:number
+}
 type DryWallType = {
     bath: {
-        board:number,
+        shelf:number,
+        hatch:Hatch,
         bathLength:number,
+        spaceUnderBath:number,
         price:number
     },
     wall: {

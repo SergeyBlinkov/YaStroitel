@@ -10,10 +10,13 @@
   display: grid;
   align-items: center;
   justify-content: start;
+  padding-right: 50px;
+  grid-template-columns: 1fr;
   color: #969896;
   .BathComponent_bathLength{
     display: grid;
     grid-gap: 10px;
+    justify-content: stretch;
     align-items: center;
     grid-template-columns: 1fr 1fr;
   }
@@ -21,9 +24,14 @@
     @include CheckboxStyle()
   }
   .BathComponent_hatch {
-    @include CheckboxStyle()
+    @include CheckboxStyle();
+    .BathComponent_hatch__buttonGroup {
+      margin-left: 20px;
+    }
   }
   .finalButton {
     grid-row: auto;
+    display: flex;
+    justify-self: flex-end;
   }
 }

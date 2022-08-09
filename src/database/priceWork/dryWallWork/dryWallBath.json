@@ -1,5 +1,11 @@
 {
   "dryWallBath" : {
-    "board" : 1000
+    "shelf" : 1000,
+    "dryWallBathScreen" : 1250,
+    "hatch" : {
+      "plastic": 500,
+      "tile" : 1000
+    },
+    "spaceUnderBath": 1500
   }
 }

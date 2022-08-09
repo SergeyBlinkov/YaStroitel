@@ -1,8 +1,8 @@
 import React from 'react';
 import {Button, ButtonGroup,TextField} from "@mui/material";
-import {useAppDispatch, useAppSelector} from "../../../Redux/ReduxConfigStore";
-import {angleChange, angleClick, holeChange, holeClick} from "../../../Redux/CalculatorBathSlice";
-import {ChangeEvent} from "./BathType";
+import {useAppDispatch, useAppSelector} from "../../../../Redux/ReduxConfigStore";
+import {angleChange, angleClick, holeChange, holeClick} from "../../../../Redux/CalculatorBathSlice";
+import {ChangeEvent} from "../BathType";
 
 
 const AdditionalTileItems = () => {

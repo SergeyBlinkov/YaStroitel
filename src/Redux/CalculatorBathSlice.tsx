@@ -24,9 +24,11 @@ const init = {
     showerTray : {type: '', price:Number()},
     dryWall: {
         bath : {
-            board: Number(),
+            shelf: Number(),
             bathLength: Number(),
-            price:Number()
+            spaceUnderBath: Number(),
+            hatch: {type:"",price:Number()},
+            price: Number()
         },
         wall : {
             wallLength: Number(),
@@ -81,9 +83,36 @@ const CalculatorBathSlice = createSlice({
         },
         bathInstallation : (state, action) => {
             const ap = action.payload
-            const nothing = {type:'',price:0}
-            if(ap === 'nothing') state.bath = nothing
+            if(ap === 'none') state.bath = {type:'',price:0}
             else state.bath = plumbing.bath[ap as keyof typeof plumbing.bath]
+        },
+        dryWallClose : (state,action) => {
+            const ap = action.payload
+            const emptyDryWall = {
+                bath: {
+                    shelf: 0,
+                    bathLength: 0,
+                    spaceUnderBath: 0,
+                    hatch: {type:"",price:0},
+                    price: 0
+                },
+                wall: {
+                    wallLength:0,
+                    price: 0
+                },
+                box: {
+                    boxLength: 0,
+                    price: 0
+                },
+                shower: {
+                    showerBoard: {
+                        amount: 0,
+                        price: 0
+                    }
+                }
+            }
+            if(ap === 'none')
+                state.dryWall = emptyDryWall
         },
         angleChange: (state, action) => {
             const metres = action.payload
@@ -127,23 +156,27 @@ const CalculatorBathSlice = createSlice({
                 price:shower[ap as keyof typeof shower]
             }
         },
-        dryWallBoardBath: (state, action) => {
-            const board = dryWallBath.dryWallBath.board
-            const price = state.dryWall.bath.price
+        dryWallBathScreen: (state, action) => {
             const ap = action.payload
-            if(ap) {
-                state.dryWall.bath.board = board
-                state.dryWall.bath.price = price + board
-            } else {
-                state.dryWall.bath.board = 0
-                state.dryWall.bath.price = price - board
-            }
+            const dryWallBase = dryWallBath.dryWallBath
+            const bath = state.dryWall.bath
+            state.dryWall.bath.bathLength = ap.bathLength
+            if(ap.shelf) state.dryWall.bath.shelf = dryWallBase.shelf
+            if(ap.spaceUnderBath) state.dryWall.bath.spaceUnderBath = dryWallBase.spaceUnderBath
+            if(ap.hatch.install)
+                state.dryWall.bath.hatch.type = ap.hatch.type
+                state.dryWall.bath.hatch.price = dryWallBase.hatch[ap.hatch.type as keyof typeof dryWallBase.hatch]
+            state.dryWall.bath.price = (bath.bathLength * dryWallBase.dryWallBathScreen) + bath.shelf +
+                bath.hatch.price + bath.spaceUnderBath
+        },
+        deleteFromCalculatorBath: (state, action) => {
+            const ap = action.payload
         }
-
     }
 })
 
 export const {fillMetres,tileSize,calcBathResult,antiWaterPrice,toiletInstallation,bathInstallation
-,angleChange,angleClick,holeChange,holeClick,showerTrayClick,dryWallBoardBath} = CalculatorBathSlice.actions
+,angleChange,angleClick,holeChange,holeClick,showerTrayClick,dryWallBathScreen,dryWallClose,
+    deleteFromCalculatorBath} = CalculatorBathSlice.actions
 
 export default CalculatorBathSlice.reducer

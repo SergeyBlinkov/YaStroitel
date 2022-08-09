@@ -49,3 +49,102 @@
 .CSS_description-exit-done {
   opacity: 1;
 }
+@mixin CCCNewButtonMixin ($opacityNumb) {
+  background: #F7F7F7;
+  display: flex;
+  color: burlywood;
+  font-weight: 700;
+  letter-spacing: 5px;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  text-transform: uppercase;
+  width: calc(100% + 60px);
+  margin-left: -60px;
+  height: 40px;
+  font-family: 'Raleway', sans-serif;
+  transition: opacity 500ms ease-in;
+  opacity: $opacityNumb;
+}
+@mixin CCCNewButtonBefore ($transformBefore,$transitionDelay) {
+  display: flex;
+  position: absolute;
+  width: 100%;
+  height: $transformBefore;
+  content:'';
+  border-left: 1px solid burlywood;
+  border-right: 1px solid burlywood;
+  transition: all $transitionDelay ease-in;
+
+}
+
+.CCCNewButton-enter {
+  @include CCCNewButtonMixin(0);
+  &:after {
+    width: 100%;
+    display: flex;
+    content: '';
+    border-bottom: solid 1px burlywood;
+    transform: scale(0);
+  }
+  &:before {
+    @include CCCNewButtonBefore(0,1400ms);
+  }
+}
+
+.CCCNewButton-enter-active {
+  @include CCCNewButtonMixin(1);
+  &:after {
+    width: 100%;
+    display: flex;
+    margin-top: 6px;
+    transform: scale(1);
+    content: '';
+    transition: all 500ms ease-in-out;
+    border-bottom: 1px solid burlywood;
+  }
+  &:before {
+    @include CCCNewButtonBefore(30px,1400ms);
+  }
+}
+.CCCNewButton-enter-done {
+  @include CCCNewButtonMixin(1);
+  &:after{
+    width: 100%;
+    display: flex;
+    margin-top: 6px;
+    content: '';
+    border-bottom: 1px solid burlywood;
+  }
+  &:before {
+    @include CCCNewButtonBefore(30px,1400ms);
+  }
+}
+.CCCNewButton-exit {
+  @include CCCNewButtonMixin(1);
+  &:after{
+    width: 100%;
+    display: flex;
+    margin-top: 6px;
+    content: '';
+    border-bottom: 1px solid burlywood;
+  }
+  &:before {
+    @include CCCNewButtonBefore(30px,1400ms);
+  }
+}
+.CCCNewButton-exit-active {
+  @include CCCNewButtonMixin(0);
+  &:after{
+    width: 100%;
+    display: flex;
+    margin-top: 0;
+    content: '';
+    border-bottom: 1px solid burlywood;
+    transition: all 500ms ease-in;
+  }
+  &:before {
+    @include CCCNewButtonBefore(0,400ms);
+  }
+}
+

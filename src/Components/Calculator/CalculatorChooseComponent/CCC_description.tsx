@@ -19,7 +19,6 @@ function CCCDescription({CCCItem,name}:{CCCItem:Variable,name:string}) {
     const ChooseComponent = useAppSelector(state=>state.ChooseBathComponent)
     const neededArray = ChooseComponent[name as keyof typeof ChooseComponent]
     const classChecker = neededArray.filter(component => component.type === CCCItem.type && component.show).length === 0
-
     return  <>
         <CSSTransition
             in={showDescription}
@@ -33,7 +32,9 @@ function CCCDescription({CCCItem,name}:{CCCItem:Variable,name:string}) {
                 className={'calculatorChooseComponent_item__description'}
                 onClick={() => dispatch(openReducer({name,type:CCCItem.type}))}
             >
-                {CCCItem.description}
+            <h3>{CCCItem.label}</h3>
+            <span>~</span>
+            <p>{CCCItem.description}</p>
             </div>
         </CSSTransition>
             <CSSTransition
