@@ -11,7 +11,7 @@ const CalculatorMetres = () => {
     const BathCalc = useAppSelector(state=>state.CalculatorBath)
     const [roomSize, setRoomSize] = useState(init)
 
-    const generalMetres = BathCalc.metres.floor + BathCalc.metres.wall
+    const generalMetres = BathCalc.MetresRoom.floor.amount + BathCalc.MetresRoom.wall.amount
     const handleChangeMetres = (e: InputEvent) => {
         const m = e.target.value
         const floor = toPeriod(m)
@@ -66,7 +66,7 @@ const CalculatorMetres = () => {
                     variant={'outlined'}
                     onClick={() => calculateRoomMetres()}
                 >Узнать Результат</Button>
-                {BathCalc.metres.floor > 0 && <p
+                {BathCalc.MetresRoom.floor.amount > 0 && <p
                     className={'calculator_roomSize__generalMetres'}
                 >
                     Ваш общий метраж в помещении: <span>{generalMetres}</span>

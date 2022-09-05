@@ -1,0 +1,14 @@
+.AntiWaterComponent {
+  display: grid;
+  grid-gap: 10px;
+  h2 {
+    font-size: 18px;
+    height: 0;
+    font-weight: 700;
+    font-family: 'Lobster', cursive;
+    letter-spacing: 4px;
+  }
+  .AntiWaterComponent_item {
+    text-align: left;
+  }
+}

@@ -1,9 +1,9 @@
 import React from 'react';
-import {useAppDispatch, useAppSelector} from "../../../../../Redux/ReduxConfigStore";
+import {useAppDispatch} from "../../../../../Redux/ReduxConfigStore";
 import {bathInstallation} from "../../../../../Redux/CalculatorBathSlice";
 import './BathInstallation.css'
 import CCCNewButton from "../../../CalculatorChooseComponent/CCCNewButton";
-import {inPriceReducer} from "../../../../../Redux/calculatorChooseComponentSlice";
+import {ListOfBenefitAndLimit} from "../../../../helperComponent/helperComponent";
 
 type BathInstallationType = {
     type:string
@@ -68,37 +68,16 @@ const BathData = [{
 
 function BathInstallation({type}:BathInstallationType) {
     const dispatch = useAppDispatch()
-    const ChooseComponent = useAppSelector(state=>state.ChooseBathComponent)
-    const ButtonChecker = ChooseComponent['bathType'].filter(data=>data.type === type && data.show).length === 0
-    const handleChange = () => {
-        dispatch(inPriceReducer({name:'bathType',type}))
-        return dispatch(bathInstallation(type))
-    }
+    const handleChange = () => dispatch(bathInstallation(type))
     const descriptionBathItem = () => BathData.filter(data => data.type === type)
 
     return  <div className={'BathInstallation'}>
         {descriptionBathItem().map(data => (
             <div className={'ListOfItem'} key={data.type}>
-                <ul className={'ListOfItem_benefits'}>
-                    <p>Плюсы</p>
-                    {data.benefits.map((benefits,index) => (
-                        <div className={'ListOfItem_benefits__item'} key={index}>
-                            <i className="fa-solid fa-angles-right"></i>
-                            <li>{benefits}</li>
-                    </div>
-                        ))}
-                </ul>
-                <ul className={'ListOfItem_limitations'}>
-                    <p>Минусы</p>
-                    {data.limitations.map((limitations,index) => (
-                        <div className={'ListOfItem_limitations__item'} key={index}>
-                        <i className="fa-solid fa-angles-right"></i>
-                        <li>{limitations}</li>
-                    </div>))}
-                </ul>
+                <ListOfBenefitAndLimit benefits={data.benefits} limitations={data.limitations} />
             </div>
         ))}
-        <CCCNewButton bool={ButtonChecker} label={'Установить эту ванну'} click={handleChange}/>
+        <CCCNewButton label={'Установить эту ванну'} click={handleChange}/>
     </div>
 }
 

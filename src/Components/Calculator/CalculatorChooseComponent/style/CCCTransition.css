@@ -62,6 +62,8 @@
 
 .CCCNewButton-enter {
   background: #F7F7F7;
+  position: absolute;
+  bottom: -40px;
   display: flex;
   color: burlywood;
   font-weight: 700;
@@ -70,7 +72,7 @@
   justify-content: flex-end;
   align-items: center;
   text-transform: uppercase;
-  width: calc(100% + 60px);
+  width: 100%;
   margin-left: -60px;
   height: 40px;
   font-family: "Raleway", sans-serif;
@@ -97,6 +99,8 @@
 
 .CCCNewButton-enter-active {
   background: #F7F7F7;
+  position: absolute;
+  bottom: -40px;
   display: flex;
   color: burlywood;
   font-weight: 700;
@@ -105,7 +109,7 @@
   justify-content: flex-end;
   align-items: center;
   text-transform: uppercase;
-  width: calc(100% + 60px);
+  width: 100%;
   margin-left: -60px;
   height: 40px;
   font-family: "Raleway", sans-serif;
@@ -134,6 +138,8 @@
 
 .CCCNewButton-enter-done {
   background: #F7F7F7;
+  position: absolute;
+  bottom: -40px;
   display: flex;
   color: burlywood;
   font-weight: 700;
@@ -142,7 +148,7 @@
   justify-content: flex-end;
   align-items: center;
   text-transform: uppercase;
-  width: calc(100% + 60px);
+  width: 100%;
   margin-left: -60px;
   height: 40px;
   font-family: "Raleway", sans-serif;
@@ -169,6 +175,8 @@
 
 .CCCNewButton-exit {
   background: #F7F7F7;
+  position: absolute;
+  bottom: -40px;
   display: flex;
   color: burlywood;
   font-weight: 700;
@@ -177,7 +185,7 @@
   justify-content: flex-end;
   align-items: center;
   text-transform: uppercase;
-  width: calc(100% + 60px);
+  width: 100%;
   margin-left: -60px;
   height: 40px;
   font-family: "Raleway", sans-serif;
@@ -204,6 +212,8 @@
 
 .CCCNewButton-exit-active {
   background: #F7F7F7;
+  position: absolute;
+  bottom: -40px;
   display: flex;
   color: burlywood;
   font-weight: 700;
@@ -212,7 +222,7 @@
   justify-content: flex-end;
   align-items: center;
   text-transform: uppercase;
-  width: calc(100% + 60px);
+  width: 100%;
   margin-left: -60px;
   height: 40px;
   font-family: "Raleway", sans-serif;
@@ -236,6 +246,29 @@
   border-left: 1px solid burlywood;
   border-right: 1px solid burlywood;
   transition: all 400ms ease-in;
+}
+
+.AlertMessageHC {
+  align-items: center;
+  height: 35px !important;
+}
+
+.AlertMessageHC-enter {
+  opacity: 0 !important;
+}
+
+.AlertMessageHC-enter-active {
+  opacity: 1 !important;
+  transition: opacity 500ms !important;
+}
+
+.AlertMessageHC-exit {
+  opacity: 1 !important;
+}
+
+.AlertMessageHC-exit-active {
+  opacity: 0 !important;
+  transition: opacity 500ms !important;
 }
 
 /*# sourceMappingURL=CCCTransition.css.map */

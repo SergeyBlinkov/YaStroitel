@@ -1,105 +1,21 @@
 import React from 'react'
-import {Button, ButtonGroup, Checkbox, FormControlLabel, FormGroup} from "@mui/material";
-import {useState} from "react";
+import {Button, ButtonGroup} from "@mui/material";
+
 import {useAppDispatch, useAppSelector} from "../../../../Redux/ReduxConfigStore";
 import {
-    antiWaterPrice,
     showerTrayClick,
-    toiletInstallation
+
 } from "../../../../Redux/CalculatorBathSlice";
-import ceramic from '../../../../database/priceWork/FlooringInstalation/ceramic.json'
-import plumbing from '../../../../database/priceWork/plumbing/plumbing.json'
-import {ChangeEvent,ButtonEvent} from "../BathType";
+
+import {ButtonEvent} from "../BathType";
 
 
-//ANTI-WATER
-type Checked = {floor:boolean,wall:boolean}
-const init:Checked = {floor:false,wall:false}
-export const AntiWater = () => {
-    const dispatch = useAppDispatch()
-    const BathCalc = useAppSelector(state=>state.CalculatorBath)
 
-    const [checked,setChecked] = useState(init)
-    const checkedChange = (e:ChangeEvent) => {
-        const name = e.target.name
-        const check = e.target.checked
-        const antiWater = ceramic.ceramicTiles.antiWater
-        const floorPrice = BathCalc.metres.floor * antiWater
-        const wallPrice = BathCalc.metres.wall * antiWater
-        const handleChange = (name:string,price:number) => {
-            if(name === 'floor' && !check) setChecked({...checked,
-                floor:false,
-                wall:false
-            })
-            else setChecked({...checked,[name]:check})
-            return dispatch(antiWaterPrice(price))
-        }
-        if(name === 'floor') {
-            check ?
-                handleChange(name,floorPrice):
-                handleChange(name,0)
-        }
-        else {
-            check ?
-                handleChange(name,wallPrice + floorPrice):
-                handleChange(name,floorPrice)
-        }
-    }
-    return <div
-        className={'AntiWater'}
-    >
-        <FormGroup>
-            <FormControlLabel
-                control={<Checkbox
-                    checked={checked.floor}
-                    onChange={checkedChange}
-                    name={'floor'}
-                />}
-                label={'Гидроизоляция полов'}
-            />
-            {checked.floor && <FormControlLabel
-                control={<Checkbox
-                    checked={checked.wall}
-                    name={'wall'}
-                    onChange={checkedChange}
-                />}
-                label={'Гидроизоляция стен'}
-            />}
-        </FormGroup>
-    </div>
-}
-// Toilet installation
 
-export function ToiletInstallation ({toiletState}:{toiletState:boolean}) {
-    const BathCalc = useAppSelector(state=>state.CalculatorBath)
-    const dispatch = useAppDispatch()
 
-    const changeName = (e:ButtonEvent) => {
-        const name = (e.target as any).name
-        const toilet = plumbing.toilet
-        return dispatch(toiletInstallation({
-            type:`${name}`,price:toilet[name as keyof typeof toilet]}))
-    }
-    return <div
-            className={'ToiletInstallation'}
-            >
-        {toiletState && <ButtonGroup>
-            <Button
-                name={'toilet'}
-                onClick={changeName}
-                disabled={BathCalc.toilet.type === 'toilet'}
-            >Унитаз</Button>
-            <Button
-                name={'installation'}
-                onClick={changeName}
-                disabled={BathCalc.toilet.type === 'installation'}
-            >Инсталяция</Button>
-        </ButtonGroup>}
-    </div>
-}
-// SHOWER_TRAY
 
- export function ShowerTray ({showerTray}:{showerTray:boolean}) {
+
+ function ShowerTray ({showerTray}:{showerTray:boolean}) {
         const BathCalc = useAppSelector(state=>state.CalculatorBath)
         const dispatch = useAppDispatch()
 

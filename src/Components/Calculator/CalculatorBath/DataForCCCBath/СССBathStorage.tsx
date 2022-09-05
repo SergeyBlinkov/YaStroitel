@@ -1,12 +1,9 @@
 import React, {useState} from 'react';
 import {ChangeEvent} from "../BathType";
 import CCC from "../../CalculatorChooseComponent/CCC";
-import {AntiWater} from "../CalculatorBathComponents/AdditionalWork";
 import {Checkbox, FormControlLabel} from "@mui/material";
-import {CCCBathData, CCCDryWallData} from "./DataCCCBathComponent";
-import {useAppDispatch} from "../../../../Redux/ReduxConfigStore";
-import {closeReducer} from "../../../../Redux/calculatorChooseComponentSlice";
-import {bathInstallation, dryWallClose} from "../../../../Redux/CalculatorBathSlice";
+import {CCCAntiWaterData, CCCBathData, CCCDryWallData, CCCToiletData} from "./DataCCCBathComponent";
+
 
 //Что бы компонент работал правильно необходимо:
 //1)Добавить новый елемент в типизацию и в сам стейт(init).
@@ -23,29 +20,23 @@ import {bathInstallation, dryWallClose} from "../../../../Redux/CalculatorBathSl
 // 4.4) 'label' то, что будет написано в заголовке компонента
 
 type Init = {
+    antiWater:boolean,
     showerTray:boolean,
     toiletBoolean:boolean,
     bathType:boolean,
     dryWall:boolean
 }
 const init = {
+    antiWater:false,
     showerTray:false,
     toiletBoolean:false,
     bathType:false,
     dryWall:false
 }
-
 function СCCBathStorage() {
     const [storage,setStorage] = useState<Init>(init)
-    const dispatch = useAppDispatch()
     const handleChange = (e:ChangeEvent) => {
         const {checked,name} = e.target
-        if(name === 'bathType' && !checked)
-            dispatch(closeReducer(name))
-            dispatch(bathInstallation('none'))
-        if(name === 'dryWall'&& !checked)
-            dispatch(closeReducer(name))
-            dispatch(dryWallClose('none'))
         return setStorage((prevState) => ({...prevState,[name]:checked}))
     }
     return (
@@ -59,7 +50,6 @@ function СCCBathStorage() {
                 />}
                 label={'Установка ванны'}
             />
-            <AntiWater />
             <FormControlLabel
                 control={<Checkbox
                     name={'toiletBoolean'}
@@ -82,18 +72,40 @@ function СCCBathStorage() {
                 />}
 
                 label={'Установка коробов из гипсокартона'}/>
+                <FormControlLabel
+                    control={<Checkbox
+                        onChange={handleChange}
+                        checked={storage.antiWater}
+                        name={'antiWater'}
+                    />}
+
+                    label={'Гидроизоляция помещения'}/>
         </div>
             <div className={'calculatorBath-additionalWork_opened'}>
                 <CCC
                     variable={CCCBathData}
                     name={'bathType'}
                     bool={storage.bathType}
-                    label={'Ванны'}/>
+                    label={'Ванны'}
+                />
                 <CCC
                     variable={CCCDryWallData}
                     name={'dryWall'}
                     bool={storage.dryWall}
-                    label={'Варианты установки гипсокартона'}/>
+                    label={'Варианты установки гипсокартона'}
+                />
+                <CCC
+                    variable={CCCToiletData}
+                    name={'toilet'}
+                    bool={storage.toiletBoolean}
+                    label={'Два варианта унитаза в помещении'}
+                />
+                <CCC
+                    variable={CCCAntiWaterData}
+                    bool={storage.antiWater}
+                    name={'antiWater'}
+                    label={'Гидроизоляция помещения'}
+                    />
             </div>
         </>
     );

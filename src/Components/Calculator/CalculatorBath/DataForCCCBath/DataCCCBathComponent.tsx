@@ -11,6 +11,9 @@ import BOX_BATH from "../../DryWallComponent/img/boxBath.jpg";
 import BathComponent from "../../DryWallComponent/BathComponent/BathComponent";
 import ToiletImg1 from '../CalculatorBathComponents/ToiletInstallation/img/toiletImg.jpg'
 import installation1 from '../CalculatorBathComponents/ToiletInstallation/img/installation.jpg'
+import ToiletInstallation from "../CalculatorBathComponents/ToiletInstallation/ToiletInstallation";
+import AntiWaterComponent from "../CalculatorBathComponents/AntiWaterComponent/AntiWaterComponent";
+import antiWaterFloor from './imgStorage/antiwaterFloor.jpg'
 
 //BATH DATA
 export const CCCBathData = [{
@@ -78,15 +81,26 @@ export const CCCDryWallData = [{
 export const CCCToiletData = [{
     type:'toilet',
     img:ToiletImg1,
-    description: '',
+    description: 'Напольный туалет ставится напол и представляет собой обычный туалет с бачком.',
     label: 'Напольный туалет',
-    component: ''
+    component: <ToiletInstallation type={'toilet'} />
 },
     {
         type:'installation',
         img: installation1,
-        description: '',
+        description: 'Инсталяция - туалет в который отделение с бачком прячется за гипсокартоновым коробом, на видимой стороне ' +
+            'остается только сама туалетная "чаша", вместо бачка будет кнопка разделенная на два, для мелкого слива и крупного',
         label: 'Инсталяция',
-        component: ''
+        component: <ToiletInstallation type={'installation'} />
     }
 ]
+//Anti-Water
+export const CCCAntiWaterData = [{
+    type:'antiWater',
+    img:antiWaterFloor,
+    description:'Гидроизоляция полов необходима для того , что бы в случае протечки и затопления ванной комнаты' +
+        ',вода, которая заполнила ванную комнату не уходила ниже по этажам и не затопила ваших соседей ниже',
+    label:'Гидроизоляция помещения',
+    component: <AntiWaterComponent/>
+}
+    ]

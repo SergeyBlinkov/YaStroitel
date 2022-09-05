@@ -1,14 +1,17 @@
 {
   "bath" : {
     "cast-iron" : {
+      "label": "Чугунная ванна",
       "type": "cast-iron",
       "price": 5000
     },
     "steel" : {
+      "label": "Стальная ванна",
       "type" : "steel",
       "price" :3000
     },
     "acrylic" : {
+      "label": "Акриловая ванна",
       "type": "acrylic",
       "price" :3000
     }

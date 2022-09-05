@@ -10,6 +10,15 @@
   letter-spacing: 4px;
 }
 
+.returnButton {
+  position: absolute !important;
+  font-size: 18px;
+  left: 2.5%;
+  top: 4.5%;
+  z-index: 8;
+  cursor: pointer;
+}
+
 .calculatorChooseComponent {
   height: 100%;
   display: grid;
@@ -27,42 +36,6 @@
   letter-spacing: 4px;
   margin-bottom: 0;
   font-size: 22px;
-}
-.calculatorChooseComponent .calculatorChooseComponent_beforeElement {
-  display: grid;
-  height: auto;
-  justify-items: center;
-  justify-content: center;
-  padding: 10px;
-  grid-template-columns: 1fr;
-  position: fixed;
-  right: 25px;
-  bottom: 25px;
-  width: 155px;
-  border-radius: 8px;
-  box-shadow: 0 0 5px 4px gray;
-  z-index: 10;
-}
-.calculatorChooseComponent .calculatorChooseComponent_beforeElement .calculatorChooseComponent_beforeElement__item {
-  width: 140px;
-  display: grid;
-  grid-template-columns: 115px 25px;
-  justify-self: center;
-  align-items: center;
-  border-bottom: 2.5px solid #BFA67A;
-  background-color: transparent;
-  height: 38px;
-  font-family: "Lobster", cursive;
-  font-size: 14px;
-  letter-spacing: 1px;
-  z-index: 10;
-  color: black;
-}
-.calculatorChooseComponent .arrowClick {
-  position: absolute;
-  z-index: 5;
-  top: 14%;
-  right: 2%;
 }
 .calculatorChooseComponent .calculatorChooseComponent_item {
   max-width: 1280px;

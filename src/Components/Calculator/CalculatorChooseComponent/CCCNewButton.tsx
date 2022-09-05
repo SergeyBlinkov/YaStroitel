@@ -3,15 +3,15 @@ import {CSSTransition} from "react-transition-group";
 import './style/CCCTransition.css'
 
 type CCCNewButtonType = {
-    bool:boolean,
+    bool?:boolean,
     label:string,
     click:() => {payload:any;type:string}
 }
 
-function CCCNewButton({bool,label,click}:CCCNewButtonType) {
+function CCCNewButton({label,click}:CCCNewButtonType) {
      const [s,setS] = useState(Boolean)
-    useEffect(() => setS(!bool),[bool])
-    const NewButtonRef = useRef(null)
+    useEffect(() => setS(true),)
+     const NewButtonRef = useRef(null)
     return (
         <CSSTransition
             in={s}

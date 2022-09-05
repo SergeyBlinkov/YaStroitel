@@ -7,7 +7,7 @@ import CCCBigPicture from "./CCCBigPicture";
 type Init = {
     name:string,
     description:string,
-    img:string[]
+    img?:string[]
 }
 
 function CCCMoreInfo(init:Init) {
@@ -17,7 +17,7 @@ function CCCMoreInfo(init:Init) {
 
     const ImgComponent = () => {
         return <div className={'CCCMoreInfo_img'}>
-            {init.img.map((data,index)=>{
+            {init.img && init.img.map((data,index)=>{
 
                 return <div key={data} className={'CCCMoreInfo_img__item'}>
                     <img

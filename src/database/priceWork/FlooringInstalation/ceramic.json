@@ -45,8 +45,14 @@
       "porcelain" : 200
     },
     "angle": {
-      "profile" : 300,
-      "degree" : 1000
+      "profile" : {
+        "label" : "Профиль",
+        "price": 300
+      },
+      "degree" : {
+        "label" : "Запил под 45 градусов",
+        "price" : 1000
+      }
     },
     "showerTray" : {
       "square" : 5000,

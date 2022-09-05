@@ -4,7 +4,6 @@ import {ChangeEvent} from "../../CalculatorBath/BathType";
 import './BathComponent.css'
 import './BathComponentCssTransition.css'
 import {useAppDispatch} from "../../../../Redux/ReduxConfigStore";
-import {inPriceReducer} from "../../../../Redux/calculatorChooseComponentSlice";
 import {dryWallBathScreen} from "../../../../Redux/CalculatorBathSlice";
 import CCCMoreInfo from "../../CalculatorChooseComponent/CCC_moreInfo";
 import spaceUnderBathFull from './img/spaceunderbathfull.jpg'
@@ -113,7 +112,6 @@ function BathComponent({name,type}: {name:string,type:string}) {
             variant={'outlined'}
             color={'success'}
             onClick={()=>{
-                dispatch(inPriceReducer({name,type}))
                 return dispatch(dryWallBathScreen(bathInfo))
             }}
             className={"finalButton"}
