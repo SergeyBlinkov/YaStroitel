@@ -26,10 +26,7 @@ type PayloadString = {
     type:string,
     payload:string
 }
-type PayloadNumber = {
-    type:string,
-    payload:number
-}
+
 type WallInstallationType = {
     type:string,
     payload: {

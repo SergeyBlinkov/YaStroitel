@@ -25,15 +25,7 @@ type LabelAmountPrice = {
     amount:number,
     price:number
 }
-type LabelCountPrice = {
-    label:string,
-    count:number,
-    price:number
-}
-type LabelCount = {
-    label:string,
-    count:number
-}
+
    type DryWallBathType= {
         type:string,
         label:string,
@@ -83,7 +75,6 @@ type DryWallShowerType = {
     }
 
 export type ChangeEvent = React.ChangeEvent<HTMLInputElement>
-export type ButtonEvent = React.MouseEvent<HTMLButtonElement>;
 type Angle = {
     type:string,
     label:string,
