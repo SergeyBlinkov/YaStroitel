@@ -65,7 +65,7 @@
   position: absolute;
   bottom: -40px;
   display: flex;
-  color: burlywood;
+  color: green;
   font-weight: 700;
   letter-spacing: 5px;
   flex-direction: column;
@@ -76,14 +76,18 @@
   margin-left: -60px;
   height: 40px;
   font-family: "Raleway", sans-serif;
-  transition: opacity 500ms ease-in;
+  transition: background-color 200ms ease-in, opacity 500ms ease-in;
   opacity: 0;
+}
+.CCCNewButton-enter:hover {
+  background: #efeeee;
+  transition: background-color 200ms ease-in;
 }
 .CCCNewButton-enter:after {
   width: 100%;
   display: flex;
   content: "";
-  border-bottom: solid 1px burlywood;
+  border-bottom: solid 1px green;
   transform: scale(0);
 }
 .CCCNewButton-enter:before {
@@ -92,8 +96,8 @@
   width: 100%;
   height: 0;
   content: "";
-  border-left: 1px solid burlywood;
-  border-right: 1px solid burlywood;
+  border-left: 1px solid green;
+  border-right: 1px solid green;
   transition: all 1400ms ease-in;
 }
 
@@ -102,7 +106,7 @@
   position: absolute;
   bottom: -40px;
   display: flex;
-  color: burlywood;
+  color: green;
   font-weight: 700;
   letter-spacing: 5px;
   flex-direction: column;
@@ -113,8 +117,12 @@
   margin-left: -60px;
   height: 40px;
   font-family: "Raleway", sans-serif;
-  transition: opacity 500ms ease-in;
+  transition: background-color 200ms ease-in, opacity 500ms ease-in;
   opacity: 1;
+}
+.CCCNewButton-enter-active:hover {
+  background: #efeeee;
+  transition: background-color 200ms ease-in;
 }
 .CCCNewButton-enter-active:after {
   width: 100%;
@@ -123,7 +131,7 @@
   transform: scale(1);
   content: "";
   transition: all 500ms ease-in-out;
-  border-bottom: 1px solid burlywood;
+  border-bottom: 1px solid green;
 }
 .CCCNewButton-enter-active:before {
   display: flex;
@@ -131,8 +139,8 @@
   width: 100%;
   height: 30px;
   content: "";
-  border-left: 1px solid burlywood;
-  border-right: 1px solid burlywood;
+  border-left: 1px solid green;
+  border-right: 1px solid green;
   transition: all 1400ms ease-in;
 }
 
@@ -141,7 +149,7 @@
   position: absolute;
   bottom: -40px;
   display: flex;
-  color: burlywood;
+  color: green;
   font-weight: 700;
   letter-spacing: 5px;
   flex-direction: column;
@@ -152,15 +160,19 @@
   margin-left: -60px;
   height: 40px;
   font-family: "Raleway", sans-serif;
-  transition: opacity 500ms ease-in;
+  transition: background-color 200ms ease-in, opacity 500ms ease-in;
   opacity: 1;
+}
+.CCCNewButton-enter-done:hover {
+  background: #efeeee;
+  transition: background-color 200ms ease-in;
 }
 .CCCNewButton-enter-done:after {
   width: 100%;
   display: flex;
   margin-top: 6px;
   content: "";
-  border-bottom: 1px solid burlywood;
+  border-bottom: 1px solid green;
 }
 .CCCNewButton-enter-done:before {
   display: flex;
@@ -168,8 +180,8 @@
   width: 100%;
   height: 30px;
   content: "";
-  border-left: 1px solid burlywood;
-  border-right: 1px solid burlywood;
+  border-left: 1px solid green;
+  border-right: 1px solid green;
   transition: all 1400ms ease-in;
 }
 
@@ -178,7 +190,7 @@
   position: absolute;
   bottom: -40px;
   display: flex;
-  color: burlywood;
+  color: green;
   font-weight: 700;
   letter-spacing: 5px;
   flex-direction: column;
@@ -189,8 +201,12 @@
   margin-left: -60px;
   height: 40px;
   font-family: "Raleway", sans-serif;
-  transition: opacity 500ms ease-in;
+  transition: background-color 200ms ease-in, opacity 500ms ease-in;
   opacity: 1;
+}
+.CCCNewButton-exit:hover {
+  background: #efeeee;
+  transition: background-color 200ms ease-in;
 }
 .CCCNewButton-exit:after {
   width: 100%;
@@ -205,8 +221,8 @@
   width: 100%;
   height: 30px;
   content: "";
-  border-left: 1px solid burlywood;
-  border-right: 1px solid burlywood;
+  border-left: 1px solid green;
+  border-right: 1px solid green;
   transition: all 1400ms ease-in;
 }
 
@@ -215,7 +231,7 @@
   position: absolute;
   bottom: -40px;
   display: flex;
-  color: burlywood;
+  color: green;
   font-weight: 700;
   letter-spacing: 5px;
   flex-direction: column;
@@ -226,8 +242,12 @@
   margin-left: -60px;
   height: 40px;
   font-family: "Raleway", sans-serif;
-  transition: opacity 500ms ease-in;
+  transition: background-color 200ms ease-in, opacity 500ms ease-in;
   opacity: 0;
+}
+.CCCNewButton-exit-active:hover {
+  background: #efeeee;
+  transition: background-color 200ms ease-in;
 }
 .CCCNewButton-exit-active:after {
   width: 100%;
@@ -243,8 +263,8 @@
   width: 100%;
   height: 0;
   content: "";
-  border-left: 1px solid burlywood;
-  border-right: 1px solid burlywood;
+  border-left: 1px solid green;
+  border-right: 1px solid green;
   transition: all 400ms ease-in;
 }
 
@@ -269,6 +289,28 @@
 .AlertMessageHC-exit-active {
   opacity: 0 !important;
   transition: opacity 500ms !important;
+}
+
+.Fast-Transition-enter {
+  opacity: 0;
+}
+
+.Fast-Transition-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in-out !important;
+}
+
+.Fast-Transition-enter-done {
+  opacity: 1;
+}
+
+.Fast-Transition-exit {
+  opacity: 1;
+}
+
+.Fast-Transition-exit-active {
+  transition: opacity 500ms ease-in-out !important;
+  opacity: 0;
 }
 
 /*# sourceMappingURL=CCCTransition.css.map */

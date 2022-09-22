@@ -1,100 +1,306 @@
 @import url('https://fonts.googleapis.com/css2?family=BIZ+UDGothic:wght@700&family=Lobster&family=Playfair+Display:wght@500&family=Raleway:wght@500&display=swap');
 
+$fonts1 : 'Plus Jakarta Display';
+
+.ChooseStageComponent {
+  display: grid;
+  position: relative;
+  margin: 0 auto;
+  grid-template-columns: 1fr 1fr;
+  max-width: 80%;
+  min-width: 1200px;
+  padding: 50px 0;
+  grid-gap: 30px;
+  background: #E5DCCB;
+  .ChooseStageComponent__head {
+    display: flex;
+    background: #847C6E;
+    padding:25px;
+    color: #E5DCCB;
+    grid-column: 1/3;
+    justify-content: center;
+    width: 100%;
+    font-size: 30px;
+    font-family: $fonts1;
+  }
+  .ChooseStageComponent_item {
+    display: grid;
+    position: relative;
+    width: 100%;
+    grid-row: 2;
+    grid-template-columns: 1fr;
+    grid-template-rows: 150px 250px 100px;
+    h2 {
+      margin: 10px auto;
+      font-size: 20px;
+      background: #E5DCCB;
+      border-radius: 15px;
+      align-items: center;
+      justify-items: center;
+      z-index: 2;
+      height: 40px;
+      width: 95%;
+    }
+    p{
+      display: grid;
+      align-items: center;
+      font-family: $fonts1;
+      font-size: 19px;
+      z-index: 2;
+      grid-row: 3;
+      border: 1px solid #847C6E;
+    }
+    img {
+      position: absolute;
+      width: 100%;
+      height: 400px;
+      z-index: 1;
+    }
+  }
+}
 
 .calculatorBathMetres {
-  width: 1280px;
-  .calculator_roomSize {
-    margin: 45px 12.5%;
-    justify-self: center;
-    display: grid;
-    grid-gap: 20px;
-    grid-template-columns: 1fr 1fr 1fr;
-    .calculator_roomSize__metres {
-      display: flex;
-      grid-column: 1/4;
-      justify-content: center;
-      width: 100%;
+  display: grid;
+  margin: auto;
+  position: relative;
+  justify-items: center;
+  max-width: 80%;
+  min-width: 1200px;
+  width: 100%;
 
-      .calculator_roomSize__generalMetres{
-        margin:0 35px;
-        display: flex;
-        align-items: center;
-        span {
-          border: 1px solid rgba(0, 0, 0, 0.2);
-          padding: 5px;
-          border-radius: 5px;
-          margin: 0 25px;
-          background: yellow;
-        }
-      }
+  .calculatorBathMetres-mainPic {
+    position: relative;
+    display: grid;
+    grid-template-columns:1fr 1fr;
+    grid-template-rows: 150px 100px minmax(0,100px) 1fr;
+    height: 600px !important;
+    justify-items: center;
+    align-items: start;
+    grid-gap: 10px;
+    padding-bottom: 25px;
+    width: 100%;
+    background: #E5DCCB;
+    .calculator_roomSize_group {
+      display: grid;
+      align-content: center;
+      grid-gap: 10px;
+    }
+    .calculator_roomSize_chooseSize {
+      padding-top: 20px;
+      grid-row: 4;
+      align-self: start;
+      grid-column: 2;
+    }
+    h2 {
+      padding-top: 50px;
+      font-size: 35px;
+      grid-column: 2/3;
+      margin-top: 0;
+      max-width: 500px;
+      font-family: 'Plus Jakarta Display';
+      font-weight: 700;
     }
 
+    img {
+      align-self: end;
+      padding-left: 50px;
+      grid-column: 1;
+      grid-row: 1/5;
+      width: 100%;
+      height: 550px !important;
+    }
+  }
+  .calculator-metres {
+    display: grid;
+    grid-row: 3;
+    justify-content: center;
+    font-family: 'Plus Jakarta Display';
+    width: 100%;
+    font-size: 16px;
+    font-weight: 700;
+    .calculator-generalMetres {
+      margin: 0 35px;
+      display: flex;
+      align-items: center;
+
+      span {
+        font-weight: 500;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        padding: 5px;
+        border-radius: 5px;
+        margin: 0 25px;
+        background: #fff;
+      }
+    }
+  }
+  .calculator_roomSize {
+    display: grid !important;
+    grid-template-rows: 1fr !important;
+    height: 100%;
+    grid-template-columns: 1fr 1fr !important;
+    margin: 0 30px;
+    grid-gap: 15px;
+    .calculator_roomSize__button {
+      grid-row: 1;
+    }
+    .calculator_roomSize_group__buttonResult {
+      display: grid;
+      padding-bottom: 20px;
+      align-content: center;
+
+      grid-template-columns: 1fr;
+      grid-template-rows:60px;
+    }
+    .calculator_roomSize_item {
+      display: grid;
+      width: 400px;
+      grid-template-columns: 70px 1fr;
+      align-items: center;
+
+      .calculator_roomSize_item__p {
+        margin-top: -17px;
+        justify-self: start !important;
+      }
+    }
     button {
       grid-row: 2;
       grid-column: 1/4;
       justify-self: center;
     }
   }
-
 }
 .calculator_tileSize {
-  margin: 15px;
+  position: relative;
   display: grid;
+  margin: 0 auto;
+  padding-bottom: 35px;
+  max-width: 80%;
+  min-width: 1200px;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-auto-rows: 150px;
-  grid-gap: 20px;
+  grid-template-rows:80px 300px 300px 300px 300px 300px 200px;
+  grid-gap: 25px;
+  background: #E5DCCB;
+  h2 {
+    grid-column: 1/4;
+    grid-row: 1;
+  }
+  .calculator_tileSize__items {
+    margin: 0 35px;
+    display: grid;
+    grid-gap: 25px;
+    grid-template-rows: 1fr 1fr;
+    position: relative;
+    .calculator_tileSize__fillSeamBlock {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      z-index: 2;
+      justify-items: center;
+      align-self: start;
+      grid-row: 2;
+      .MUIButtonBlock {
+        display: grid;
+        grid-column: 1/3;
+        width: 100% !important;
+        grid-template-columns: 1fr 1fr;
+      }
+      h3 {
+        display: grid;
+        align-self: end;
+        align-items: center;
+        height: 35px;
+        font-family: "Roboto","Helvetica","Arial",sans-serif;
+        grid-column: 1/3;
+        width: 100%;
+        margin-bottom: -2px;
+        background: #1976d2;
+        color: white;
+      }
+    }
+  }
+  .calculator_tileSize__label {
+    background: #E5DCCB;
+    width: 50%;
+    min-height: 30px;
+    padding: 5px;
+    display: flex;
+    align-self: end;
+    align-items: center;
+    justify-content: center;
+    border-radius: 25px;
+  }
+
+  .calculator_tileSize__img {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    z-index: 2;
+
+  }
+  .red {
+    box-shadow: 0 0 5px 3px rgba(28, 87, 28, 0.8) !important;
+  }
+  .calculator_tileSize__items2 {
+    grid-column: 3;
+    grid-row: 2/ span 2;
+    img {
+      scale: 0.9;
+    }
+  }
+  .calculator_tileSize__items3 {
+    grid-column: 1/span 2;
+  }
+  .calculator_tileSize__items4 {
+    grid-row:4/ span 2
+  }
+  .calculator_tileSize__items8 {
+    grid-column: 2/span 2;
+    grid-row: 4/span 2;
+  }
+  .calculator_tileSize__items5 {
+    grid-column: 3;
+  }
+  .calculator_tileSize__items7 {
+    grid-column: 1 /span 2;
+    grid-row: 6/ span 2;
+  }
   .calculator_tileSize__items {
     display: grid;
+    position: relative;
     align-items: center;
     justify-items: center;
-    border: 1px solid gray;
     border-radius: 15px;
     box-shadow: 0 0 5px 2px gray;
     cursor: pointer;
     overflow: hidden;
 
+
     p {
       font-size: 20px;
       font-family: 'Lobster', cursive;
       letter-spacing: 1px;
+      z-index: 3;
     }
   }
 }
+
 h2 {
   margin: 40px auto;
   font-size: 20px;
 }
 
-.calculator_additionalItem {
-  margin: 0 45px;
-  display: grid;
-  grid-gap: 30px;
-  grid-template-columns: 1fr 1fr;
-  .calculator_additionalItem__angle{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
-  .calculator_additionalItem__hole {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
-  .calculator_additionalItem__linearMetres {
-    p{
-      width: 80%;
-      line-height: 20px;
-      text-align: left;
-    }
-    display: grid;
-    justify-items: center;
-    justify-self: center;
-    grid-template-columns: 1fr 1fr;
-  }
-}
 .calculatorBath-additionalWork {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  background: #E5DCCB;
+  max-width: 80%;
+  margin: 0 auto;
+  min-width: 1200px;
+  border-top: 1px solid #847C6E;
+  border-bottom: 1px solid #847C6E;
+  padding: 30px;
   justify-items: center;
-}
-.BathCalc-result {
-
 }

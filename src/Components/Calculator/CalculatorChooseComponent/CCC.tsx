@@ -3,6 +3,7 @@ import {CSSTransition} from "react-transition-group";
 import './style/CCC.css'
 import './style/CCCTransition.css'
 import CCCDescription from "./CCC_description";
+import {H1Style} from "../../helperComponent/helperComponent";
 
 
 type Variable = {
@@ -20,7 +21,6 @@ type CCCType = {
 }
 
 function CCC({variable,bool,name,label}:CCCType) {
-
     const nodeRef = useRef(null)
 
     return (
@@ -34,8 +34,9 @@ function CCC({variable,bool,name,label}:CCCType) {
             >
             <div
                 className="calculatorChooseComponent"
+                id={name}
                 ref={nodeRef}>
-                <h2 className={'calculatorChooseComponent_h'}>{label}</h2>
+                <H1Style>~ {label} ~</H1Style>
 
                 {variable.map((data,index)=> {
                     return <div

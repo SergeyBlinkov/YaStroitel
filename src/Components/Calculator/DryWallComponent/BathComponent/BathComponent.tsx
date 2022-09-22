@@ -14,6 +14,7 @@ import bathShelf1 from './img/bathShelf1.jpeg';
 import bathShelf2 from './img/bathShelf2.jpg';
 import bathShelf3 from './img/bathShelf3.jpg';
 import {toPeriod} from "../../../helperComponent/helperComponent";
+import CCCNewButton from "../../CalculatorChooseComponent/CCCNewButton";
 const descriptionSpace = 'Пространство под ванной необходимо для того, что ' +
     'бы вы могли комфортно подойти в плотную к ванне и экран вам не мешал,' +
     'варианта два: 1 - пространство по всей ванне, 2 - пространство по середине'
@@ -33,16 +34,17 @@ type Init = {
 }
 
 const init = {
-    bathLength:Number(),
+    bathLength:0,
     shelf:false,
     hatch:{type:'',install:false},
     spaceUnderBath:false
 }
 
-function BathComponent({name,type}: {name:string,type:string}) {
+function BathComponent() {
     const [bathInfo,setBathInfo] = useState<Init>(init)
     const nodeRef = useRef(null)
     const dispatch = useAppDispatch()
+    const handleClickDispatch = () => dispatch(dryWallBathScreen(bathInfo))
     const changeCheckbox = (e:ChangeEvent) => {
         const {name,checked} = e.target
         if(name === 'hatch') setBathInfo({...bathInfo,
@@ -60,7 +62,7 @@ function BathComponent({name,type}: {name:string,type:string}) {
             }})
 
     return  <div
-                className={'BathComponent calculatorChooseComponent_item__openedComponent'}
+                className={'BathComponent'}
                 ref={nodeRef}>
         <div className="BathComponent_bathLength">
             <p>Длина ванны в погонных метрах:</p>
@@ -108,16 +110,7 @@ function BathComponent({name,type}: {name:string,type:string}) {
                 img={[spaceUnderBathFull]} />
 
         </div>
-        <Button
-            variant={'outlined'}
-            color={'success'}
-            onClick={()=>{
-                return dispatch(dryWallBathScreen(bathInfo))
-            }}
-            className={"finalButton"}
-        >
-            Добавить работу в финальную стоимость
-        </Button>
+        {bathInfo.bathLength > 0 && <CCCNewButton label={'Добавить работу в смету'} click={handleClickDispatch} />}
     </div>
 }
 

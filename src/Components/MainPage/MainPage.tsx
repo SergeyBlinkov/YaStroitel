@@ -8,7 +8,7 @@ import {Button,styled} from "@mui/material";
 
 
 const MainPage = () => {
-    const arrOption = ['','Ванна','Гостинная','Кухня','Корридор']
+    // const arrOption = ['','Ванна','Гостинная','Кухня','Корридор']
     const WhiteButton = styled(Button)({
             color: 'white',
             '&:hover': {
@@ -18,7 +18,7 @@ const MainPage = () => {
     )
     return (
         <div className={'main-page'}>
-            <div className={'header'}>
+            <header className={'header'}>
                 <div className={'header_logo'}>
                     <img src={logoName} width={'70px'} height={'70px'} alt={'thatIt'}/>
                     <p>ЯStroitel</p>
@@ -33,15 +33,15 @@ const MainPage = () => {
                     <WhiteButton>Зарегистрироваться</WhiteButton>
                     <WhiteButton>Войти</WhiteButton>
                 </div>
-            </div>
+            </header>
             <MainPageText />
             <div className={'calculator-open'}>
-                <h1>Выберите комнату в которой вы хотите ремонт:</h1>
-                <select>{arrOption.map((data, index)=><option key={index}>{data}</option>)}</select>
+                {/*<h1>Выберите комнату в которой вы хотите ремонт:</h1>*/}
+                {/*<select>{arrOption.map((data, index)=><option key={index}>{data}</option>)}</select>*/}
                 <Calculator />
             </div>
 
-            <div className={'footer'}><p>Footer</p></div>
+            <footer className={'footer'}><p>Footer</p></footer>
         </div>
     );
 };

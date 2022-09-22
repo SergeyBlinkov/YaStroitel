@@ -2,6 +2,7 @@ import React from 'react';
 import './CalculatorStyle.css'
 import CalculatorBath from "./CalculatorBath/CalculatorBath";
 import WorkList from "./WorkList/WorkList";
+import ModalList from "./ModalResultWindow/ModalList";
 
 
 
@@ -11,7 +12,7 @@ const Calculator = () => {
             <WorkList />
             <CalculatorBath />
             <div className={'calculator_result'}>
-
+                <ModalList />
             </div>
         </div>
     );

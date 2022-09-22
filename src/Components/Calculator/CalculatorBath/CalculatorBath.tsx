@@ -1,53 +1,73 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './CalculatorBathStyle.css'
 import CeramicSizeBlock from "./CalculatorBathComponents/CeramicSizeBlock";
 import CalculatorMetres from "./CalculatorBathComponents/CalculatorMetres";
-import AdditionalTileItems from "./CalculatorBathComponents/AdditionalTileItems";
-import {useAppDispatch, useAppSelector} from "../../../Redux/ReduxConfigStore";
-import {BathCalcType} from "./BathType";
-import ceramic from "../../../database/priceWork/FlooringInstalation/ceramic.json"
-import {calcBathResult} from "../../../Redux/CalculatorBathSlice";
-import {Button} from "@mui/material";
+// import {useAppSelector} from "../../../Redux/ReduxConfigStore";
+// import {BathCalcType} from "./BathType";
 import СCCBathStorage from "./DataForCCCBath/СССBathStorage";
+import ChooseStage1 from './CalculatorBathComponents/imgStore/chooseStage1.jpg'
+import ChooseStage2 from './CalculatorBathComponents/imgStore/chooseStage2.jpg'
+import NavigateBathComponent from "./NavigateBathComponent/NavigateBathComponent";
 
-const CalculatorBath = () => {
-    const BathCalc:BathCalcType = useAppSelector(state=>state.CalculatorBath)
-    const dispatch = useAppDispatch()
-    console.log(BathCalc)
-    const result = () => {
-        const {antiWater,angle,hole,linearMetres} = BathCalc
-        const toilet = BathCalc.toilet.price
-        const bath = BathCalc.bath.price
-        const metres = BathCalc.MetresRoom.floor.amount + BathCalc.MetresRoom.wall.amount
-        const showerTray = BathCalc.showerTray.price
-        const price = BathCalc.TileSize.price
-        const {fillSeam,prime} = ceramic.ceramicTiles
-        const tile = (price * +metres) + fillSeam + prime
-        const result = tile + hole.price + angle.price + linearMetres.price + antiWater.price + toilet
-        + bath + showerTray
-        return (price === 0 || +metres === 0) ?
-            dispatch(calcBathResult(0)) :
-            dispatch(calcBathResult(result))
+const init = {
+    firstStage: {type: 'firstStage', show: false},
+    secondStage: {type: 'secondStage', show: false},
+    show:false
+}
+const stageStore = [
+    {
+        type: 'firstStage',
+        img: ChooseStage1,
+        description: 'В этом случае вам необходимы будут дополнительные работы в виде:' +
+            'Проводки электрики в помещении, Разводка сантехники, оштукатуривание поверхностей и' +
+            'финишная подготовка под плитку'
+    },{
+        type: 'secondStage',
+        img: ChooseStage2,
+        description:'В этом случае вы можете приступать к выбору плитки и установки сантехнического' +
+            'оборудования'
+
     }
+    ]
+const CalculatorBath = () => {
+    // const BathCalc: BathCalcType = useAppSelector(state => state.CalculatorBath)
+    // console.log(BathCalc)
+    const [stage, setStage] = useState(init)
+    const handleClickStage = (name:string) => {
 
+        if(name === 'firstStage') console.log('temporary didnt work')
+            // setStage({...stage,show:true,firstStage: {
+            // ...stage.firstStage,
+            //     show:!stage.firstStage.show
+            // }})
+        else setStage({...stage,secondStage: {
+            ...stage.secondStage,
+                show:true
+            }})
+    }
     return (
-        <div
-            className={'calculatorBath'}
-        >
-            <CeramicSizeBlock />
-            <CalculatorMetres />
-            <h2>Далее дополнительные работы</h2>
-            <AdditionalTileItems />
-            <СCCBathStorage />
-            <div className={'BathCalc-result'}>
-                <Button onClick={result}>
-                    Стоимость ремонта в вашей ванной
-                </Button>
-                <p>{BathCalc.finalResult === 0 ?
-                    'Скорее всего вы ничего не выбрали':
-                    BathCalc.finalResult}
-                </p>
-            </div>
+        <div className={'calculatorBath'}>
+            <CalculatorMetres/>
+            {!stage.secondStage.show && <div className={'ChooseStageComponent'}>
+                <h2 className={'ChooseStageComponent__head'}>Как выглядит ваша ванная комната?</h2>
+                {stageStore.map((data) => (
+                    <div key={data.type} className={'ChooseStageComponent_item'} onClick={()=>handleClickStage(data.type)}>
+                        <h2>{data.type === 'firstStage' ?
+                            'Голые стены без штукатурки и проводки труб'
+                            :
+                            'Стены оштукатурены и проведена электрика, сантехника'}
+                        </h2>
+                        <p>{data.description}</p>
+                        <img  src={data.img} alt={`pic${data.type}`}/>
+                    </div>
+                ))}
+            </div>}
+            {(stage.secondStage.show) && <>
+                <CeramicSizeBlock/>
+                <NavigateBathComponent />
+                <СCCBathStorage/>
+            </>}
+
         </div>
     );
 };

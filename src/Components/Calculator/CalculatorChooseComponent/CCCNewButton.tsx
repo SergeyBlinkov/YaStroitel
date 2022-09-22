@@ -9,7 +9,7 @@ type CCCNewButtonType = {
 }
 
 function CCCNewButton({label,click}:CCCNewButtonType) {
-     const [s,setS] = useState(Boolean)
+     const [s,setS] = useState(false)
     useEffect(() => setS(true),)
      const NewButtonRef = useRef(null)
     return (

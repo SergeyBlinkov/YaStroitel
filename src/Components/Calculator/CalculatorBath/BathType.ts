@@ -15,79 +15,117 @@ type Hatch = {
     label:string,
     price:number
 }
-export type DryWallType = {
-    type:string,
+
+type LabelPrice = {
     label:string,
-    price:number,
-    bath: {
+    price:number
+}
+type LabelAmountPrice = {
+    label:string,
+    amount:number,
+    price:number
+}
+type LabelCountPrice = {
+    label:string,
+    count:number,
+    price:number
+}
+type LabelCount = {
+    label:string,
+    count:number
+}
+   type DryWallBathType= {
         type:string,
         label:string,
-        shelf:number,
+        shelf:LabelPrice,
         hatch:Hatch,
+        bathroomScreen:LabelPrice,
         bathLength:number,
-        spaceUnderBath:number,
+        spaceUnderBath:LabelPrice,
         price:number
-    },
-    wall: {
+    }
+type DryWallWallType= {
         type:string,
         label:string,
-        wallLength:number,
+        wallLength:LabelAmountPrice,
+        doorBoolean:LabelPrice,
+        soundBoolean:LabelPrice,
+        socketCount:LabelAmountPrice
         price:number
-    },
-    box: {
+    }
+type DryWallBoxType = {
         type:string,
         label:string,
-        boxLength:number,
+        angleCount:LabelAmountPrice,
+        twoAngleCount:LabelAmountPrice,
+        hatch:LabelPrice,
         price:number
-    },
-    shower: {
+    }
+type DryWallShowerType = {
         type:string,
         label:string,
+        price:number,
         showerBoard : {
             type:string,
             label:string,
             amount:number,
+            priceForPie:number,
             price:number
         }
+
     }
-}
+    type Hole = {
+        label:string,
+        amount:number,
+        priceForPie:number,
+        type:string,
+        price:number
+    }
+
 export type ChangeEvent = React.ChangeEvent<HTMLInputElement>
 export type ButtonEvent = React.MouseEvent<HTMLButtonElement>;
 type Angle = {
     type:string,
     label:string,
+    priceForPie:number,
     metres:number,
     price:number
 }
-type Hole ={
+type LabelTypePrice ={
     type:string,
     label:string,
-    amount:number,
     price:number
 }
 type TypeLabelAmountPrice = {
-    label?:string,
-    amount?:number,
-    type?:string,
+    label:string,
+    amount:number,
+    type:string,
     price:number
 }
 type AntiWaterType = {
     label:string,
     type:string,
-    variant:string
+    priceForPie:number,
+    amount:number,
     price:number
 }
 export interface BathCalcType {
     TileSize:tile,
+    fillSeam:LabelTypePrice,
+    prime:LabelPrice,
     angle:Angle,
     hole:Hole,
     finalResult:number,
+    BathRoomSink:LabelTypePrice,
     linearMetres:TypeLabelAmountPrice,
     MetresRoom:MetresRoom,
     antiWater:AntiWaterType,
-    toilet:TypeLabelAmountPrice,
-    bath:TypeLabelAmountPrice,
-    showerTray:TypeLabelAmountPrice,
-    dryWall:DryWallType
+    toilet:LabelTypePrice,
+    bath:LabelTypePrice,
+    showerType:LabelTypePrice,
+    DryWallBath:DryWallBathType,
+    DryWallBox:DryWallBoxType,
+    DryWallWall:DryWallWallType,
+    DryWallShower:DryWallShowerType
 }
 

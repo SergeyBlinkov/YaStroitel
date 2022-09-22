@@ -4,7 +4,7 @@
   right: 0;
   display: grid !important;
   grid-template-columns: 1fr !important;
-  grid-template-rows: 50px 1fr 1fr 50px !important;
+  grid-template-rows: 50px 1fr 100px 50px !important;
   cursor: auto !important;
   padding: 2% !important;
   border: 1px solid black;
@@ -33,6 +33,7 @@
 .CCCMoreInfo .CCCMoreInfo_img img {
   width: 100%;
   height: 100%;
+  max-height: 100px;
 }
 .CCCMoreInfo .CCCMoreInfo_buttonBack {
   position: absolute;

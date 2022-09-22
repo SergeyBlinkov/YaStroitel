@@ -1,0 +1,18 @@
+.ShowerComponent {
+  display: grid;
+  grid-gap: 20px;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  grid-template-rows: 1fr 170px;
+  padding-bottom: 15px;
+  .ShowerComponent_ItemImage {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 1fr 1fr 1fr;
+    img {
+      width: 100%;
+      height: 170px;
+    }
+  }
+}

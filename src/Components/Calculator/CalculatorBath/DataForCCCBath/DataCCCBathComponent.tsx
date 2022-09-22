@@ -14,7 +14,20 @@ import installation1 from '../CalculatorBathComponents/ToiletInstallation/img/in
 import ToiletInstallation from "../CalculatorBathComponents/ToiletInstallation/ToiletInstallation";
 import AntiWaterComponent from "../CalculatorBathComponents/AntiWaterComponent/AntiWaterComponent";
 import antiWaterFloor from './imgStorage/antiwaterFloor.jpg'
-
+import ShowerStraight from './imgStorage/ShowerStraight.jpeg'
+import ShowerSquare from './imgStorage/ShowerSquare.jpg';
+import ShowerCircle from './imgStorage/ShowerCircle.jpg';
+import ShowerWithCab from './imgStorage/ShowerWithCab.jpg';
+import ShowerWithoutBorder from './imgStorage/ShowerWithoutBorder.jpg';
+import ShowerComponent from "../CalculatorBathComponents/ShowerComponent/ShowerComponent";
+import angle45 from './imgStorage/angle45.jpg';
+import holeInTile from './imgStorage/holeInTile.jpg';
+import linearMetres from './imgStorage/linearMetres.jpg';
+import AngleComponent from "../CalculatorBathComponents/AdditionalTileItem/AngleComponent";
+import HoleComponent from "../CalculatorBathComponents/AdditionalTileItem/HoleComponent";
+import LinearMetresComponent from "../CalculatorBathComponents/AdditionalTileItem/LinearMetresComponent";
+import BathRoomSink from "../CalculatorBathComponents/BathRoomSink/BathRoomSink";
+import BathRoomSinkPic from './imgStorage/BathRoomSinkPic.jpg';
 //BATH DATA
 export const CCCBathData = [{
     type:'cast-iron',
@@ -57,7 +70,7 @@ export const CCCDryWallData = [{
         ' Это удобный вариант для создания межкомнатных перегородок. Методика в популярна и главное – проста.' +
         ' Гипсокартон создаёт между собой "пустую прослойку" , которую можно забить звуко(тепло)изоляцией',
     label:'Установка стены из гипсокартона',
-    component:<WallComponent name={'dryWall'} type={'wall'} />
+    component:<WallComponent />
 }
     ,{
         type:'box',
@@ -67,14 +80,14 @@ export const CCCDryWallData = [{
             ' Трубы, проводка, вентиляционные каналы. Но опять-таки, при возникновении угрозы подтопления лучше использовать ГКЛВ листы.' +
             ' Они имеют отличительный признак – картон зеленого цвета.',
         label:'Закрыть коробом трубы',
-        component: <BoxComponent name={'dryWall'} type={'box'} />
+        component: <BoxComponent />
     },{
         type:'bath',
         img:BOX_BATH,
         description: 'Экран из гипсокартона под ванной позволяет поверх него выложить плитку и тогда ваша ванна будет выглядеть как будто' +
             '"утоплена" в плитке, так же будет гармонично смотреться со стенами и полами вашей ванной комнаты.',
         label:'Экран под ванной',
-        component: <BathComponent name={'dryWall'} type={'bath'}/>
+        component: <BathComponent />
     }]
 
 //TOILET DATA
@@ -104,3 +117,83 @@ export const CCCAntiWaterData = [{
     component: <AntiWaterComponent/>
 }
     ]
+//Shower
+export const CCCShowerData = [
+    {
+        type:'straight',
+        img:ShowerStraight,
+        description: 'Прямоугольный душевой поддон является моделью,' +
+            ' которая позволяет создать в ванной простой, классический стиль',
+        label: 'Прямой душ поддон',
+        component: <ShowerComponent type={'straight'}/>
+    },
+    {
+        type:'circle',
+        img: ShowerCircle,
+        description: 'Полукруглый душ поддон выглядит более необычно и возможно именно вам, понравится ' +
+            'этот вариант больше классического, такой вариант зачастую занимает чуть меньше места в узких пространствах',
+        label:'Полукруглый душ поддон',
+        component: <ShowerComponent type={'circle'}/>
+    },
+    {
+        type:'square',
+        img: ShowerSquare,
+        description: 'Квадртный душ поддон , наверное самый популярный вариант, достаточное место внутри душевой, так' +
+            'же занимает мало места в ванной комнате и комфортен в эксплуатации',
+        label: 'Квадратный душ поддон',
+        component: <ShowerComponent type={'square'}/>
+    },
+    {
+        type: 'withCab',
+        img: ShowerWithCab,
+        description: 'Покупная душевая кабина в основном обойдется вам дороже , но и хлопот с ней куда меньше',
+        label: 'Душ кабина покупная(в основном акриловая)',
+        component: <ShowerComponent type={'withCab'}/>
+    },
+    {
+        type:'withoutBorder',
+        img: ShowerWithoutBorder,
+        description: 'Душевой поддон без бордюра, выглядит очень классно и наверное самый симпатичный вариант' +
+            'на данный момент, но учтите слив должен быть ниже пола, а это значит уровень пола будет сильно завышен',
+        label:'Душевая без бортов',
+        component: <ShowerComponent type={'withoutBorder'}/>
+    }
+]
+
+export const CCCAdditionalTileItemsData = [
+    {
+        type:'angle',
+        img:angle45,
+        description:'В вашей ванной(душевой) комнате скорее всего будут внешние углы, выберите ' +
+            'какими вы хотите их видеть',
+        label: 'Обработка внешних углов',
+        component: <AngleComponent />
+    },
+    {
+        type: 'hole',
+        img: holeInTile,
+        description: 'Отверстия в плитке неизбежны, эта работа занимает время у рабочего на вырезание' +
+            'отверстий под необходимые сантехнические и электрические отверстия',
+        label: 'Отверстия в плитке',
+        component: <HoleComponent />
+    },
+    {
+        type: 'linearMetres',
+        img: linearMetres,
+        description: 'В вашей ванной комнате возможно есть узкие участки стены(менее 30см)' +
+            'на подрезку таких мест и выкладку уходит больше времени,пэтому данные участки считаются ' +
+            'погонными метрами. Часто такие места есть в полках у душа, либо у двери вместо наличника',
+        label:'Маленькие участки с плиткой(откосы)',
+        component: <LinearMetresComponent />
+    }
+]
+
+export const CCCBathRoomSinkData = [
+    {
+        type:'BathRoomSink',
+        img:BathRoomSinkPic,
+        description:'Установить раковину в вашей ванной(душевой) комнате',
+        label:'Установка раковины',
+        component:<BathRoomSink />
+    }
+]

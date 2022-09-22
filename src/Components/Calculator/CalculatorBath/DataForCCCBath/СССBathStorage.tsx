@@ -1,8 +1,15 @@
 import React, {useState} from 'react';
 import {ChangeEvent} from "../BathType";
 import CCC from "../../CalculatorChooseComponent/CCC";
-import {Checkbox, FormControlLabel} from "@mui/material";
-import {CCCAntiWaterData, CCCBathData, CCCDryWallData, CCCToiletData} from "./DataCCCBathComponent";
+import {Checkbox, FormControlLabel, Tooltip} from "@mui/material";
+import {
+    CCCAdditionalTileItemsData,
+    CCCAntiWaterData,
+    CCCBathData, CCCBathRoomSinkData,
+    CCCDryWallData,
+    CCCShowerData,
+    CCCToiletData
+} from "./DataCCCBathComponent";
 
 
 //Что бы компонент работал правильно необходимо:
@@ -20,71 +27,87 @@ import {CCCAntiWaterData, CCCBathData, CCCDryWallData, CCCToiletData} from "./Da
 // 4.4) 'label' то, что будет написано в заголовке компонента
 
 type Init = {
-    antiWater:boolean,
-    showerTray:boolean,
-    toiletBoolean:boolean,
-    bathType:boolean,
-    dryWall:boolean
+    antiWater: boolean,
+    showerTray: boolean,
+    toiletBoolean: boolean,
+    bathType: boolean,
+    dryWall: boolean,
+    bathRoomSink: boolean
 }
 const init = {
-    antiWater:false,
-    showerTray:false,
-    toiletBoolean:false,
-    bathType:false,
-    dryWall:false
+    antiWater: false,
+    showerTray: false,
+    toiletBoolean: false,
+    bathType: false,
+    dryWall: false,
+    bathRoomSink: false
 }
+
 function СCCBathStorage() {
-    const [storage,setStorage] = useState<Init>(init)
-    const handleChange = (e:ChangeEvent) => {
-        const {checked,name} = e.target
-        return setStorage((prevState) => ({...prevState,[name]:checked}))
+    const [storage, setStorage] = useState<Init>(init)
+    const handleChange = (e: ChangeEvent) => {
+        const {checked, name} = e.target
+        return setStorage((prevState) => ({...prevState, [name]: checked}))
     }
     return (
         <>
             <div className={'calculatorBath-additionalWork'}>
-            <FormControlLabel
-                control={<Checkbox
-                    checked={storage.bathType}
-                    onChange={handleChange}
-                    name={'bathType'}
-                />}
-                label={'Установка ванны'}
-            />
-            <FormControlLabel
-                control={<Checkbox
-                    name={'toiletBoolean'}
-                    onChange={handleChange}
-                    checked={storage.toiletBoolean}
-                />}
-                label={'Установка туалета'}/>
-            <FormControlLabel
-                control={<Checkbox
-                    onChange={handleChange}
-                    checked={storage.showerTray}
-                    name={'showerTray'}
-                />}
-                label={'Установка душ поддона'}/>
-            <FormControlLabel
-                control={<Checkbox
-                    onChange={handleChange}
-                    checked={storage.dryWall}
-                    name={'dryWall'}
-                />}
+                <Tooltip title={'Все елементы появятся внизу'} placement={'right'}><FormControlLabel
+                    control={<Checkbox
+                        checked={storage.bathType}
+                        onChange={handleChange}
+                        name={'bathType'}
+                    />}
+                    label={'Установка ванны'}
+                /></Tooltip>
+                <Tooltip title={'Все елементы появятся внизу'} placement={'right'}><FormControlLabel
+                    control={<Checkbox
+                        name={'toiletBoolean'}
+                        onChange={handleChange}
+                        checked={storage.toiletBoolean}
+                    />}
+                    label={'Установка туалета'}/>
+                </Tooltip>
+                <Tooltip title={'Все елементы появятся внизу'} placement={'right'}><FormControlLabel
+                    control={<Checkbox
+                        onChange={handleChange}
+                        checked={storage.showerTray}
+                        name={'showerTray'}
+                    />}
+                    label={'Установка душ поддона'}/></Tooltip>
+                <Tooltip title={'Все елементы появятся внизу'} placement={'right'}><FormControlLabel
+                    control={<Checkbox
+                        onChange={handleChange}
+                        checked={storage.dryWall}
+                        name={'dryWall'}
+                    />}
 
-                label={'Установка коробов из гипсокартона'}/>
-                <FormControlLabel
+                    label={'Установка коробов из гипсокартона'}/></Tooltip>
+                <Tooltip title={'Все елементы появятся внизу'} placement={'right'}><FormControlLabel
                     control={<Checkbox
                         onChange={handleChange}
                         checked={storage.antiWater}
-                        name={'antiWater'}
-                    />}
+                        name={'antiWater'}/>}
 
-                    label={'Гидроизоляция помещения'}/>
-        </div>
+                    label={'Гидроизоляция помещения'}/></Tooltip>
+                <Tooltip title={'Все елементы появятся внизу'} placement={'right'}><FormControlLabel
+                    control={<Checkbox
+                        name={'bathRoomSink'}
+                        onChange={handleChange}
+                        checked={storage.bathRoomSink}/>}
+                    label={'Установка раковины'}
+                /></Tooltip>
+            </div>
             <div className={'calculatorBath-additionalWork_opened'}>
                 <CCC
+                    variable={CCCAdditionalTileItemsData}
+                    name={'additionalItems'}
+                    bool={true}
+                    label={'Дополнительные работы по плитке'}
+                />
+                <CCC
                     variable={CCCBathData}
-                    name={'bathType'}
+                    name={'bath'}
                     bool={storage.bathType}
                     label={'Ванны'}
                 />
@@ -105,7 +128,19 @@ function СCCBathStorage() {
                     bool={storage.antiWater}
                     name={'antiWater'}
                     label={'Гидроизоляция помещения'}
-                    />
+                />
+                <CCC
+                    variable={CCCShowerData}
+                    name={'showerType'}
+                    bool={storage.showerTray}
+                    label={'Душевой поддон'}
+                />
+                <CCC
+                    variable={CCCBathRoomSinkData}
+                    name={'BathRoomSink'}
+                    bool={storage.bathRoomSink}
+                    label={'Раковина'}
+                />
             </div>
         </>
     );

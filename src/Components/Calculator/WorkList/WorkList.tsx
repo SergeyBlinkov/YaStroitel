@@ -6,18 +6,23 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import {useAppDispatch, useAppSelector} from "../../../Redux/ReduxConfigStore";
 import {deletePriceFromCalculatorReducer} from "../../../Redux/CalculatorBathSlice";
 import {BathCalcType} from "../CalculatorBath/BathType";
+import CutWords from "../../helperComponent/CutWords";
 
 
 
 
 function WorkList() {
-        const BathCalc:BathCalcType = useAppSelector(state=>state.CalculatorBath)
+    const BathCalc:BathCalcType = useAppSelector(state=>state.CalculatorBath)
     const WorkListRef = useRef(null)
+
     const dispatch = useAppDispatch()
     const showElement = Object.values(BathCalc).filter(data => data.price > 0)
+    const CheckMetres = BathCalc.MetresRoom.floor.amount > 0
+    const CheckTile = BathCalc.TileSize.price > 0
+
     return (
         <CSSTransition
-            in={showElement.length > 0}
+            in={showElement.length > 0 && CheckMetres && CheckTile}
             timeout={500}
             classNames={'CCC_beforeElement'}
             mountOnEnter
@@ -30,9 +35,9 @@ function WorkList() {
             >
                 {showElement.map((data) => <div
                     className={'WorkList_item'}
-                    key={data.type}
+                    key={data.label}
                 >
-                    <p>{data.label}</p>
+                    <p><CutWords message={data.label}/></p>
                     <IconButton
                         aria-label="delete"
                         size="small"

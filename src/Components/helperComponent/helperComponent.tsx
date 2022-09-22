@@ -1,5 +1,6 @@
 import './helperComponentStyle.css'
 import React from "react";
+import styled from "styled-components";
 
 export const toPeriod = (data:string) => {
     const splitArr = data.replace(/(,)/, '.').split(".")
@@ -11,12 +12,13 @@ export const toPeriod = (data:string) => {
 }
 
 type ListOfBenefitAndLimitType = {benefits:string[],limitations:string[]}
+
 export const ListOfBenefitAndLimit = ({benefits,limitations}:ListOfBenefitAndLimitType) => {
     const ItemComponent = ({info}:{info:string[]}) => {
         return <ul className={'ListOfBenefitAndLimit-group_item'}>{info.map(data => {
-            return <div className={'ListOfBenefitAndLimit-group_item__items'}>
+            return <div className={'ListOfBenefitAndLimit-group_item__items'} key={data}>
                 <i className="fa-solid fa-angles-right"></i>
-                <li key={data}>{data}</li>
+                <li>{data}</li>
             </div>
             }
         )}</ul>
@@ -33,3 +35,16 @@ export const ListOfBenefitAndLimit = ({benefits,limitations}:ListOfBenefitAndLim
 
     </div>
 }
+
+export const H1Style = styled.h2`
+  width:100%;
+  
+  margin: 0 auto;
+  padding:25px;
+  background: #847C6E;
+  color: #E5DCCB;
+  font-weight: 700;
+  font-size: 30px;
+  min-width: 1200px !important;
+  font-family: 'Plus Jakarta Display';
+`
