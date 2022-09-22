@@ -1,6 +1,5 @@
 import React, {useRef, useState} from 'react';
 import {CSSTransition} from "react-transition-group";
-import {useAppDispatch} from "../../../Redux/ReduxConfigStore";
 import {Tooltip} from "@mui/material";
 
 type Variable = {
@@ -11,10 +10,9 @@ type Variable = {
     component:JSX.Element
 }
 
-function CCCDescription({CCCItem,name}:{CCCItem:Variable,name:string}) {
+function CCCDescription({CCCItem}:{CCCItem:Variable}) {
 
     const [showDescription,setShowDescription] = useState(true)
-    const dispatch = useAppDispatch()
     const descriptionRefString = useRef(null)
     const descriptionRefComponent = useRef(null)
     return  <>

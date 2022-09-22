@@ -28,7 +28,7 @@ function ShowerComponent({type}:ShowerType) {
     return (<div className={'ShowerComponent'}>
         <ListOfBenefitAndLimit benefits={key.benefits} limitations={key.limitations}/>
         <div className={'ShowerComponent_ItemImage'}>
-            {imgObjectKey.map((data,index) => (<img src={data} alt={`picture${index}`} key={index}/>)) }
+            {imgObjectKey.map((data,index) => (<img src={data} alt={`pic${index}`} key={index}/>)) }
         </div>
         <CCCNewButton label={'Установить этот душ'} click={handleClick}/>
     </div>);

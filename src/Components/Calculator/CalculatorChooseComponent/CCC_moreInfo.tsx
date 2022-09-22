@@ -22,7 +22,7 @@ function CCCMoreInfo(init:Init) {
                 return <div key={data} className={'CCCMoreInfo_img__item'}>
                     <img
                         src={data}
-                        alt={`picture${index}`}
+                        alt={`pic${index}`}
                         onClick={()=>setBigPicture({...bigPicture,show:true,img:data})}/>
                 </div>})}
         </div>

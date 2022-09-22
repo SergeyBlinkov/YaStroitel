@@ -48,7 +48,7 @@ function CCC({variable,bool,name,label}:CCCType) {
                             src={data.img}
                             alt={data.img}
                             className={'calculatorChooseComponent_item__img'}/>
-                        <CCCDescription CCCItem={data} name={name}/>
+                        <CCCDescription CCCItem={data}/>
                     </div>
                 })}
             </div>
