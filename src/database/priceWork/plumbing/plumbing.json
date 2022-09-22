@@ -1,0 +1,32 @@
+{
+  "bath" : {
+    "cast-iron" : {
+      "type" : "bath",
+      "label": "Чугунная ванна",
+      "typeBath": "cast-iron",
+      "price": 5000
+    },
+    "steel" : {
+      "type" : "bath",
+      "label": "Стальная ванна",
+      "typeBath" : "steel",
+      "price" :3000
+    },
+    "acrylic" : {
+      "type" : "bath",
+      "label": "Акриловая ванна",
+      "typeBath": "acrylic",
+      "price" :3000
+    }
+  },
+  "toilet": {
+    "toilet": 2000,
+    "installation" : 5000
+  },
+  "shower" : {
+    "circle" : 5000,
+    "square" : 3000,
+    "straight" : 3000
+  },
+  "bathRoomSink" : 2500
+}

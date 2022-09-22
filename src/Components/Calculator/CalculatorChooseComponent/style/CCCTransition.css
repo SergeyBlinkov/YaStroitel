@@ -1,0 +1,316 @@
+.CCC-enter {
+  opacity: 0;
+}
+
+.CCC-enter-active {
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+.CCC-exit {
+  opacity: 1;
+}
+
+.CCC-exit-active {
+  transition: opacity 0.5s;
+  opacity: 0;
+}
+
+.CCC_beforeElement-enter {
+  opacity: 0;
+}
+
+.CCC_beforeElement-enter-active {
+  transition: opacity 0.5s;
+  opacity: 1;
+}
+
+.CCC_beforeElement-exit {
+  opacity: 1;
+}
+
+.CCC_beforeElement-exit-active {
+  transition: opacity 0.5s;
+  opacity: 0;
+}
+
+.CCC_description-enter {
+  opacity: 0;
+}
+
+.CCC_description-enter-active {
+  transition: opacity 0.5s;
+  opacity: 1;
+}
+
+.CSS_description-enter-done {
+  opacity: 1;
+}
+
+.CCC_description-exit {
+  opacity: 1;
+}
+
+.CCC_description-exit-active {
+  transition: opacity 0.5s;
+  opacity: 0;
+}
+
+.CSS_description-exit-done {
+  opacity: 1;
+}
+
+.CCCNewButton-enter {
+  background: #F7F7F7;
+  position: absolute;
+  bottom: -40px;
+  display: flex;
+  color: green;
+  font-weight: 700;
+  letter-spacing: 5px;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  text-transform: uppercase;
+  width: 100%;
+  margin-left: -60px;
+  height: 40px;
+  font-family: "Raleway", sans-serif;
+  transition: background-color 200ms ease-in, opacity 500ms ease-in;
+  opacity: 0;
+}
+.CCCNewButton-enter:hover {
+  background: #efeeee;
+  transition: background-color 200ms ease-in;
+}
+.CCCNewButton-enter:after {
+  width: 100%;
+  display: flex;
+  content: "";
+  border-bottom: solid 1px green;
+  transform: scale(0);
+}
+.CCCNewButton-enter:before {
+  display: flex;
+  position: absolute;
+  width: 100%;
+  height: 0;
+  content: "";
+  border-left: 1px solid green;
+  border-right: 1px solid green;
+  transition: all 1400ms ease-in;
+}
+
+.CCCNewButton-enter-active {
+  background: #F7F7F7;
+  position: absolute;
+  bottom: -40px;
+  display: flex;
+  color: green;
+  font-weight: 700;
+  letter-spacing: 5px;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  text-transform: uppercase;
+  width: 100%;
+  margin-left: -60px;
+  height: 40px;
+  font-family: "Raleway", sans-serif;
+  transition: background-color 200ms ease-in, opacity 500ms ease-in;
+  opacity: 1;
+}
+.CCCNewButton-enter-active:hover {
+  background: #efeeee;
+  transition: background-color 200ms ease-in;
+}
+.CCCNewButton-enter-active:after {
+  width: 100%;
+  display: flex;
+  margin-top: 6px;
+  transform: scale(1);
+  content: "";
+  transition: all 500ms ease-in-out;
+  border-bottom: 1px solid green;
+}
+.CCCNewButton-enter-active:before {
+  display: flex;
+  position: absolute;
+  width: 100%;
+  height: 30px;
+  content: "";
+  border-left: 1px solid green;
+  border-right: 1px solid green;
+  transition: all 1400ms ease-in;
+}
+
+.CCCNewButton-enter-done {
+  background: #F7F7F7;
+  position: absolute;
+  bottom: -40px;
+  display: flex;
+  color: green;
+  font-weight: 700;
+  letter-spacing: 5px;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  text-transform: uppercase;
+  width: 100%;
+  margin-left: -60px;
+  height: 40px;
+  font-family: "Raleway", sans-serif;
+  transition: background-color 200ms ease-in, opacity 500ms ease-in;
+  opacity: 1;
+}
+.CCCNewButton-enter-done:hover {
+  background: #efeeee;
+  transition: background-color 200ms ease-in;
+}
+.CCCNewButton-enter-done:after {
+  width: 100%;
+  display: flex;
+  margin-top: 6px;
+  content: "";
+  border-bottom: 1px solid green;
+}
+.CCCNewButton-enter-done:before {
+  display: flex;
+  position: absolute;
+  width: 100%;
+  height: 30px;
+  content: "";
+  border-left: 1px solid green;
+  border-right: 1px solid green;
+  transition: all 1400ms ease-in;
+}
+
+.CCCNewButton-exit {
+  background: #F7F7F7;
+  position: absolute;
+  bottom: -40px;
+  display: flex;
+  color: green;
+  font-weight: 700;
+  letter-spacing: 5px;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  text-transform: uppercase;
+  width: 100%;
+  margin-left: -60px;
+  height: 40px;
+  font-family: "Raleway", sans-serif;
+  transition: background-color 200ms ease-in, opacity 500ms ease-in;
+  opacity: 1;
+}
+.CCCNewButton-exit:hover {
+  background: #efeeee;
+  transition: background-color 200ms ease-in;
+}
+.CCCNewButton-exit:after {
+  width: 100%;
+  display: flex;
+  margin-top: 6px;
+  content: "";
+  border-bottom: 1px solid burlywood;
+}
+.CCCNewButton-exit:before {
+  display: flex;
+  position: absolute;
+  width: 100%;
+  height: 30px;
+  content: "";
+  border-left: 1px solid green;
+  border-right: 1px solid green;
+  transition: all 1400ms ease-in;
+}
+
+.CCCNewButton-exit-active {
+  background: #F7F7F7;
+  position: absolute;
+  bottom: -40px;
+  display: flex;
+  color: green;
+  font-weight: 700;
+  letter-spacing: 5px;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  text-transform: uppercase;
+  width: 100%;
+  margin-left: -60px;
+  height: 40px;
+  font-family: "Raleway", sans-serif;
+  transition: background-color 200ms ease-in, opacity 500ms ease-in;
+  opacity: 0;
+}
+.CCCNewButton-exit-active:hover {
+  background: #efeeee;
+  transition: background-color 200ms ease-in;
+}
+.CCCNewButton-exit-active:after {
+  width: 100%;
+  display: flex;
+  margin-top: 0;
+  content: "";
+  border-bottom: 1px solid burlywood;
+  transition: all 500ms ease-in;
+}
+.CCCNewButton-exit-active:before {
+  display: flex;
+  position: absolute;
+  width: 100%;
+  height: 0;
+  content: "";
+  border-left: 1px solid green;
+  border-right: 1px solid green;
+  transition: all 400ms ease-in;
+}
+
+.AlertMessageHC {
+  align-items: center;
+  height: 35px !important;
+}
+
+.AlertMessageHC-enter {
+  opacity: 0 !important;
+}
+
+.AlertMessageHC-enter-active {
+  opacity: 1 !important;
+  transition: opacity 500ms !important;
+}
+
+.AlertMessageHC-exit {
+  opacity: 1 !important;
+}
+
+.AlertMessageHC-exit-active {
+  opacity: 0 !important;
+  transition: opacity 500ms !important;
+}
+
+.Fast-Transition-enter {
+  opacity: 0;
+}
+
+.Fast-Transition-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in-out !important;
+}
+
+.Fast-Transition-enter-done {
+  opacity: 1;
+}
+
+.Fast-Transition-exit {
+  opacity: 1;
+}
+
+.Fast-Transition-exit-active {
+  transition: opacity 500ms ease-in-out !important;
+  opacity: 0;
+}
+
+/*# sourceMappingURL=CCCTransition.css.map */

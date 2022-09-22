@@ -1,0 +1,46 @@
+.CCCMoreInfo {
+  position: absolute !important;
+  top: 0;
+  right: 0;
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  grid-template-rows: 50px 1fr 100px 50px !important;
+  cursor: auto !important;
+  //width:  54.7% !important;
+  //max-width: 54.7%;
+  padding: 2% !important;
+  border: 1px solid black;
+  .CCCMoreInfo_name {
+    font-size: 18px;
+  }
+  .CCCMoreInfo_description {
+    font-size: 13px !important;
+    text-align: left;
+    line-height: 17px;
+    font-weight: 500;
+    width: 100%;
+  }
+  .CCCMoreInfo_img {
+    position: relative;
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+
+    .CCCMoreInfo_img__item{
+      position: relative;
+      z-index: 2;
+    }
+      img {
+        width: 100%;
+        height: 100%;
+        max-height: 100px;
+      }
+  }
+  .CCCMoreInfo_buttonBack {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+  }
+}

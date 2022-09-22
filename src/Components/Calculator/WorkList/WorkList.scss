@@ -1,0 +1,32 @@
+.WorkList {
+  display: grid;
+  height: auto;
+  justify-items: center;
+  justify-content: center;
+  padding: 10px;
+  grid-template-columns: 1fr;
+  position: fixed;
+  right: 25px;
+  bottom:25px;
+  background-color: #fff;
+  width: 155px;
+  border-radius: 8px;
+  box-shadow: 0 0 5px 4px gray;
+  z-index: 10;
+  .WorkList_item {
+    width: 140px;
+    display: grid;
+    padding: 5px;
+    grid-template-columns: 115px 25px;
+    justify-self: center;
+    align-items: center;
+    border-bottom: 2.5px solid #BFA67A;
+    background-color: transparent;
+    height: auto;
+    font-family: 'Lobster', cursive;
+    font-size: 14px;
+    letter-spacing: 1px;
+    z-index: 10;
+    color: black;
+  }
+}

@@ -1,0 +1,19 @@
+.BathRoomSink {
+  display: grid;
+  grid-gap: 50px;
+  align-items: center;
+  justify-items: center;
+  grid-template-rows: 100px 80px;
+  height: 100%;
+  .BathRoomSink_description {
+    display: grid;
+    margin-top: 50px;
+    grid-template-rows: 1fr 1fr;
+    font-weight: 500;
+
+    width: 80%;
+  }
+  .BathRoomSink_li {
+    align-self: center;
+  }
+}

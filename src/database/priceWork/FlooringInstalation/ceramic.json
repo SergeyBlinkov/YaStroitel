@@ -3,50 +3,80 @@
     "size": [
       {
         "tile": "10x10",
-        "price": 2000
+        "price": 2000,
+        "label" : "10x10"
       },
       {
-        "tile": "Кирпичики",
-        "price": 1500
+        "tile": "littleStone",
+        "price": 1500,
+        "label" : "Кирпичики"
       },
       {
         "tile": "20x20",
-        "price": 1300
+        "price": 1300,
+        "label" : "20x20"
       },
       {
-        "tile": "40x40, 30x40, 20x40",
-        "price": 1000
+        "tile": "40x40",
+        "price": 1000,
+        "label" : "40x40, 30x40, 20x40"
       },
       {
-        "tile": "50x50, 60x60,",
-        "price": 1200
+        "tile": "60x60",
+        "price": 1200,
+        "label" : "50x50, 60x60"
       },
       {
-        "tile": "70x70, 80x80",
-        "price": 1350
+        "tile": "80x80",
+        "price": 1350,
+        "label": "70x70, 80x80"
       },
       {
-        "tile": "120x60, 90x90",
-        "price": 1500
+        "tile": "120x60",
+        "price": 1500,
+        "label" : "120x60,90x90"
       },
       {
         "tile": "100x100",
-        "price": 1750
+        "price": 1750,
+        "label" : "100x100"
       },
       {
-        "tile": "Мозаика",
-        "price": 2500
+        "tile": "littleTile",
+        "price": 2500,
+        "label" : "Мозайка"
       }
     ],
-    "fillSeam" : 100,
+    "fillSeam" : {
+      "grout": {
+        "label": "Цементная",
+        "price": 100
+      },
+      "epoxy" : {
+        "label" : "Эпоксидная",
+        "price" : 500
+      }
+    },
     "prime" : 50,
     "hole" : {
       "ceramic" : 100,
       "porcelain" : 200
     },
     "angle": {
-      "profile" : 300,
-      "degree" : 1200
-    }
+      "profile" : {
+        "label" : "Профиль",
+        "price": 300
+      },
+      "degree" : {
+        "label" : "Запил под 45 градусов",
+        "price" : 500
+      }
+    },
+    "showerTray" : {
+      "square" : 5000,
+      "circle" : 7500,
+      "linear" : 4000
+    },
+    "antiWater" : 200
   }
 }

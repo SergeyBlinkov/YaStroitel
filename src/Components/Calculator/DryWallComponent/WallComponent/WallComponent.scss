@@ -1,0 +1,21 @@
+.WallComponent {
+  display: grid;
+  padding-top: 25px;
+  width: 100%;
+  grid-gap: 15px;
+  justify-items:start;
+  grid-template-columns: 1fr;
+  .WallComponent_size {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    text-align: left;
+    padding: 15px;
+  }
+  .WallComponent_item {
+    display: grid;
+    width: 100%;
+    padding-right: 15px;
+    grid-template-columns: 1fr 1fr;
+  }
+}

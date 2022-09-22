@@ -1,19 +1,21 @@
 .main-page {
+  position: relative;
   width: 100%;
   height: 100vh;
   text-align: center;
-  margin: auto;
 }
 .main-page .body {
-  margin: 20px auto;
-  width: 1280px;
+  background: #E5DCCB;
+  margin: 0 auto;
+  width: 80%;
+  padding-top: 60px;
+  min-width: 1200px;
 }
 .main-page .body .body__h1 {
-  border: 1px solid lightblue;
-  border-radius: 45px;
+  border: 1px solid #847C6E;
   padding: 25px;
-  background: #fff;
-  margin: 60px;
+  background: #847C6E;
+  color: #E5DCCB;
   font-size: 20px;
 }
 .main-page .body .body__h2 {
@@ -25,8 +27,11 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-column-gap: 40px;
+  justify-items: center;
 }
 .main-page .body .body_Slide .body__h3 {
+  padding-left: 35px;
+  text-align: justify;
   line-height: 45px;
   display: flex;
   justify-self: flex-start;
@@ -38,7 +43,6 @@
   display: grid;
   align-items: center;
   grid-template-columns: 1fr;
-  grid-template-rows: 80px 40px 1fr;
 }
 .calculator-open h1 {
   border: 1px solid lightblue;

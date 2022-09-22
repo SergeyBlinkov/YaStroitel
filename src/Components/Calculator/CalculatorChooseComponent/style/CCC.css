@@ -1,0 +1,123 @@
+@import url("https://fonts.googleapis.com/css2?family=BIZ+UDGothic:wght@700&family=Lobster&family=Playfair+Display:wght@500&family=Raleway:wght@500&display=swap");
+.ellipsis {
+  color: white;
+  margin: 0 20px;
+  font-size: 15px;
+  display: flex;
+  align-self: flex-end;
+  padding: 10px;
+  justify-self: flex-end;
+  letter-spacing: 4px;
+}
+
+.returnButton {
+  position: absolute !important;
+  font-size: 18px;
+  left: 2.5%;
+  top: 4.5%;
+  z-index: 8;
+  cursor: pointer;
+}
+
+.calculatorChooseComponent {
+  height: 100%;
+  display: grid;
+  margin: 0 auto;
+  grid-gap: 50px;
+  background: #E5DCCB;
+  max-width: 80% !important;
+  min-width: 1200px;
+  grid-template-rows: minmax(50px, auto) minmax(0, auto);
+}
+.calculatorChooseComponent .calculatorChooseComponent_h {
+  text-transform: uppercase;
+  font-family: "Playfair Display", serif;
+  width: 100%;
+  margin: 0 !important;
+  height: 100%;
+  padding-top: 60px;
+  display: grid;
+  font-weight: 700;
+  letter-spacing: 4px;
+  align-items: center;
+  font-size: 22px;
+}
+.calculatorChooseComponent .calculatorChooseComponent_item {
+  max-width: 1280px;
+  display: grid;
+  grid-row: 0.6666666667;
+  height: 459px;
+  padding-left: 25px;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  margin: 25px auto 30px auto;
+  border-radius: 15px;
+  position: relative;
+}
+.calculatorChooseComponent .calculatorChooseComponent_item .calculatorChooseComponent_item__img {
+  width: 100%;
+  height: 459px;
+}
+.calculatorChooseComponent .calculatorChooseComponent_item .calculatorChooseComponent_item__description {
+  position: absolute;
+  z-index: 2;
+  margin-right: 25px;
+  display: grid;
+  padding: 50px;
+  align-items: center;
+  align-self: center;
+  font-family: "BIZ UDGothic", sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 25px;
+  justify-content: center;
+  margin-left: -60px;
+  background: #F7F7F7;
+  right: 0;
+  width: 50% !important;
+  height: 380px !important;
+}
+.calculatorChooseComponent .calculatorChooseComponent_item .calculatorChooseComponent_item__description span {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+}
+.calculatorChooseComponent .calculatorChooseComponent_item .calculatorChooseComponent_item__description p {
+  margin-top: -19px;
+  font-size: 17px;
+  font-weight: 500;
+}
+.calculatorChooseComponent .calculatorChooseComponent_item .calculatorChooseComponent_item__openedComponent {
+  position: relative;
+  z-index: 2;
+  align-self: center;
+  font-family: "BIZ UDGothic", sans-serif;
+  font-weight: 700;
+  padding-left: 60px;
+  padding-right: 5px;
+  width: calc(100% + 40px);
+  max-width: 700px;
+  height: 380px;
+  background: #F7F7F7;
+  margin-left: -60px;
+}
+
+.CCCBigPicture {
+  display: grid;
+  grid-template-rows: 1fr 30px;
+  align-items: center;
+  grid-gap: 20px;
+  z-index: 10;
+  position: fixed;
+  width: 50%;
+  height: 70% !important;
+  min-width: 1050px;
+  background: #000 !important;
+}
+.CCCBigPicture img {
+  width: 100% !important;
+  height: 100% !important;
+  max-height: 700px;
+}
+
+/*# sourceMappingURL=CCC.css.map */

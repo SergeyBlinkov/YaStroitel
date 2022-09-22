@@ -1,0 +1,22 @@
+{
+  "dryWallBath" : {
+    "shelf" : 1000,
+    "dryWallBathScreen" : 1250,
+    "hatch" : {
+      "plastic": 500,
+      "tile" : 1000
+    },
+    "spaceUnderBath": 1500
+  },
+  "dryWallBox" : {
+    "angle": 400,
+    "twoAngle": 700,
+    "hatch": 300
+  },
+  "dryWallWall" : {
+    "lengthPrice" : 1600,
+    "doorPrice" : 2000,
+    "soundPrice" : 1000,
+    "socketPrice" : 100
+  }
+}

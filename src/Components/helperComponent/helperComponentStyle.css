@@ -1,0 +1,24 @@
+.ListOfBenefitAndLimit {
+  margin-top: 25px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  text-align: left;
+}
+.ListOfBenefitAndLimit .ListOfBenefitAndLimit-group span {
+  display: flex;
+  width: 250px;
+  height: 50px;
+  padding-left: 15px;
+}
+.ListOfBenefitAndLimit .ListOfBenefitAndLimit-group .ListOfBenefitAndLimit-group_item {
+  display: grid;
+  grid-gap: 15px;
+  padding: 0 15px;
+}
+.ListOfBenefitAndLimit .ListOfBenefitAndLimit-group .ListOfBenefitAndLimit-group_item .ListOfBenefitAndLimit-group_item__items {
+  display: grid;
+  grid-template-columns: 20px 1fr;
+}
+
+/*# sourceMappingURL=helperComponentStyle.css.map */
