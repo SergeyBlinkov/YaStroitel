@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.2783d49e.css",
-    "main.js": "/static/js/main.4f6e15f0.js",
+    "main.js": "/static/js/main.89bc0f21.js",
     "static/js/787.650e6274.chunk.js": "/static/js/787.650e6274.chunk.js",
     "static/media/littleTile.jpg": "/static/media/littleTile.d93e2dc1189faaed6427.jpg",
     "static/media/stroytelpic1.png": "/static/media/stroytelpic1.63bf7ea14265c549e34d.png",
@@ -27,7 +27,6 @@
     "static/media/degree3.jpg": "/static/media/degree3.9e07c6ac27a67db0f9e4.jpg",
     "static/media/ShowerWithoutBorder.jpg": "/static/media/ShowerWithoutBorder.f9811d3261c99006be85.jpg",
     "static/media/100x100pic.jpg": "/static/media/100x100pic.914aa47af7358a3086f7.jpg",
-    "static/media/ShowerSquare.jpg": "/static/media/ShowerSquare.079f8025fd11b88b05c5.jpg",
     "static/media/spaceunderbathfull.jpg": "/static/media/spaceunderbathfull.3cbda4552d6e30a5f74e.jpg",
     "static/media/ShowerWithCab.jpg": "/static/media/ShowerWithCab.626cc1671352a353b4bb.jpg",
     "static/media/60x60pic.jpg": "/static/media/60x60pic.1115b3c464cb58b81ed2.jpg",
@@ -42,6 +41,7 @@
     "static/media/ShowerSquare3.jpg": "/static/media/ShowerSquare3.24a1167dc8082dc38525.jpg",
     "static/media/steelBath.jpg": "/static/media/steelBath.ab270051baa2c168ded8.jpg",
     "static/media/bathShelf3.jpg": "/static/media/bathShelf3.280374053f915af70255.jpg",
+    "static/media/ShowerSquare.jpg": "/static/media/ShowerSquare.56a9d671fb436c5600a4.jpg",
     "static/media/bathHatch1.jpg": "/static/media/bathHatch1.16fd2e53fff8012a6c50.jpg",
     "static/media/showerWithCab4.jpg": "/static/media/showerWithCab4.f7c8e0f79db49e8011b5.jpg",
     "static/media/bathShelf2.jpg": "/static/media/bathShelf2.6aacf131ec46b451b74b.jpg",
@@ -69,11 +69,11 @@
     "static/media/thatsitRED.svg": "/static/media/thatsitRED.ba01038a2f7fc136e7a181b63c1d5f67.svg",
     "index.html": "/index.html",
     "main.2783d49e.css.map": "/static/css/main.2783d49e.css.map",
-    "main.4f6e15f0.js.map": "/static/js/main.4f6e15f0.js.map",
+    "main.89bc0f21.js.map": "/static/js/main.89bc0f21.js.map",
     "787.650e6274.chunk.js.map": "/static/js/787.650e6274.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.2783d49e.css",
-    "static/js/main.4f6e15f0.js"
+    "static/js/main.89bc0f21.js"
   ]
 }
