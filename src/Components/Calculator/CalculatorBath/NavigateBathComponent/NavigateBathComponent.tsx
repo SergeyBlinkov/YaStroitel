@@ -68,6 +68,7 @@ function NavigateBathComponent() {
                 <span className={'NavigateBathComponent_iconDiv'} onClick={openNaviFunc}>
                     <FontAwesomeIcon
                         icon={faArrowLeft}
+                        className={'NavigateBathComponent_iconDiv__button'}
                         rotate={openChecker ? 'fa-rotate-180' : 'fa-rotate-360'}/>
                 </span>
             </div>

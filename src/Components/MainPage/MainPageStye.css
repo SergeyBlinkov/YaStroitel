@@ -8,6 +8,7 @@
   background: #E5DCCB;
   margin: 0 auto;
   width: 80%;
+  max-width: 1600px;
   padding-top: 60px;
   min-width: 1200px;
 }
@@ -96,6 +97,13 @@
   height: 80px;
   background: rgba(68, 68, 68, 0.95);
   width: 100%;
+}
+.footer .header_logo {
+  display: flex;
+  gap: 50px;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
 }
 
 /*# sourceMappingURL=MainPageStye.css.map */

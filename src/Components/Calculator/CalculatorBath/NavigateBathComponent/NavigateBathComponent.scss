@@ -1,10 +1,11 @@
 .NavigateBathComponent {
   position: fixed !important;
   z-index: 5;
+
   display: grid !important;
   font-size: 10px;
   grid-template-columns: 130px 25px;
-  top: 3% !important;
+  top: 80px !important;
   left: 0 !important;
   .NavigateBathComponent_list {
     display: grid;
@@ -38,9 +39,13 @@
 .OpenNavigate {
   transition: left 0.5s ease-out;
   left: 0;
+
 }
 .CloseNavigate {
   transition: left 0.5s ease-out;
-  left:-10.2% !important;
-
+  left:-130px !important;
+  .NavigateBathComponent_iconDiv__button {
+    left: 0;
+    rotate: 180deg;
+  }
 }
