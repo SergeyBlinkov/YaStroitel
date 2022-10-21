@@ -296,4 +296,13 @@ h2 {
   justify-items: center;
 }
 
+.calculatorBath-additionalWork_opened__button {
+  background: #484747 !important;
+  margin: 5px 0 !important;
+  color: #E5DCCB !important;
+  height: 60px;
+  max-width: 1600px;
+  width: 100%;
+}
+
 /*# sourceMappingURL=CalculatorBathStyle.css.map */

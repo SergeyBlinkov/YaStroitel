@@ -1,6 +1,5 @@
-import React, {Dispatch,SetStateAction, useRef} from 'react';
-import {Button} from "@mui/material";
-import {CSSTransition} from "react-transition-group";
+import React, {Dispatch,SetStateAction} from 'react';
+import {Box, Button, Modal} from "@mui/material";
 
 
 type Props = {
@@ -9,30 +8,22 @@ type Props = {
 }
 
 function CCCBigPicture({bigPicture,setBigPicture}:Props) {
-    const bigPictureRef = useRef(null)
+    const handleClose = () => setBigPicture(prev=>({...prev,show:false}))
     return (
-        <CSSTransition
-            in={bigPicture.show}
-            timeout={500}
-            classNames={'CCCMoreInfo_BigPicture'}
-            nodeRef={bigPictureRef}
-            mountOnEnter
-            unmountOnExit
+        <Modal
+            open={bigPicture.show}
+            onClose={handleClose}
+            aria-labelledby="parent-modal-title"
+            aria-describedby="parent-modal-description"
         >
-            <div
-                ref={bigPictureRef}
-                className={'darkBackground'}>
-                <div className={'CCCBigPicture'}>
+
+                <Box className={'CCCBigPicture'} sx={{width:400}}>
                     <img src={bigPicture.img} alt={`bigPicture`}/>
-                    <Button
-                        variant="outlined"
-                        onClick={() => setBigPicture((prevState) =>
-                                ({...prevState,show:false}))}>
-                        скрыть
-                    </Button>
-                </div>
-            </div>
-        </CSSTransition>
+                    <Button onClick={handleClose} variant={'contained'} color={'success'}>Скрыть</Button>
+                </Box>
+
+
+        </Modal>
     );
 }
 

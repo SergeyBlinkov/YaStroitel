@@ -1,7 +1,7 @@
 import React from 'react';
 import './MainPageStye.css';
 import logoName from '../../MainImage/thatsitRED.svg'
-import MainPageText from "./MainPageText";
+//import MainPageText from "./MainPageText";
 import Calculator from "../Calculator/Calculator";
 //import {Button,styled} from "@mui/material";
 
@@ -34,7 +34,7 @@ const MainPage = () => {
                 {/*    <WhiteButton>Войти</WhiteButton>*/}
                 {/*</div>*/}
             </header>
-            <MainPageText />
+            {/*<MainPageText />*/}
             <div className={'calculator-open'}>
                 {/*<h1>Выберите комнату в которой вы хотите ремонт:</h1>*/}
                 {/*<select>{arrOption.map((data, index)=><option key={index}>{data}</option>)}</select>*/}

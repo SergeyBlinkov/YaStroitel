@@ -36,7 +36,6 @@ function ModalBathList() {
         />
         <ItemComponent
             service={BathCalc.fillSeam.label}
-            priceForPiece={ceramic.ceramicTiles.fillSeam[BathCalc.fillSeam.type as keyof typeof ceramic.ceramicTiles.fillSeam].price}
             amount={MetresData}
             price={BathCalc.fillSeam.price}
         />

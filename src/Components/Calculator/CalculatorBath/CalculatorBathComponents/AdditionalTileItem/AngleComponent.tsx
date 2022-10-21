@@ -12,6 +12,7 @@ import profile3 from './imgStore/profileItem3.jpg';
 import degree1 from './imgStore/degree1.jpg';
 import degree2 from './imgStore/degree2.jpg';
 import degree3 from './imgStore/degree3.jpg';
+import {toPeriod} from "../../../../helperComponent/helperComponent";
 
 const angleDescribe = 'Красивое дизайнерское решение, отлично выглядит и не бросается в глаза,\n' +
     '                        но менее устойчиво к механическим воздействиям и имеет более острые углы,\n' +
@@ -27,7 +28,7 @@ function AngleComponent() {
     const dispatch = useAppDispatch()
     const profileChecker = storage.type === 'profile'
     const degreeChecker = storage.type === 'degree'
-    const handleChange = (e:ChangeEvent) =>  setStorage({...storage,amount: +e.target.value})
+    const handleChange = (e:ChangeEvent) =>  setStorage({...storage,amount: toPeriod(e.target.value)})
     const handleClickDispatch = () => dispatch(additionalItemAngle(storage))
     return (
         <div className={'AdditionalItemAngle'}>

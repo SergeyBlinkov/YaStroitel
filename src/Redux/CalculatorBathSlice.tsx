@@ -352,6 +352,7 @@ const CalculatorBathSlice = createSlice({
             }
         },
         additionalItemAngle : (state,action) => {
+
             const {type,amount} = action.payload
             const angle = ceramic.ceramicTiles.angle
             const angleResult = +angle[type as keyof typeof angle].price
@@ -397,7 +398,7 @@ const CalculatorBathSlice = createSlice({
         },
         deletePriceFromCalculatorReducer: (state, action) => {
             const {name,type}:{name:string,type?:string} = action.payload
-
+            console.log(name,type)
             if (type === 'dryWallBath') {
                     state.DryWallBath.hatch.price = 0
                     state.DryWallBath.price = 0
@@ -412,7 +413,9 @@ const CalculatorBathSlice = createSlice({
                 state.DryWallWall.socketCount.price = 0
                 state.DryWallWall.price = 0
             }
-            if(type === 'hole') state.hole.price = 0
+            if(name=== 'angle') state.angle.price = 0
+            if(name === 'hole') state.hole.price = 0
+            if(type === 'linearMetres') state.linearMetres.price = 0
             if (type === 'dryWallBox') {
                 state.DryWallBox.angleCount.price = 0
                 state.DryWallBox.twoAngleCount.price = 0

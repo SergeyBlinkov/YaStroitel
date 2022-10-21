@@ -1,18 +1,18 @@
 .ButtonModalList {
-  display: grid;
-  border-radius: 25px;
-  width: 90px;
-  font-weight: 700;
-  height: 30px;
+  width: calc(100% - 25px);
+  font-weight: 500;
+  height: 50px !important;
+  font-size: 15px;
   font-family: "Playfair Display", serif;
   align-items: center;
-  grid-template-columns: 30px 1fr;
-  position: fixed;
-  bottom: 6%;
-  left: 2%;
-  background: #fff;
-  z-index: 8;
-  color: black;
+  justify-items: center;
+  justify-content: center;
+  display: grid;
+  background: rgba(68, 68, 68, 0.95);
+  letter-spacing: 2.5px;
+  color: #E5DCCB;
+  align-self: end;
+  position: absolute;
 }
 
 /*# sourceMappingURL=ModalList.css.map */

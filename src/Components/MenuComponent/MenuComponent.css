@@ -1,0 +1,88 @@
+.MenuComponent {
+  display: grid;
+  grid-template-columns: 150px 25px;
+  height: calc(100% - 160px);
+  position: fixed;
+  top: 80px;
+  left: 0;
+  z-index: 8;
+  max-height: calc(100% - 160px) !important;
+}
+.MenuComponent .MenuComponent_menuBar {
+  display: grid;
+  grid-gap: 12px;
+  align-items: start;
+  align-content: start;
+  height: 100%;
+  background: #E5DCCB;
+  color: #847C6E;
+  width: 100%;
+  transition: all 1s linear;
+}
+.MenuComponent .MenuComponent_menuBar .MenuComponent_menuBar__work {
+  grid-row: 2;
+  width: 100%;
+  height: 100%;
+}
+.MenuComponent .MenuComponent_menuBar .MenuComponent_menuBar__menu {
+  display: grid;
+  grid-gap: 12px;
+  grid-row: 1;
+  width: 100%;
+}
+.MenuComponent .ButtonStyle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(68, 68, 68, 0.95);
+  color: #E5DCCB;
+  height: 50px;
+  font-size: 15px;
+}
+.MenuComponent .MenuComponent_ButtonBlock {
+  height: 150px;
+  cursor: pointer;
+  align-self: center;
+  border: 1.5px solid #E5DCCB;
+  display: grid;
+  background: #847C6E;
+  color: #E5DCCB;
+  align-items: center;
+  justify-content: center;
+}
+
+.OpenMenu {
+  transition: left 0.5s ease-in-out;
+  left: 0 !important;
+}
+.OpenMenu .MenuComponent_ButtonBlock__button {
+  transition: rotate 0.5s ease-in-out;
+}
+
+.CloseMenu {
+  transition: left 0.5s ease-in-out;
+  left: -150px !important;
+}
+.CloseMenu .MenuComponent_ButtonBlock__button {
+  transition: rotate 0.5s ease-in-out;
+  rotate: 180deg;
+}
+
+@keyframes NewItemAnimation {
+  0% {
+    transition: rotate 1s linear;
+    rotate: -5deg;
+  }
+  33% {
+    rotate: 5deg;
+  }
+  100% {
+    rotate: 0;
+  }
+}
+.AddNewItemAnimation {
+  animation: NewItemAnimation 1s linear;
+}
+
+/*# sourceMappingURL=MenuComponent.css.map */
