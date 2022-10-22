@@ -8,8 +8,8 @@ import СCCBathStorage from "./DataForCCCBath/СССBathStorage";
 //import ChooseStage1 from './CalculatorBathComponents/imgStore/chooseStage1.jpg'
 //import ChooseStage2 from './CalculatorBathComponents/imgStore/chooseStage2.jpg'
 // import NavigateBathComponent from "./NavigateBathComponent/NavigateBathComponent";
-// import {useAppSelector} from "../../../Redux/ReduxConfigStore";
-// import {BathCalcType} from "./BathType";
+//  import {useAppSelector} from "../../../Redux/ReduxConfigStore";
+//  import {BathCalcType} from "./BathType";
 
 // const init = {
 //     firstStage: {type: 'firstStage', show: false},
@@ -32,8 +32,8 @@ import СCCBathStorage from "./DataForCCCBath/СССBathStorage";
 //     }
 //     ]
 const CalculatorBath = () => {
-      // const BathCalc: BathCalcType = useAppSelector(state => state.CalculatorBath)
-      // console.log(BathCalc)
+       // const BathCalc: BathCalcType = useAppSelector(state => state.CalculatorBath)
+       // console.log(BathCalc)
     //const [stage, setStage] = useState(init)
     // const handleClickStage = (name:string) => {
     //

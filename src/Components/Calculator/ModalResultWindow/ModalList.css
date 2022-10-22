@@ -5,6 +5,7 @@
   font-size: 15px;
   font-family: "Playfair Display", serif;
   align-items: center;
+  cursor: pointer;
   justify-items: center;
   justify-content: center;
   display: grid;
@@ -13,6 +14,38 @@
   color: #E5DCCB;
   align-self: end;
   position: absolute;
+}
+
+.ModalContainer {
+  margin: 15px auto;
+  z-index: 10;
+  max-width: 1280px;
+  min-width: 650px;
+  max-height: 90%;
+  background: #847C6E;
+  color: #E5DCCB;
+  overflow: scroll;
+}
+
+.ModalTable {
+  margin: auto;
+  z-index: 10;
+  max-width: 1280px;
+  min-width: 650px;
+  background: #847C6E;
+  color: #E5DCCB;
+}
+.ModalTable .ModalTable_Row__items {
+  color: #E5DCCB;
+}
+
+.ModalDeleteIcon {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  color: #E5DCCB !important;
 }
 
 /*# sourceMappingURL=ModalList.css.map */

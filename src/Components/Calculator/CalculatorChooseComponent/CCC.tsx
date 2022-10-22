@@ -16,11 +16,11 @@ type Variable = {
 type CCCType = {
     variable:Variable[],
     bool:boolean,
-    name:string,
+    name?:string,
     label:string
 }
 
-function CCC({variable,bool,name,label}:CCCType) {
+function CCC({variable,bool,label}:CCCType) {
     const nodeRef = useRef(null)
 
     return (
@@ -34,7 +34,6 @@ function CCC({variable,bool,name,label}:CCCType) {
             >
             <div
                 className="calculatorChooseComponent"
-                id={name}
                 ref={nodeRef}>
                 <H1Style>~ {label} ~</H1Style>
 

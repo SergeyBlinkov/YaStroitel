@@ -10,7 +10,7 @@ type dryWallBathInit =
 {
     bathLength:number,
     shelf:boolean,
-    hatch: {type:string,install:boolean},
+    hatch: {hatchType:string,install:boolean},
     spaceUnderBath:boolean
 }
 type antiWaterType = {
@@ -57,40 +57,40 @@ const angle = {
 
 
 const DryWallBath = {
-        type:'dryWallBath',
+        type:'DryWallBath',
         label:'Гипсокартонные работы у ванны',
-        shelf: {label:'Полка у ванны',price:0},
-        bathroomScreen:{label:"Установка экрана под ванну",price:0},
+        shelf: {label:'Полка у ванны',price:0,type:"shelf"},
+        bathroomScreen:{label:"Установка экрана под ванну",price:0,type:"bathroomScreen"},
         bathLength: 0,
-        spaceUnderBath: {label:'Пространство под ванной',price:0},
-        hatch: {type:"",label:'Люк',price:0},
+        spaceUnderBath: {label:'Пространство под ванной',price:0,type:"spaceUnderBath"},
+        hatch: {type:"hatch",hatchType:"",label:'Люк',price:0},
         price: 0
 
     }
 const DryWallWall = {
-        type:'dryWallWall',
+        type:'DryWallWall',
         label:'Перегородка (стена) из гипсокартона',
-        wallLength: {label:'Длина стены',price:0,amount:0},
-        doorBoolean:{label:'Дверной проём',price:0},
-        soundBoolean:{label:'Звукоизоляция',price:0},
-        socketCount:{label:'Отверстие под розетки',amount:0,price:0},
+        wallLength: {label:'Длина стены',price:0,amount:0,type:"wallLength"},
+        doorBoolean:{label:'Дверной проём',price:0,type:"doorBoolean"},
+        soundBoolean:{label:'Звукоизоляция',price:0,type:"soundBoolean"},
+        socketCount:{label:'Отверстие под розетки',amount:0,price:0,type:"socketCount"},
         price:0
     }
 const DryWallBox = {
-        type:'dryWallBox',
+        type:'DryWallBox',
         label:'Закрыть коробом трубы',
-        angleCount: {label:'Короб с одним внешним углом',amount:0,price:0},
-        twoAngleCount: {label:'Короб с двумя внешними углами',amount:0,price:0},
-        hatch:{label:'Отверстие под люк в коробе',price:0},
+        angleCount: {label:'Короб с одним внешним углом',amount:0,price:0,type:"angleCount"},
+        twoAngleCount: {label:'Короб с двумя внешними углами',amount:0,price:0,type:"twoAngleCount"},
+        hatch:{label:'Отверстие под люк в коробе',price:0,type:"hatch"},
         price:0
     }
     //todo DryWallShower пока что не задействован
    const DryWallShower = {
-        type:'dryWallShower',
+        type:'DryWallShower',
         label:'Гипсокартонные работы в душе',
         price:0,
         showerBoard: {
-            type:'dryWallShowerBoard',
+            type:'showerBoard',
             label:'Полка в душевой',
             priceForPie:0,
             amount:0,
@@ -383,57 +383,157 @@ const CalculatorBathSlice = createSlice({
             if(ap.shelf) state.DryWallBath.shelf.price = dryWallBase.shelf
             if(ap.spaceUnderBath) state.DryWallBath.spaceUnderBath.price = dryWallBase.spaceUnderBath
             if(ap.hatch.install) {
-                if(ap.hatch.type === 'plastic') state.DryWallBath.hatch.label = 'Люк(пластиковый)'
+                if(ap.hatch.hatchType === 'plastic') state.DryWallBath.hatch.label = 'Люк(пластиковый)'
                 else state.DryWallBath.hatch.label = 'Люк скрытого монтажа(с облицовкой плиткой)'
-                state.DryWallBath.hatch.type = ap.hatch.type
-                state.DryWallBath.hatch.price = dryWallBase.hatch[ap.hatch.type as keyof typeof dryWallBase.hatch]
+                state.DryWallBath.hatch.hatchType = ap.hatch.hatchType
+                state.DryWallBath.hatch.price = dryWallBase.hatch[ap.hatch.hatchType as keyof typeof dryWallBase.hatch]
             }
-            const result = (bath.bathLength * dryWallBase.dryWallBathScreen) + bath.shelf.price +
-                bath.hatch.price + bath.spaceUnderBath.price + dryWallBase.dryWallBathScreen * ap.bathLength
-            state.DryWallBath.price = +result
             state.DryWallBath.bathroomScreen.price = dryWallBase.dryWallBathScreen * ap.bathLength
+            const result = state.DryWallBath.bathroomScreen.price + bath.shelf.price +
+                bath.hatch.price + bath.spaceUnderBath.price
+            state.DryWallBath.price = +result
+
         },
         bathRoomSink : (state) => {
             state.BathRoomSink.price = plumbing.bathRoomSink
         },
         deletePriceFromCalculatorReducer: (state, action) => {
             const {name,type}:{name:string,type?:string} = action.payload
-            console.log(name,type)
-            if (type === 'dryWallBath') {
+            if (type === 'DryWallBath') {
+                if(name === 'DryWallBath') {
                     state.DryWallBath.hatch.price = 0
                     state.DryWallBath.price = 0
                     state.DryWallBath.bathroomScreen.price = 0
                     state.DryWallBath.shelf.price = 0
                     state.DryWallBath.spaceUnderBath.price = 0
                 }
-            if (type === 'dryWallWall') {
+                if(name === 'hatch') {
+                    state.DryWallBath.price =
+                        state.DryWallBath.price - state.DryWallBath.hatch.price
+                    state.finalResult = state.finalResult - state.DryWallBath.hatch.price
+                    state.DryWallBath.hatch.price = 0
+                }
+                if(name === 'bathroomScreen') {
+                    state.DryWallBath.price =
+                        state.DryWallBath.price - state.DryWallBath.bathroomScreen.price
+                    state.finalResult = state.finalResult - state.DryWallBath.bathroomScreen.price
+                    state.DryWallBath.bathroomScreen.price = 0
+                }
+                if(name === 'spaceUnderBath') {
+                    state.DryWallBath.price =
+                        state.DryWallBath.price - state.DryWallBath.spaceUnderBath.price
+                    state.finalResult = state.finalResult - state.DryWallBath.spaceUnderBath.price
+                    state.DryWallBath.spaceUnderBath.price = 0
+                }
+                if(name === 'shelf') {
+                    state.DryWallBath.price =
+                        state.DryWallBath.price - state.DryWallBath.shelf.price
+                    state.finalResult = state.finalResult - state.DryWallBath.shelf.price
+                    state.DryWallBath.shelf.price = 0
+                }
+                }
+            if (type === 'DryWallWall') {
+                if(name === 'socketCount') {
+                    state.DryWallWall.price =
+                        state.DryWallWall.price - state.DryWallWall.socketCount.price
+                    state.finalResult = state.finalResult - state.DryWallWall.socketCount.price
+                    state.DryWallWall.socketCount.price = 0
+                }
+                if(name === 'doorBoolean') {
+                    state.DryWallWall.price =
+                        state.DryWallWall.price - state.DryWallWall.doorBoolean.price
+                    state.finalResult = state.finalResult - state.DryWallWall.doorBoolean.price
+                    state.DryWallWall.doorBoolean.price = 0
+                }
+                if(name === 'soundBoolean') {
+                    state.DryWallWall.price =
+                        state.DryWallWall.price - state.DryWallWall.soundBoolean.price
+                    state.finalResult = state.finalResult - state.DryWallWall.soundBoolean.price
+                    state.DryWallWall.soundBoolean.price = 0
+                }
+                if(name === 'wallLength') {
+                    state.DryWallWall.price =
+                        state.DryWallWall.price - state.DryWallWall.wallLength.price
+                    state.finalResult = state.finalResult - state.DryWallWall.wallLength.price
+                    state.DryWallWall.wallLength.price = 0
+                }
+                if(name === 'DryWallWall') {
                 state.DryWallWall.doorBoolean.price = 0
                 state.DryWallWall.soundBoolean.price = 0
                 state.DryWallWall.wallLength.price = 0
                 state.DryWallWall.socketCount.price = 0
                 state.DryWallWall.price = 0
+                }
             }
-            if(name=== 'angle') state.angle.price = 0
-            if(name === 'hole') state.hole.price = 0
-            if(type === 'linearMetres') state.linearMetres.price = 0
-            if (type === 'dryWallBox') {
-                state.DryWallBox.angleCount.price = 0
-                state.DryWallBox.twoAngleCount.price = 0
-                state.DryWallBox.hatch.price = 0
-                state.DryWallBox.price = 0
+            if(name=== 'angle') {
+                state.finalResult = state.finalResult - state.angle.price
+                state.angle.price = 0
             }
-            if (type === 'dryWallShower') state.DryWallShower.showerBoard.price = 0
-            if(name === 'bath') state.bath.price = 0
-            if(name === 'toilet') state.toilet.price = 0
-            if(name === 'showerType') state.showerType.price = 0
-            if(name === 'antiWater') state.antiWater.price = 0
+            if(name === 'hole') {
+                state.finalResult = state.finalResult - state.hole.price
+                state.hole.price = 0
+            }
+            if(type === 'linearMetres') {
+                state.finalResult = state.finalResult - state.linearMetres.price
+                state.linearMetres.price = 0
+            }
+            if (type === 'DryWallBox') {
+                if(name === 'angleCount') {
+                    state.DryWallBox.price =
+                        state.DryWallBox.price - state.DryWallBox.angleCount.price
+                    state.finalResult = state.finalResult - state.DryWallBox.angleCount.price
+                    state.DryWallBox.angleCount.price = 0
+                }
+                if(name === 'twoAngleCount') {
+                    state.DryWallBox.price =
+                        state.DryWallBox.price - state.DryWallBox.twoAngleCount.price
+                    state.finalResult = state.finalResult - state.DryWallBox.twoAngleCount.price
+                    state.DryWallBox.twoAngleCount.price = 0
+                }
+                if(name === 'hatch') {
+                    state.DryWallBox.price =
+                        state.DryWallBox.price - state.DryWallBox.hatch.price
+                    state.finalResult = state.finalResult - state.DryWallBox.hatch.price
+                    state.DryWallBox.hatch.price = 0
+                }
+                if(name === 'DryWallBox') {
+                    state.DryWallBox.angleCount.price = 0
+                    state.DryWallBox.twoAngleCount.price = 0
+                    state.DryWallBox.hatch.price = 0
+                    state.DryWallBox.price = 0
+                }
+            }
+            if (type === 'DryWallShower') {
+                state.finalResult = state.finalResult - state.DryWallShower.showerBoard.price
+                state.DryWallShower.showerBoard.price = 0
+            }
+            if(name === 'bath') {
+                state.finalResult = state.finalResult - state.bath.price
+                state.bath.price = 0
+            }
+            if(name === 'toilet') {
+                state.finalResult = state.finalResult - state.toilet.price
+                state.toilet.price = 0
+            }
+            if(name === 'showerType') {
+                state.finalResult = state.finalResult - state.showerType.price
+                state.showerType.price = 0
+            }
+            if(name === 'antiWater')  {
+                state.finalResult = state.finalResult - state.antiWater.price
+                state.antiWater.price = 0
+            }
             if(name === 'TileSize' || name === 'prime') {
                 state.TileSize.price = 0
                 state.prime.price = 0
             }
-            if(name === 'BathRoomSink') state.BathRoomSink.price = 0
+            if(name === 'BathRoomSink') {
+                state.finalResult = state.finalResult - state.BathRoomSink.price
+                state.BathRoomSink.price = 0
+            }
             if(name === 'fillSeam') {
                 state.fillSeam.type = ''
+                state.finalResult = state.finalResult - state.fillSeam.price
                 state.fillSeam.price = 0
                 state.fillSeam.label = 'Затирка'
             }

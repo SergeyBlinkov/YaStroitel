@@ -48,63 +48,17 @@ function СCCBathStorage() {
         ...prev,[name]: !prev[name as keyof typeof prev]
     }))
     return (
-        <>
-            {/*<div className={'calculatorBath-additionalWork'}>*/}
-            {/*    <Tooltip title={'Все елементы появятся внизу'} placement={'right'}><FormControlLabel*/}
-            {/*        control={<Checkbox*/}
-            {/*            checked={storage.bathType}*/}
-            {/*            onChange={handleChange}*/}
-            {/*            name={'bathType'}*/}
-            {/*        />}*/}
-            {/*        label={'Установка ванны'}*/}
-            {/*    /></Tooltip>*/}
-            {/*    <Tooltip title={'Все елементы появятся внизу'} placement={'right'}><FormControlLabel*/}
-            {/*        control={<Checkbox*/}
-            {/*            name={'toiletBoolean'}*/}
-            {/*            onChange={handleChange}*/}
-            {/*            checked={storage.toiletBoolean}*/}
-            {/*        />}*/}
-            {/*        label={'Установка туалета'}/>*/}
-            {/*    </Tooltip>*/}
-            {/*    <Tooltip title={'Все елементы появятся внизу'} placement={'right'}><FormControlLabel*/}
-            {/*        control={<Checkbox*/}
-            {/*            onChange={handleChange}*/}
-            {/*            checked={storage.showerTray}*/}
-            {/*            name={'showerTray'}*/}
-            {/*        />}*/}
-            {/*        label={'Установка душ поддона'}/></Tooltip>*/}
-            {/*    <Tooltip title={'Все елементы появятся внизу'} placement={'right'}><FormControlLabel*/}
-            {/*        control={<Checkbox*/}
-            {/*            onChange={handleChange}*/}
-            {/*            checked={storage.dryWall}*/}
-            {/*            name={'dryWall'}*/}
-            {/*        />}*/}
 
-            {/*        label={'Установка коробов из гипсокартона'}/></Tooltip>*/}
-            {/*    <Tooltip title={'Все елементы появятся внизу'} placement={'right'}><FormControlLabel*/}
-            {/*        control={<Checkbox*/}
-            {/*            onChange={handleChange}*/}
-            {/*            checked={storage.antiWater}*/}
-            {/*            name={'antiWater'}/>}*/}
-
-            {/*        label={'Гидроизоляция помещения'}/></Tooltip>*/}
-            {/*    <Tooltip title={'Все елементы появятся внизу'} placement={'right'}><FormControlLabel*/}
-            {/*        control={<Checkbox*/}
-            {/*            name={'bathRoomSink'}*/}
-            {/*            onChange={handleChange}*/}
-            {/*            checked={storage.bathRoomSink}/>}*/}
-            {/*        label={'Установка раковины'}*/}
-            {/*    /></Tooltip>*/}
-            {/*</div>*/}
-            <div className={'calculatorBath-additionalWork_opened'}>
+            <div className={'calculatorBath-additionalWork_opened'} id={'additionalItems'}>
                     <CCC
                         variable={CCCAdditionalTileItemsData}
                         name={'additionalItems'}
                         bool={true}
                         label={'Дополнительные работы по плитке'}
                     />
-                <div className={'calculatorBath-additionalWork_opened__items'}>
+                <div className={'calculatorBath-additionalWork_opened__items'} >
                     <Button
+                        id={'bath'}
                         variant={'contained'}
                         onClick={()=>handleOpen('bathType')}
                         className={'calculatorBath-additionalWork_opened__button'}
@@ -116,8 +70,9 @@ function СCCBathStorage() {
                     label={'Ванны'}
                 />
                 </div>
-                <div className="calculatorBath-additionalWork_opened__items">
+                <div className="calculatorBath-additionalWork_opened__items" >
                     <Button
+                        id={'dryWall'}
                         variant={'contained'}
                         onClick={()=>handleOpen('dryWall')}
                         className={'calculatorBath-additionalWork_opened__button'}>
@@ -129,8 +84,9 @@ function СCCBathStorage() {
                         label={'Варианты установки гипсокартона'}
                     />
                 </div>
-                <div className="calculatorBath-additionalWork_opened__items">
+                <div className="calculatorBath-additionalWork_opened__items" >
                     <Button
+                        id={'toilet'}
                         variant={'contained'}
                         onClick={()=>handleOpen('toiletBoolean')}
                         className={'calculatorBath-additionalWork_opened__button'}
@@ -142,8 +98,9 @@ function СCCBathStorage() {
                         label={'Два варианта унитаза в помещении'}
                     />
                 </div>
-                <div className="calculatorBath-additionalWork_opened__items">
+                <div className="calculatorBath-additionalWork_opened__items" >
                     <Button
+                        id={'antiWater'}
                         variant={'contained'}
                         onClick={()=>handleOpen('antiWater')}
                         className={'calculatorBath-additionalWork_opened__button'}
@@ -155,8 +112,9 @@ function СCCBathStorage() {
                         label={'Гидроизоляция помещения'}
                     />
                 </div>
-                <div className="calculatorBath-additionalWork_opened__items">
+                <div className="calculatorBath-additionalWork_opened__items" >
                     <Button
+                        id={'showerType'}
                         variant={'contained'}
                         onClick={()=>handleOpen('showerTray')}
                         className={'calculatorBath-additionalWork_opened__button'}
@@ -168,8 +126,9 @@ function СCCBathStorage() {
                         label={'Душевой поддон'}
                     />
                 </div>
-                <div className="calculatorBath-additionalWork_opened__items">
+                <div className="calculatorBath-additionalWork_opened__items" >
                     <Button
+                        id={'BathRoomSink'}
                         variant={'contained'}
                         onClick={()=>handleOpen('bathRoomSink')}
                         className={'calculatorBath-additionalWork_opened__button'}
@@ -183,7 +142,7 @@ function СCCBathStorage() {
                 </div>
 
             </div>
-        </>
+
     );
 }
 

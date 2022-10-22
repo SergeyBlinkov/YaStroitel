@@ -1,24 +1,25 @@
 .WorkList {
-
+  max-height: 500px;
   display: grid;
   margin-top: 12px;
   justify-items: center;
   justify-content: center;
   width: 100%;
   grid-gap: 5px;
-  overflow: hidden;
   transition: height 1s ease-in-out;
+  &::-webkit-scrollbar-thumb {
 
+  }
 
   .WorkList_item {
-    width: 150px;
+    width: 100%;
     display: grid;
     padding: 5px;
     background: #847C6E;
     color: #E5DCCB;
-    grid-template-columns: 115px 25px;
-    justify-self: center;
+    height: 45px;
     align-items: center;
+    grid-template-columns: 115px 25px;
     font-size: 14px;
     letter-spacing: 1px;
     z-index: 8;

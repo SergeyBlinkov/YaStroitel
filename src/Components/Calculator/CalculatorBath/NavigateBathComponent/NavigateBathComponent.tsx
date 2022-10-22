@@ -1,18 +1,11 @@
 import React from 'react';
 import './NavigateBathComponent.css'
-import {useAppSelector} from "../../../../Redux/ReduxConfigStore";
 import ButtonComponentId from "../../../helperComponent/ButtonComponentId";
 
-//Каждый новый variable нужно вписывать сюда значение из поля name в компоненте CCCBathStorage(CCC)
-const init = ['bath','additionalItems','dryWall','toilet','antiWater','showerType','BathRoomSink']
 
-//todo разобраться со скролом на нужный участок страницы
+
 function NavigateBathComponent() {
 
-    const BathCalc = useAppSelector(state => state.CalculatorBath)
-    const dryWallChecker = BathCalc.DryWallWall.price > 0 || BathCalc.DryWallBath.price > 0 ||
-        BathCalc.DryWallBox.price > 0 || BathCalc.DryWallShower.price > 0
-    const showElement = Object.values(BathCalc).filter(data => init.includes(data.type))
 
 
     return (<div className={'NavigateBathComponent'}>
@@ -28,19 +21,43 @@ function NavigateBathComponent() {
             classNames={'NavigateBathComponent_button'}
             icon={'fa-solid fa-earth-americas'}
         />
-                        {dryWallChecker && <div className={'NavigateBathComponent_button'}>
-                        <i className="fa-solid fa-earth-americas"></i>
-                        <a href={'#dryWall'}>Гипсокартонные работы</a>
-                    </div>}
-                        {showElement.map(data => (<div key={data.type}><ButtonComponentId
-                            id={`#${data.type}`}
-                            name={data.label}
-                            classNames={'NavigateBathComponent_button'}
-                            icon={'fa-solid fa-earth-americas'}
-                        /></div>))
-                        }
-
-                    </div>
+            <ButtonComponentId
+                id={'#dryWall'}
+                name={'Гипсокартонные работы'}
+                classNames={'NavigateBathComponent_button'}
+                icon={'fa-solid fa-earth-americas'}
+            />
+            <ButtonComponentId
+                id={'#BathRoomSink'}
+                name={'Установка раковины'}
+                classNames={'NavigateBathComponent_button'}
+                icon={'fa-solid fa-earth-americas'}
+            />
+            <ButtonComponentId
+                id={'#showerType'}
+                name={'Душевой поддон'}
+                classNames={'NavigateBathComponent_button'}
+                icon={'fa-solid fa-earth-americas'}
+            />
+            <ButtonComponentId
+                id={'#antiWater'}
+                name={'Гидроизоляция помещения'}
+                classNames={'NavigateBathComponent_button'}
+                icon={'fa-solid fa-earth-americas'}
+            />
+            <ButtonComponentId
+                id={'#toilet'}
+                name={'Установка туалета'}
+                classNames={'NavigateBathComponent_button'}
+                icon={'fa-solid fa-earth-americas'}
+            />
+            <ButtonComponentId
+                id={'#bath'}
+                name={'Установка ванны'}
+                classNames={'NavigateBathComponent_button'}
+                icon={'fa-solid fa-earth-americas'}
+            />
+    </div>
     );
 }
 
