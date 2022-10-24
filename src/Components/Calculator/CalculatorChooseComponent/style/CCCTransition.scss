@@ -254,3 +254,40 @@
   overflow: hidden;
 }
 
+.MoveToRight-enter {
+  transform:translateX(-200px);
+  opacity: 0;
+}
+.MoveToRight-enter-active {
+  transform:translateX(0);
+  opacity: 1;
+  transition: opacity 1000ms linear,transform 500ms ease-out;
+}
+.MoveToRight-exit {
+  opacity: 1;
+}
+.MoveToRight-exit-active {
+  transform:translateX(200px);
+  opacity: 0;
+  transition: opacity 1000ms linear,transform 500ms ease-out;
+}
+
+
+
+.MoveToRightBack-enter {
+  transform:translateX(-200px) !important;
+  opacity: 0;
+}
+.MoveToRightBack-active {
+  transform:translateX(0);
+  opacity: 1;
+  transition: opacity 1000ms linear,transform 500ms ease-out;
+}
+.MoveToRightBack-exit {
+  opacity: 1;
+}
+.MoveToRightBack-exit-active {
+  transform:translateX(-150px);
+  opacity: 0;
+  transition: opacity 1000ms linear,transform 500ms ease-out;
+}

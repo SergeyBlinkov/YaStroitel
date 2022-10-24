@@ -183,18 +183,18 @@ const CalculatorBathSlice = createSlice({
     reducers: {
         fillMetres: (state,action) => {
             const ap:{floor:number,wall:number} = action.payload
-            const apFloor = action.payload.floor.toFixed(1)
-            const apWall = action.payload.wall.toFixed(1)
+            const apFloor = +action.payload.floor.toFixed(1)
+            const apWall = +action.payload.wall.toFixed(1)
             const typeFillSeam = state.fillSeam.type
             const fillSeam = ceramic.ceramicTiles.fillSeam
             if(state.TileSize.price > 0) {
                 if(state.fillSeam.type.length > 0) state.fillSeam.price =
-                    +fillSeam[typeFillSeam as keyof typeof fillSeam].price * +(+apFloor + +apWall)
-                state.prime.price = +ceramic.ceramicTiles.prime * +(+apFloor + +apWall)
+                    +fillSeam[typeFillSeam as keyof typeof fillSeam].price * (apFloor + apWall)
+                state.prime.price = +ceramic.ceramicTiles.prime * +(apFloor + apWall)
             }
             if(ap.floor > 0 || ap.wall > 0) {
-                state.MetresRoom.wall.amount = +apWall
-                state.MetresRoom.floor.amount = +apFloor
+                state.MetresRoom.wall.amount = apWall
+                state.MetresRoom.floor.amount = apFloor
             } else {
                 state.MetresRoom.wall.amount = 0
                 state.MetresRoom.floor.amount = 0

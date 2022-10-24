@@ -80,7 +80,11 @@ function ModalList() {
                 handleShow()
                     return dispatch(resultCost())
             }}>
-                <i className="fa-regular fa-rectangle-list"></i>
+                <div className={'ButtonModalList_icon'}>
+                    <i className="fa-regular fa-rectangle-list"></i>
+                    {showElement.length > 0 && <span>{showElement.length}</span>}
+                </div>
+
                 <p>Смета</p>
             </div>
         </>

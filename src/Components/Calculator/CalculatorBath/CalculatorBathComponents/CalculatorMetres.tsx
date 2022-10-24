@@ -1,9 +1,10 @@
-import React, {useState} from 'react';
+import React, {useRef, useState} from 'react';
 import {Button, Checkbox, FormControlLabel, TextField} from "@mui/material";
 import {useAppDispatch, useAppSelector} from "../../../../Redux/ReduxConfigStore";
 import {fillMetres} from "../../../../Redux/CalculatorBathSlice";
 import {toPeriod} from "../../../helperComponent/helperComponent";
 import MainPic1 from './imgStore/mainpic1.jpg'
+import {CSSTransition, SwitchTransition} from "react-transition-group";
 
 const style = {
     width:'400px',
@@ -19,12 +20,15 @@ const CalculatorMetres = () => {
     const ShowElement = Object.values(BathCalc).filter(data => data.price > 0)
     const [roomSize, setRoomSize] = useState(init)
     const [showSize, setShowSize] = useState(false)
-
+    const roomSizeRef = useRef(null)
+    const helpSizeRef = useRef(null)
+    const nodeRef = showSize ? roomSizeRef : helpSizeRef
     const generalMetres = BathCalc.MetresRoom.floor.amount + BathCalc.MetresRoom.wall.amount
     const handleChangeMetres = (e: InputEvent) => {
         const m = e.target.value
         const floor = toPeriod(m)
-        const wall = ((Math.sqrt(floor) * roomSize.z) * 4) - 1.6
+        const oneWall = Math.sqrt(floor)
+        const wall = ((oneWall * roomSize.z) * 4) - 1.6
         return dispatch(fillMetres({floor: +floor, wall}))
     }
     const handleChangeBool = () => setShowSize(!showSize)
@@ -59,54 +63,66 @@ const CalculatorMetres = () => {
                         Ваш общий метраж в помещении(Стены + Полы): <span>{generalMetres} кв/м</span>
                     </p>}
                 </div>
-                {showSize ?
-                    <div className={'calculator_roomSize'}>
-                        <div className={'calculator_roomSize_group'}>
-                            <div className={'calculator_roomSize_item'}>
-                                <p className={'calculator_roomSize_item__p'}>Ширина</p>
-                                <TextField
-                                    helperText={'Введите размер в Метрах'}
-                                    name={'x'}
-                                    onChange={handleSideMetres}
-                                    label={'Первая сторона'}
-                                />
-                            </div>
-                            <div className={'calculator_roomSize_item'}>
-                                <p className={'calculator_roomSize_item__p'}>Длина</p>
-                                <TextField
-                                    helperText={'Введите размер в Метрах'}
-                                    name={'y'}
-                                    label={'Вторая сторона'}
-                                    onChange={handleSideMetres}
-                                />
-                            </div>
-                            <div className={'calculator_roomSize_item'}>
-                                <p className={'calculator_roomSize_item__p'}>Высота</p>
-                                <TextField
-                                    helperText={'Введите размер в Метрах * Не обязательно'}
-                                    name={'z'}
-                                    label={'Высота Потолков *Стандартно 2.5'}
-                                    onChange={handleSideMetres}
-                                />
-                            </div>
-                        </div>
-                        <div className="calculator_roomSize_group__buttonResult">
-                            <Button
-                                className={'calculator_roomSize__button'}
-                                color={'inherit'}
-                                variant={'outlined'}
-                                onClick={() => calculateRoomMetres()}
-                            >Узнать Результат</Button>
-                        </div>
+                <SwitchTransition mode={'out-in'}>
+                    <CSSTransition
+                    key={showSize ? "roomSizeRef" : "helpSizeRef"}
+                    timeout={500}
+                    nodeRef={nodeRef}
+                    classNames={'MoveToRight'}
+                    >
+                    <div ref={nodeRef}>
+                        {showSize ?
+                            <div className={'calculator_roomSize'}>
+                                <div className={'calculator_roomSize_group'}>
+                                    <div className={'calculator_roomSize_item'}>
+                                        <p className={'calculator_roomSize_item__p'}>Ширина</p>
+                                        <TextField
+                                            helperText={'Введите размер в Метрах'}
+                                            name={'x'}
+                                            onChange={handleSideMetres}
+                                            label={'Первая сторона'}
+                                        />
+                                    </div>
+                                    <div className={'calculator_roomSize_item'}>
+                                        <p className={'calculator_roomSize_item__p'}>Длина</p>
+                                        <TextField
+                                            helperText={'Введите размер в Метрах'}
+                                            name={'y'}
+                                            label={'Вторая сторона'}
+                                            onChange={handleSideMetres}
+                                        />
+                                    </div>
+                                    <div className={'calculator_roomSize_item'}>
+                                        <p className={'calculator_roomSize_item__p'}>Высота</p>
+                                        <TextField
+                                            helperText={'Введите размер в Метрах * Не обязательно'}
+                                            name={'z'}
+                                            label={'Высота Потолков *Стандартно 2.5'}
+                                            onChange={handleSideMetres}
+                                        />
+                                    </div>
+                                </div>
+                                <div className="calculator_roomSize_group__buttonResult">
+                                    <Button
+                                        className={'calculator_roomSize__button'}
+                                        color={'inherit'}
+                                        variant={'outlined'}
+                                        onClick={() => calculateRoomMetres()}
+                                    >Узнать Результат</Button>
+                                </div>
 
 
-                </div> :
-                    <div className={'calculator_roomSize_chooseSize'}>
-                        <p>Мы поможем вам расчитать размер</p>
-                        <FormControlLabel control={<Checkbox
-                            onChange={handleChangeBool}
-                            checked={showSize} />} label={'Не знаете размер?'}/>
-                        </div>}
+                            </div> :
+                            <div className={'calculator_roomSize_chooseSize'}>
+                                <p>Мы поможем вам расчитать размер</p>
+                                <FormControlLabel control={<Checkbox
+                                    onChange={handleChangeBool}
+                                    checked={showSize} />} label={'Не знаете размер?'}/>
+                            </div>}
+                    </div>
+                    </CSSTransition>
+                </SwitchTransition>
+
             </div>
 
 

@@ -71,14 +71,23 @@
 
 @keyframes NewItemAnimation {
   0% {
-    transition: rotate 1s linear;
-    rotate: -5deg;
+    background: #847C6E;
+    color: #E5DCCB;
   }
   33% {
-    rotate: 5deg;
+    transform: translateY(-5px);
+    background: #E5DCCB;
+    color: #847C6E;
+  }
+  66% {
+    background: #E5DCCB;
+    color: #847C6E;
+    transform: translateY(5px);
   }
   100% {
-    rotate: 0;
+    transform: translateY(0);
+    background: #847C6E;
+    color: #E5DCCB;
   }
 }
 .AddNewItemAnimation {

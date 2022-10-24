@@ -3,12 +3,15 @@ import React from "react";
 import styled from "styled-components";
 
 export const toPeriod = (data:string) => {
-    const splitArr = data.replace(/(,)/, '.').split(".")
-    let finalResult = ""
-    for (let i = 0; i < splitArr.length; i++)
-        if (finalResult.length === 0) finalResult = `${splitArr[0]}.`
-        else finalResult += splitArr[i]
-    return +finalResult
+    if(data.length > 0) {
+        const splitArr = data.replace(/(,)/, '.').split(".")
+        let finalResult = ""
+        for (let i = 0; i < splitArr.length; i++)
+            if (finalResult.length === 0) finalResult = `${splitArr[0]}.`
+            else finalResult += splitArr[i]
+        return +finalResult
+    }
+    else return 0
 }
 
 type ListOfBenefitAndLimitType = {benefits:string[],limitations:string[]}

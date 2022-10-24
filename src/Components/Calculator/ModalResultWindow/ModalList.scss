@@ -14,7 +14,11 @@
   color: #E5DCCB;
   align-self: end;
   position: absolute;
-
+  .ButtonModalList_icon {
+    display: grid;
+    grid-template-columns: 1fr minmax(0,1fr);
+    grid-gap: 10px;
+  }
 }
 .ModalContainer {
   margin: 15px auto;

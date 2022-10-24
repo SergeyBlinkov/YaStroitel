@@ -6,14 +6,22 @@ import {useAppDispatch} from "../../../../../Redux/ReduxConfigStore";
 import {toPeriod} from "../../../../helperComponent/helperComponent";
 import CCCNewButton from "../../../CalculatorChooseComponent/CCCNewButton";
 import {additionalItemHole} from "../../../../../Redux/CalculatorBathSlice";
+import AlertMessageHc from "../../../../helperComponent/AlertMessageHC";
 
 function HoleComponent() {
     const [storage,setStorage] = useState({type:'porcelain',amount:0})
+    const [err,setErr] = useState({isShow:false,message:''})
     const dispatch = useAppDispatch()
     const porcelainChecker = storage.type === 'porcelain'
     const handleChange = (e: ChangeEvent) => setStorage({...storage,amount:toPeriod(e.target.value)})
     const handleClick = (type:string) => setStorage({...storage,type})
-    const handleClickDispatch = () => dispatch(additionalItemHole(storage))
+    const handleClickDispatch = () => {
+        if(storage.amount === 0) setErr(prev=>({...prev,isShow: true,message:'Введите количество отверстий'}))
+        else {
+            setErr(prev=> ({...prev,isShow: false,message: ''}))
+            dispatch(additionalItemHole(storage))
+        }
+    }
     return (
         <div className={'AdditionalItemHole'}>
             <h2>Ваш формат плитки</h2>
@@ -48,6 +56,7 @@ function HoleComponent() {
                 onChange={handleChange}
                 onKeyUp={(e) => e.key === 'Enter' && handleClickDispatch()}
             />
+            <AlertMessageHc inBool={err.isShow} label={err.message}/>
             <CCCNewButton label={'Добавить работу в смету'} click={handleClickDispatch} />
         </div>
     );

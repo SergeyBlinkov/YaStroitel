@@ -5,7 +5,7 @@ import './style/CCCTransition.css'
 type CCCNewButtonType = {
     bool?:boolean,
     label:string,
-    click:() => {payload:any;type:string}
+    click:() => {payload:any;type:string} | void
 }
 
 function CCCNewButton({label,click}:CCCNewButtonType) {

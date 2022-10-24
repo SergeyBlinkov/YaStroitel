@@ -8,13 +8,21 @@ import CCCNewButton from "../../../CalculatorChooseComponent/CCCNewButton";
 import {additionalItemLinearMetres} from "../../../../../Redux/CalculatorBathSlice";
 import linearMetres1 from './imgStore/linearMetres1.jpg';
 import linearMetres2 from './imgStore/linearMetres2.jpg';
+import AlertMessageHc from "../../../../helperComponent/AlertMessageHC";
 
 const linearMetresStore = [linearMetres1,linearMetres2]
 function LinearMetresComponent() {
     const [amount,setAmount] = useState(0)
+    const [err,setErr] = useState({isShow:false,message:''})
     const dispatch = useAppDispatch()
     const handleChange = (e: ChangeEvent) => setAmount(toPeriod(e.target.value))
-    const handleClickDispatch = () => dispatch(additionalItemLinearMetres(amount))
+    const handleClickDispatch = () => {
+        if(amount === 0) setErr(prev=> ({...prev,isShow: true,message: 'Введите размер в погонных метрах'}))
+        else {
+            setErr(prev=> ({...prev,isShow: false,message: ''}))
+            dispatch(additionalItemLinearMetres(amount))
+        }
+    }
     return (<div className={'AdditionalItemLinearMetres'}>
             <h2>Откосы</h2>
             <p className={'AdditionalItemLinearMetres_description'}>Сюда нужно внести участки стены менее 30см, измерить его высоту и записать в поле:</p>
@@ -30,6 +38,7 @@ function LinearMetresComponent() {
                 label={'Введите размер в Метрах через точку'}
                 onKeyUp={(e) => e.key === 'Enter' && handleClickDispatch()}
             />
+            <AlertMessageHc inBool={err.isShow} label={err.message}/>
             <CCCNewButton label={'Добавить работу в смету'} click={handleClickDispatch} />
         </div>
 
