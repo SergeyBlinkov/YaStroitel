@@ -21,8 +21,8 @@ const angleDescribe = 'Красивое дизайнерское решение,
 const profileDescribe = 'Практичный и безопасный вариант, не имеет острых углов, более устойчив\n' +
     '                        к механическим воздействиям, но имеет менее эстетичный внешний вид,\n' +
     '                        бросается в глаза, вариант более дешевый'
-const angleImg = [profile1,profile2,profile3]
-const profileImg = [degree1,degree2,degree3]
+const angleImg = [degree1,degree2,degree3]
+const profileImg = [profile1,profile2,profile3]
 
 function AngleComponent() {
     const [storage,setStorage] = useState({type:'',amount:0})

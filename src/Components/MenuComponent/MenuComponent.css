@@ -1,13 +1,12 @@
 .MenuComponent {
   display: grid;
   grid-template-columns: 150px 25px;
-  height: calc(100% - 160px);
+  height: 500px;
   position: fixed;
   align-items: start;
   top: 80px;
   left: 0;
   z-index: 8;
-  max-height: calc(100% - 160px) !important;
 }
 .MenuComponent .MenuComponent-menuBar {
   display: grid;
@@ -16,6 +15,7 @@
   height: 100%;
   background: #E5DCCB;
   color: #847C6E;
+  border: 2px solid rgba(68, 68, 68, 0.95);
   width: 100%;
   transition: all 1s linear;
 }

@@ -45,11 +45,11 @@ function ModalBathList() {
 
         let data = {type,label:service,mainType}
         return <>{price > 0 && <TableRow>
-            <TableCell>{service}</TableCell>
-            <TableCell>{priceForPiece || ''}</TableCell>
-            <TableCell>{amount || ''}</TableCell>
-            <TableCell>{price}</TableCell>
-            <TableCell><IconButton
+            <TableCell sx={{color:'#E5DCCB'}}>{service}</TableCell>
+            <TableCell sx={{color:'#E5DCCB'}}>{priceForPiece || ''}</TableCell>
+            <TableCell sx={{color:'#E5DCCB'}}>{amount || ''}</TableCell>
+            <TableCell sx={{color:'#E5DCCB'}}>{price}</TableCell>
+            <TableCell sx={{color:'#E5DCCB'}}><IconButton
                 aria-label="delete"
                 size="small"
                 onClick={() => deleteOnClickFunc(data)}>

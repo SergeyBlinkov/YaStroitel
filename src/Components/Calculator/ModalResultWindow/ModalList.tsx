@@ -1,7 +1,18 @@
 import React, {useState} from 'react';
 import {useAppDispatch, useAppSelector} from "../../../Redux/ReduxConfigStore";
 import ModalBathList from "./ModalBathList";
-import {Box, Modal, Table, TableBody, TableCell, TableContainer, TableHead, TableRow} from "@mui/material";
+import {
+    Box,
+    ButtonBase,
+    Modal,
+    Table,
+    TableBody,
+    TableCell,
+    TableContainer,
+    TableHead,
+    TableRow,
+    Tooltip
+} from "@mui/material";
 import './ModalList.css'
 import {resultCost} from "../../../Redux/CalculatorBathSlice";
 
@@ -74,18 +85,17 @@ function ModalList() {
         </TableContainer>
         </Modal>
             : <WrongComponent />}
-            <div
-                className={'ButtonModalList'}
-                onClick={() => {
-                handleShow()
-                    return dispatch(resultCost())
-            }}>
-                <div className={'ButtonModalList_icon'}>
-                    <i className="fa-regular fa-rectangle-list"></i>
-                    {showElement.length > 0 && <span>{showElement.length}</span>}
-                </div>
-
-                <p>Смета</p>
+            <div className={'ButtonModalList'}>
+                <Tooltip title={'Смета'}>
+                    <ButtonBase className={'ButtonModalList_icon'}
+                                onClick={() => {
+                        handleShow()
+                        return dispatch(resultCost())
+                    }}>
+                        <i className="fa-regular fa-rectangle-list fa-xl"></i>
+                        {showElement.length > 0 && <p className={'ButtonModalList_icon__span'}>{showElement.length}</p>}
+                    </ButtonBase>
+                </Tooltip>
             </div>
         </>
     );

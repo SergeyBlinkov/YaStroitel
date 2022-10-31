@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import {CSSTransition} from "react-transition-group";
 import './style/CCC.css'
 import './style/CCCTransition.css'
+import './style/MediaStyleCCC.css'
 import CCCDescription from "./CCC_description";
 import {H1Style} from "../../helperComponent/helperComponent";
 

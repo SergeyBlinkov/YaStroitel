@@ -3,6 +3,7 @@ import './MainPageStye.css';
 import logoName from '../../MainImage/thatsitRED.svg'
 //import MainPageText from "./MainPageText";
 import Calculator from "../Calculator/Calculator";
+import ModalList from "../Calculator/ModalResultWindow/ModalList";
 //import {Button,styled} from "@mui/material";
 
 
@@ -19,10 +20,16 @@ const MainPage = () => {
     return (
         <div className={'main-page'}>
             <header className={'header'}>
-                <div className={'header_logo'}>
-                    <img src={logoName} width={'70px'} height={'70px'} alt={'thatIt'}/>
-                    <p>ЯStroitel</p>
+                <div className={'header-block'}>
+                    <div className={'header_logo'}>
+                        <img src={logoName} width={'70px'} height={'70px'} alt={'thatIt'}/>
+                        <p>ЯStroitel</p>
+                    </div>
+                    <div>
+                        <ModalList />
+                    </div>
                 </div>
+
                 {/*<ul className={'header_menu'}>*/}
                 {/*    <WhiteButton>Главная</WhiteButton>*/}
                 {/*    <WhiteButton>Калькулятор</WhiteButton>*/}
@@ -43,7 +50,7 @@ const MainPage = () => {
 
             <footer className={'footer'}>
                 <div className={'header_logo'}>
-                    <img src={logoName} width={'70px'} height={'70px'} alt={'thatIt'}/>
+                    <img src={logoName} width={'50px'} height={'50px'} alt={'thatIt'}/>
                     <p>ЯStroitel</p>
                     <p>Номер по которому вы можете позвонить и заказать работу - 8(927)716-68-42</p>
                 </div>

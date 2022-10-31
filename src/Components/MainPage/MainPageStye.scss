@@ -1,5 +1,6 @@
 .main-page {
   position: relative;
+  display: grid;
   min-width: 1280px;
   width: 100%;
   height: 100vh;
@@ -44,6 +45,7 @@
 }
 .calculator-open {
   display: grid;
+  width: 100%;
   align-items: center;
   grid-template-columns: 1fr;
   //grid-template-rows: 80px 40px 1fr;
@@ -62,11 +64,20 @@
 .header {
   height: 80px;
   width: 100%;
+  background: rgba(68, 68, 68, 0.95);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header-block {
+  height: 80px;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1600px;
   display: grid;
-  grid-template-columns:repeat(3, 1fr);
+  grid-template-columns:repeat(2, 1fr);
   grid-column-gap: 10px;
   color: #fff;
-  background: rgba(68, 68, 68, 0.95);
 
   .header_logo {
     margin-left: 40px;
@@ -101,8 +112,9 @@
 
 .footer {
   height: 80px;
-  background: rgba(68, 68, 68, 0.95);
   width: 100%;
+  background: rgba(68, 68, 68, 0.95);
+  padding: 15px;
   .header_logo {
     display: flex;
     gap: 50px;

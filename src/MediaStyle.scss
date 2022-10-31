@@ -1,0 +1,95 @@
+@media screen and (max-width: 480px) {
+  .main-page {
+    max-width: 480px !important;
+    min-width: auto;
+  }
+  .calculator-open {
+    max-width: 480px !important;
+  }
+  .calculator_roomSize {
+    grid-template-columns: 1fr !important;
+    grid-column: 1 !important;
+  }
+  .header {
+    max-width: 480px !important;
+    min-width: auto !important;
+  }
+
+  .calculator_tileSize {
+    max-width: 480px !important;
+    min-width: 250px !important;
+
+    grid-template-columns: 1fr !important;
+    grid-template-rows: 100px repeat(8, 250px);
+    width: 100% !important;
+    margin: 0 !important;
+
+    h2 {
+      min-width: auto !important;
+      max-width: 480px;
+      grid-column: 1 !important;
+    }
+
+    .calculator_tileSize__items {
+      width: 400px !important;
+      grid-column: 1 !important;
+      height: 250px !important;
+      grid-row: auto !important;
+    }
+  }
+  .calculatorBathMetres {
+    width: 100% !important;
+    grid-template-columns: 1fr !important;
+    height: auto !important;
+    min-width: auto !important;
+    margin: 0 !important;
+    max-width: 480px !important;
+    img {
+      width: 80%;
+      padding: 25px;
+
+    }
+
+    .calculatorBathMetres-mainPic {
+      grid-gap: 5px;
+      padding-bottom: 50px;
+      h2 {
+        padding-top: 0 !important;
+        font-size: 40px !important;
+        max-width: 700px !important;
+      }
+    }
+  }
+  .calculatorBath-additionalWork_opened__items {
+    min-width: auto !important;
+    max-width: 480px !important;
+  }
+  .footer {
+
+    width: 100% !important;
+  }
+  .ListOfBenefitAndLimit {
+      display: flex !important;
+    flex-direction: column;
+    gap: 15px;
+  }
+  .ListOfBenefitAndLimit-group {
+    margin-top: 15px;
+  }
+  .ModalContainer {
+    overflow-x: hidden !important;
+    min-width: auto !important;
+    max-width: 480px !important;
+
+  }
+  .ModalTable {
+    min-width: auto !important;
+    max-width: 480px !important;
+    .ModalTable_Row__items {
+      padding: 6px !important;
+    }
+  }
+}
+
+
+// За CCC компоненты Медиа обработка находится в ./Components/Calculator/CalculatorChooseComponent/Style/MediaStyle

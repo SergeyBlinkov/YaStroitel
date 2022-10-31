@@ -1,15 +1,12 @@
 import React, {useRef, useState} from 'react';
-import {Button, Checkbox, FormControlLabel, TextField} from "@mui/material";
+import {Button, TextField} from "@mui/material";
 import {useAppDispatch, useAppSelector} from "../../../../Redux/ReduxConfigStore";
 import {fillMetres} from "../../../../Redux/CalculatorBathSlice";
 import {toPeriod} from "../../../helperComponent/helperComponent";
 import MainPic1 from './imgStore/mainpic1.jpg'
 import {CSSTransition, SwitchTransition} from "react-transition-group";
 
-const style = {
-    width:'400px',
-    alignSelf:'center',
-}
+
 
 
 const init = {x: '', y: '', z: 2.5}
@@ -45,8 +42,9 @@ const CalculatorMetres = () => {
 
     return (
         <div className={'calculatorBathMetres'}>
+            <img src={MainPic1} alt={'mainPic1'}/>
             <div className={'calculatorBathMetres-mainPic'}>
-                <img src={MainPic1} alt={'mainPic1'}/>
+
                 <h2>Введите ниже квадратные метры вашей ванны</h2>
                     <TextField
                         type={'text'} name={'metres'}
@@ -54,7 +52,7 @@ const CalculatorMetres = () => {
                         label={'Квадратные метры вашей комнаты'}
                         helperText={(ShowElement.length > 0 && BathCalc.MetresRoom.floor.amount === 0) && 'Введите сюда значение'}
                         onChange={handleChangeMetres}
-                        sx={{...style}}
+                        className={'calculatorBathMetres-mainPic_inputField'}
                     />
                 <div className={'calculator-metres'}>
                     {BathCalc.MetresRoom.floor.amount > 0 && <p
@@ -115,9 +113,9 @@ const CalculatorMetres = () => {
                             </div> :
                             <div className={'calculator_roomSize_chooseSize'}>
                                 <p>Мы поможем вам расчитать размер</p>
-                                <FormControlLabel control={<Checkbox
-                                    onChange={handleChangeBool}
-                                    checked={showSize} />} label={'Не знаете размер?'}/>
+                                <Button onClick={handleChangeBool} variant={'contained'} color={'success'}>
+                                    Не знаете размер?
+                                </Button>
                             </div>}
                     </div>
                     </CSSTransition>
