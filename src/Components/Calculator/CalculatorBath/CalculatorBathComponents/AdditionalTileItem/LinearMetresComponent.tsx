@@ -9,10 +9,12 @@ import {additionalItemLinearMetres} from "../../../../../Redux/CalculatorBathSli
 import linearMetres1 from './imgStore/linearMetres1.jpg';
 import linearMetres2 from './imgStore/linearMetres2.jpg';
 import AlertMessageHc from "../../../../helperComponent/AlertMessageHC";
+import CCCBigPicture from "../../../CalculatorChooseComponent/CCCBigPicture";
 
 const linearMetresStore = [linearMetres1,linearMetres2]
 function LinearMetresComponent() {
     const [amount,setAmount] = useState(0)
+    const [bigPicture,setBigPicture] = useState({show:false,img:''})
     const [err,setErr] = useState({isShow:false,message:''})
     const dispatch = useAppDispatch()
     const handleChange = (e: ChangeEvent) => setAmount(toPeriod(e.target.value))
@@ -28,7 +30,8 @@ function LinearMetresComponent() {
             <p className={'AdditionalItemLinearMetres_description'}>Сюда нужно внести участки стены менее 30см, измерить его высоту и записать в поле:</p>
             <div className={'AdditionalItemLinearMetres_img'}>
                 {linearMetresStore.map((data,index) => (
-                <img src={data} key={data} alt={`pic${index}`}/>))}
+                <img onClick={() => setBigPicture(prev=>({...prev,show:true,img:data}))} src={data} key={data} alt={`pic${index}`}/>))}
+                <CCCBigPicture bigPicture={bigPicture} setBigPicture={setBigPicture}/>
             </div>
             <TextField
                 className={'AdditionalItemLinearMetres_textField'}

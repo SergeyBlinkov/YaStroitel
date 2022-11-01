@@ -13,9 +13,11 @@
       height: auto !important;
 
       .calculatorChooseComponent_item__description {
-        position: relative !important;
         margin: 0 !important;
         width: 100% !important;
+        grid-gap: 15px;
+        height: auto !important;
+        position: relative !important;
       }
       .calculatorChooseComponent_item__openedComponent {
         margin: 0 auto !important;
@@ -26,11 +28,22 @@
           align-items: center !important;
           justify-items: center !important;
         }
+
         .CCCNewButton-enter,.CCCNewButton-enter-active,.CCCNewButton-enter-done,
         .CCCNewButton-exit,.CCCNewButton-exit-active {
-          margin-left: 0 !important;
+          margin-left: -5px !important;
         }
       }
     }
+  }
+  .CCCMoreInfo {
+    top: 0;
+    left: 0 !important;
+    width: 100% !important;
+
+  }
+
+  .AlertMessageHC {
+    grid-column: span 2 !important;
   }
 }

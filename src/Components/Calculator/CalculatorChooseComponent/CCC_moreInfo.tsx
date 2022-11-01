@@ -39,7 +39,7 @@ function CCCMoreInfo(init:Init) {
             mountOnEnter
             nodeRef={description}
         >
-            <div className={'CCCMoreInfo calculatorChooseComponent_item__description'} ref={description}>
+            <div className={'CCCMoreInfo '} ref={description}>
                 <p className={'CCCMoreInfo_name'}>{init.name}</p>
                 <p className={'CCCMoreInfo_description'}>{init.description}</p>
                 <ImgComponent />

@@ -14,9 +14,11 @@
     height: auto !important;
   }
   .calculatorChooseComponent .calculatorChooseComponent_item .calculatorChooseComponent_item__description {
-    position: relative !important;
     margin: 0 !important;
     width: 100% !important;
+    grid-gap: 15px;
+    height: auto !important;
+    position: relative !important;
   }
   .calculatorChooseComponent .calculatorChooseComponent_item .calculatorChooseComponent_item__openedComponent {
     margin: 0 auto !important;
@@ -30,7 +32,15 @@
   }
   .calculatorChooseComponent .calculatorChooseComponent_item .calculatorChooseComponent_item__openedComponent .CCCNewButton-enter, .calculatorChooseComponent .calculatorChooseComponent_item .calculatorChooseComponent_item__openedComponent .CCCNewButton-enter-active, .calculatorChooseComponent .calculatorChooseComponent_item .calculatorChooseComponent_item__openedComponent .CCCNewButton-enter-done,
 .calculatorChooseComponent .calculatorChooseComponent_item .calculatorChooseComponent_item__openedComponent .CCCNewButton-exit, .calculatorChooseComponent .calculatorChooseComponent_item .calculatorChooseComponent_item__openedComponent .CCCNewButton-exit-active {
-    margin-left: 0 !important;
+    margin-left: -5px !important;
+  }
+  .CCCMoreInfo {
+    top: 0;
+    left: 0 !important;
+    width: 100% !important;
+  }
+  .AlertMessageHC {
+    grid-column: span 2 !important;
   }
 }
 

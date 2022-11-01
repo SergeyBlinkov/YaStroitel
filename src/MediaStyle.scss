@@ -1,23 +1,24 @@
 @media screen and (max-width: 480px) {
   .main-page {
-    max-width: 480px !important;
+    max-width: 100% !important;
     min-width: auto;
+    width: 100% !important;
   }
   .calculator-open {
-    max-width: 480px !important;
+    max-width: 100% !important;
   }
   .calculator_roomSize {
     grid-template-columns: 1fr !important;
     grid-column: 1 !important;
   }
   .header {
-    max-width: 480px !important;
+    max-width: 100% !important;
     min-width: auto !important;
   }
 
   .calculator_tileSize {
-    max-width: 480px !important;
-    min-width: 250px !important;
+    max-width: 100% !important;
+    min-width: auto !important;
 
     grid-template-columns: 1fr !important;
     grid-template-rows: 100px repeat(8, 250px);
@@ -26,12 +27,12 @@
 
     h2 {
       min-width: auto !important;
-      max-width: 480px;
+      max-width: 100%;
       grid-column: 1 !important;
     }
 
     .calculator_tileSize__items {
-      width: 400px !important;
+      width: 80% !important;
       grid-column: 1 !important;
       height: 250px !important;
       grid-row: auto !important;
@@ -43,7 +44,7 @@
     height: auto !important;
     min-width: auto !important;
     margin: 0 !important;
-    max-width: 480px !important;
+    max-width: 410px !important;
     img {
       width: 80%;
       padding: 25px;
@@ -52,7 +53,12 @@
 
     .calculatorBathMetres-mainPic {
       grid-gap: 5px;
-      padding-bottom: 50px;
+      padding-bottom: 50px !important;
+      .calculatorBathMetres-mainPic_inputField {
+        width: 90% !important;
+
+      }
+
       h2 {
         padding-top: 0 !important;
         font-size: 40px !important;
@@ -62,7 +68,10 @@
   }
   .calculatorBath-additionalWork_opened__items {
     min-width: auto !important;
-    max-width: 480px !important;
+    max-width: 100% !important;
+  }
+  .AdditionalItemAngle{
+    row-gap: 15px !important;
   }
   .footer {
 
@@ -79,12 +88,15 @@
   .ModalContainer {
     overflow-x: hidden !important;
     min-width: auto !important;
-    max-width: 480px !important;
+    max-width: 100% !important;
 
+  }
+  .AdditionalItemAngle_degree,.AdditionalItemAngle_profile {
+    grid-gap: 10px;
   }
   .ModalTable {
     min-width: auto !important;
-    max-width: 480px !important;
+    max-width: 100% !important;
     .ModalTable_Row__items {
       padding: 6px !important;
     }
