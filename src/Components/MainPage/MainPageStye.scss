@@ -115,7 +115,7 @@
   height: 80px;
   width: 100%;
   background: rgba(68, 68, 68, 0.95);
-  padding: 15px;
+
   .footer-block {
     width: 100%;
     margin: 0 auto;
@@ -128,6 +128,8 @@
   }
   .footer_text {
     padding-right: 25px;
+    display: flex;
+    flex-direction: column;
     color: #E5DCCB;
   }
 }

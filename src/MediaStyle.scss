@@ -15,7 +15,15 @@
     max-width: 100% !important;
     min-width: auto !important;
   }
+  .logoComponent {
+    font-size: 12px !important;
+    p {
+      text-align: left;
+      line-height: 1.7;
+      margin-left: 5px;
+    }
 
+  }
   .calculator_tileSize {
     max-width: 100% !important;
     min-width: auto !important;
@@ -73,8 +81,14 @@
   .AdditionalItemAngle{
     row-gap: 15px !important;
   }
-  .footer {
 
+  .footer {
+    .footer_text {
+      font-size: 11px;
+    }
+    .footer-block {
+      color: black !important;
+    }
     width: 100% !important;
   }
   .ListOfBenefitAndLimit {

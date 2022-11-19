@@ -51,7 +51,7 @@ const MainPage = () => {
             <footer className={'footer'}>
                 <div className={'footer-block'}>
                     <LogoComponent />
-                    <p className={'footer_text'}>Номер по которому вы можете позвонить и заказать работу - 8(927)716-68-42</p>
+                    <p className={'footer_text'}>Номер по которому вы можете позвонить и заказать работу - <br/><span style={{fontSize:'15px',paddingTop:'5px'}}>8(927)716-68-42</span></p>
                 </div>
             </footer>
         </div>

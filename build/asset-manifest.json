@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.17ac25e9.css",
-    "main.js": "/static/js/main.897e1b41.js",
+    "main.css": "/static/css/main.c77f0297.css",
+    "main.js": "/static/js/main.083c5130.js",
     "static/media/littleTile.jpg": "/static/media/littleTile.d93e2dc1189faaed6427.jpg",
     "static/media/ShowerWithCab2.png": "/static/media/ShowerWithCab2.743e43abdc8202e9bbac.png",
     "static/media/degree1.jpg": "/static/media/degree1.0d6a5b330dae15ef93d6.jpg",
@@ -64,11 +64,11 @@
     "static/media/ShowerSquare2.jpg": "/static/media/ShowerSquare2.ea0b0ec3efd7c4426cac.jpg",
     "static/media/thatsitRED.svg": "/static/media/thatsitRED.ba01038a2f7fc136e7a181b63c1d5f67.svg",
     "index.html": "/index.html",
-    "main.17ac25e9.css.map": "/static/css/main.17ac25e9.css.map",
-    "main.897e1b41.js.map": "/static/js/main.897e1b41.js.map"
+    "main.c77f0297.css.map": "/static/css/main.c77f0297.css.map",
+    "main.083c5130.js.map": "/static/js/main.083c5130.js.map"
   },
   "entrypoints": [
-    "static/css/main.17ac25e9.css",
-    "static/js/main.897e1b41.js"
+    "static/css/main.c77f0297.css",
+    "static/js/main.083c5130.js"
   ]
 }
