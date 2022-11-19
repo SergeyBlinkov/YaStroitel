@@ -6,7 +6,12 @@ import Calculator from "../Calculator/Calculator";
 import ModalList from "../Calculator/ModalResultWindow/ModalList";
 //import {Button,styled} from "@mui/material";
 
-
+const LogoComponent = () => {
+   return <div className={'logoComponent'} >
+       <a href={'/'}><img src={logoName} width={'70px'} height={'70px'} alt={'thatIt'}/></a>
+        <p>Ваш строительный помощник</p>
+    </div>
+}
 
 const MainPage = () => {
     // const arrOption = ['','Ванна','Гостинная','Кухня','Корридор']
@@ -21,13 +26,8 @@ const MainPage = () => {
         <div className={'main-page'}>
             <header className={'header'}>
                 <div className={'header-block'}>
-                    <div className={'header_logo'}>
-                        <img src={logoName} width={'70px'} height={'70px'} alt={'thatIt'}/>
-                        <p>ЯStroitel</p>
-                    </div>
-                    <div>
+                        <LogoComponent />
                         <ModalList />
-                    </div>
                 </div>
 
                 {/*<ul className={'header_menu'}>*/}
@@ -49,10 +49,9 @@ const MainPage = () => {
             </div>
 
             <footer className={'footer'}>
-                <div className={'header_logo'}>
-                    <img src={logoName} width={'50px'} height={'50px'} alt={'thatIt'}/>
-                    <p>ЯStroitel</p>
-                    <p>Номер по которому вы можете позвонить и заказать работу - 8(927)716-68-42</p>
+                <div className={'footer-block'}>
+                    <LogoComponent />
+                    <p className={'footer_text'}>Номер по которому вы можете позвонить и заказать работу - 8(927)716-68-42</p>
                 </div>
             </footer>
         </div>

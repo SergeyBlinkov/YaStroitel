@@ -60,6 +60,19 @@
   justify-self: center;
 }
 
+.logoComponent {
+  margin-left: 25px;
+  font-size: 17px;
+  color: #E5DCCB;
+  letter-spacing: 2px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.logoComponent p {
+  margin-left: 25px;
+}
+
 .header {
   height: 80px;
   width: 100%;
@@ -78,18 +91,6 @@
   grid-template-columns: repeat(2, 1fr);
   grid-column-gap: 10px;
   color: #fff;
-}
-.header-block .header_logo {
-  margin-left: 40px;
-  font-size: 17px;
-  color: #fff;
-  letter-spacing: 2px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-.header-block .header_logo p {
-  margin-left: 25px;
 }
 .header-block .header_menu {
   height: 100%;
@@ -113,12 +114,19 @@
   background: rgba(68, 68, 68, 0.95);
   padding: 15px;
 }
-.footer .header_logo {
+.footer .footer-block {
+  width: 100%;
+  margin: 0 auto;
+  height: 100%;
+  max-width: 1600px;
   display: flex;
-  gap: 50px;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
-  color: #fff;
+}
+.footer .footer_text {
+  padding-right: 25px;
+  color: #E5DCCB;
 }
 
 /*# sourceMappingURL=MainPageStye.css.map */
