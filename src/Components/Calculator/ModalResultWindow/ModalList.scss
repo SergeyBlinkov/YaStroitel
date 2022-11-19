@@ -1,16 +1,63 @@
 .ButtonModalList {
+  font-weight: 500;
   display: grid;
-  border-radius: 25px;
-  width: 90px;
-  font-weight: 700;
-  height: 30px;
+  align-self: end;
+  height: 100%;
+  width: 100%;
+  font-size: 15px;
   font-family: "Playfair Display", serif;
   align-items: center;
-  grid-template-columns: 30px 1fr;
-  position: fixed;
-  bottom: 6%;
-  left: 2%;
-  background: #fff;
-  z-index: 8;
-  color: black;
+  justify-content: end;
+  letter-spacing: 2.5px;
+  color: #E5DCCB;
+  .ButtonModalList_icon {
+    margin-right: 25px;
+    position: relative;
+    width: 50px;
+    height: 50px;
+    border: 1px solid #847C6E;
+
+    .ButtonModalList_icon__span {
+      width: 15px;
+      position: absolute;
+      right: 8px;
+      display: inline-block;
+      line-height: 13px;
+      top: 8px;
+      height: 15px;
+      color: #fff;
+      border-radius: 50%;
+      background: red;
+    }
+  }
+}
+.ModalContainer {
+  margin: 15px auto;
+  z-index: 10;
+  max-width: 1280px;
+  min-width: 650px;
+  max-height: 90%;
+  background: #847C6E;
+  color: #E5DCCB;
+  overflow-y: scroll;
+}
+.ModalTable {
+  margin: auto;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  background: #847C6E;
+  color: #E5DCCB;
+
+  .ModalTable_Row__items {
+    color: #E5DCCB;
+  }
+}
+.ModalDeleteIcon {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  color:#E5DCCB !important;
 }

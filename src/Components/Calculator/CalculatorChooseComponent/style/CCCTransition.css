@@ -313,4 +313,76 @@
   opacity: 0;
 }
 
+.SlideTop-enter {
+  transition: all 500ms ease-in-out;
+  max-height: 0 !important;
+  overflow: hidden;
+}
+
+.SlideTop-enter-active {
+  max-height: 100% !important;
+  transition: all 1s linear;
+}
+
+.SlideTop-enter-done {
+  max-height: 100% !important;
+}
+
+.SlideTop-exit {
+  max-height: 100% !important;
+}
+
+.SlideTop-exit-active {
+  max-height: 0 !important;
+  overflow: hidden;
+  transition: all 1s linear;
+}
+
+.SlideTop-exit-done {
+  max-height: 0 !important;
+  overflow: hidden;
+}
+
+.MoveToRight-enter {
+  transform: translateX(-200px);
+  opacity: 0;
+}
+
+.MoveToRight-enter-active {
+  transform: translateX(0);
+  opacity: 1;
+  transition: opacity 1000ms linear, transform 500ms ease-out;
+}
+
+.MoveToRight-exit {
+  opacity: 1;
+}
+
+.MoveToRight-exit-active {
+  transform: translateX(200px);
+  opacity: 0;
+  transition: opacity 1000ms linear, transform 500ms ease-out;
+}
+
+.MoveToRightBack-enter {
+  transform: translateX(-200px) !important;
+  opacity: 0;
+}
+
+.MoveToRightBack-active {
+  transform: translateX(0);
+  opacity: 1;
+  transition: opacity 1000ms linear, transform 500ms ease-out;
+}
+
+.MoveToRightBack-exit {
+  opacity: 1;
+}
+
+.MoveToRightBack-exit-active {
+  transform: translateX(-150px);
+  opacity: 0;
+  transition: opacity 1000ms linear, transform 500ms ease-out;
+}
+
 /*# sourceMappingURL=CCCTransition.css.map */

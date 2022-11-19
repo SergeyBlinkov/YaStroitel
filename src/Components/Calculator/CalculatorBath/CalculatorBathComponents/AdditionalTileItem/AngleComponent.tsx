@@ -12,6 +12,8 @@ import profile3 from './imgStore/profileItem3.jpg';
 import degree1 from './imgStore/degree1.jpg';
 import degree2 from './imgStore/degree2.jpg';
 import degree3 from './imgStore/degree3.jpg';
+import {toPeriod} from "../../../../helperComponent/helperComponent";
+import AlertMessageHc from "../../../../helperComponent/AlertMessageHC";
 
 const angleDescribe = 'Красивое дизайнерское решение, отлично выглядит и не бросается в глаза,\n' +
     '                        но менее устойчиво к механическим воздействиям и имеет более острые углы,\n' +
@@ -19,16 +21,25 @@ const angleDescribe = 'Красивое дизайнерское решение,
 const profileDescribe = 'Практичный и безопасный вариант, не имеет острых углов, более устойчив\n' +
     '                        к механическим воздействиям, но имеет менее эстетичный внешний вид,\n' +
     '                        бросается в глаза, вариант более дешевый'
-const angleImg = [profile1,profile2,profile3]
-const profileImg = [degree1,degree2,degree3]
+const angleImg = [degree1,degree2,degree3]
+const profileImg = [profile1,profile2,profile3]
 
 function AngleComponent() {
     const [storage,setStorage] = useState({type:'',amount:0})
+    const [err,setErr] = useState({isShow:false,message:""})
     const dispatch = useAppDispatch()
     const profileChecker = storage.type === 'profile'
     const degreeChecker = storage.type === 'degree'
-    const handleChange = (e:ChangeEvent) =>  setStorage({...storage,amount: +e.target.value})
-    const handleClickDispatch = () => dispatch(additionalItemAngle(storage))
+    const handleChange = (e:ChangeEvent) =>  setStorage({...storage,amount: toPeriod(e.target.value)})
+    const handleClickDispatch = () => {
+        if(storage.type === '') setErr(prev => ({...prev,isShow:true,message: 'Выберите: 45 градусов или профиль'}))
+        if(storage.amount === 0) setErr((prev => ({...prev,isShow: true,message: 'Введите количество в погонных метрах'})))
+        if(storage.type !== '' && storage.amount !== 0)
+        {
+            setErr(prev=>({...prev,isShow: false,message: ''}))
+            dispatch(additionalItemAngle(storage))
+        }
+    }
     return (
         <div className={'AdditionalItemAngle'}>
             <div className={'AdditionalItemAngle_degree'}>
@@ -76,6 +87,7 @@ function AngleComponent() {
                         handleClickDispatch()
                 }}
             />
+            <AlertMessageHc inBool={err.isShow} label={err.message}/>
             <CCCNewButton label={'Добавить работу в смету'} click={handleClickDispatch} />
         </div>
     );

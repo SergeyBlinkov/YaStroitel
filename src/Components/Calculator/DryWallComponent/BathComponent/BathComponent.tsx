@@ -29,14 +29,14 @@ const descriptionShelf = 'Полка у ванны зачастую нужна �
 type Init = {
     bathLength:number,
     shelf:boolean,
-    hatch: {type:string,install:boolean},
+    hatch: {hatchType:string,install:boolean},
     spaceUnderBath:boolean
 }
 
 const init = {
     bathLength:0,
     shelf:false,
-    hatch:{type:'',install:false},
+    hatch:{hatchType:'',install:false},
     spaceUnderBath:false
 }
 
@@ -58,7 +58,7 @@ function BathComponent() {
         setBathInfo({...bathInfo,bathLength:toPeriod(e.target.value)})
     const handleTypeHatch = (hatchName:string) => setBathInfo({...bathInfo,hatch:{
             ...bathInfo.hatch,
-                type:hatchName
+            hatchType:hatchName
             }})
 
     return  <div
@@ -91,11 +91,11 @@ function BathComponent() {
                 <ButtonGroup className={'BathComponent_hatch__buttonGroup'} color={'inherit'}>
                     <Button
                         onClick={() => handleTypeHatch('plastic')}
-                        disabled={bathInfo.hatch.type === 'plastic'}>
+                        disabled={bathInfo.hatch.hatchType === 'plastic'}>
                         Пластиковый</Button>
                     <Button
                         onClick={() => handleTypeHatch('tile')}
-                        disabled={bathInfo.hatch.type === 'tile'}>
+                        disabled={bathInfo.hatch.hatchType === 'tile'}>
                         Люк из плитки</Button>
                 </ButtonGroup>
             }

@@ -1,68 +1,58 @@
-import React, {useRef} from 'react';
+import React, {createRef} from 'react';
 import './WorkList.css'
-import {CSSTransition} from "react-transition-group";
 import {IconButton} from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import {useAppDispatch, useAppSelector} from "../../../Redux/ReduxConfigStore";
 import {deletePriceFromCalculatorReducer} from "../../../Redux/CalculatorBathSlice";
 import {BathCalcType} from "../CalculatorBath/BathType";
 import CutWords from "../../helperComponent/CutWords";
+import {CSSTransition, TransitionGroup} from "react-transition-group";
+
 
 
 
 
 function WorkList() {
-    const BathCalc:BathCalcType = useAppSelector(state=>state.CalculatorBath)
-    const WorkListRef = useRef(null)
+    const BathCalc: BathCalcType = useAppSelector(state => state.CalculatorBath)
+    const showElement = Object.values(BathCalc).filter((data) => data.price > 0)
+    const newArray = showElement.map((data,index) => ({
+        ...data, nodeRef:createRef(),id: index
+    }))
+  
 
     const dispatch = useAppDispatch()
-    const showElement = Object.values(BathCalc).filter(data => data.price > 0)
-    const CheckMetres = BathCalc.MetresRoom.floor.amount > 0
-    const CheckTile = BathCalc.TileSize.price > 0
-
     return (
-        <CSSTransition
-            in={showElement.length > 0 && CheckMetres && CheckTile}
-            timeout={500}
-            classNames={'CCC_beforeElement'}
-            mountOnEnter
-            unmountOnExit
-            nodeRef={WorkListRef}
-        >
-            <div
-                className="WorkList"
-                ref={WorkListRef}
-            >
-                {showElement.map((data) => <div
-                    className={'WorkList_item'}
-                    key={data.label}
+        <TransitionGroup className="WorkList">
+            {newArray.map((data, index) => (
+                 index < 10 && <CSSTransition
+                    key={`${data.id}`}
+                    timeout={1000}
+                    classNames={'MoveToRight'}
+                    nodeRef={data.nodeRef}
                 >
-                    <p><CutWords message={data.label}/></p>
-                    <IconButton
-                        aria-label="delete"
-                        size="small"
-                        onClick={() => {
-                            for (const [key, value] of Object.entries(BathCalc)) {
-                               if(value.label === data.label)
-                                   if(data.type === 'dryWall') {
-                                       if(data.bath.price > 0)
-                                           dispatch(deletePriceFromCalculatorReducer({name:key,type:data.bath.type}))
-                                       if(data.box.price > 0)
-                                           dispatch(deletePriceFromCalculatorReducer({name:key,type:data.box.type}))
-                                       if(data.wall.price > 0)
-                                           dispatch(deletePriceFromCalculatorReducer({name:key,type:data.wall.price}))
-                                   }
-                                   else dispatch(deletePriceFromCalculatorReducer({name:key,type:data.type}))
-                            }
-                        }}>
-                        <DeleteIcon
-                            fontSize="inherit"
-                        />
-                    </IconButton>
-                </div>)}
+                    <div className={'WorkList_item'} ref={data.nodeRef}>
+                        <CutWords message={data.label}/>
+                        <IconButton
+                            aria-label="delete"
+                            size="small"
+                            onClick={() => {
+                                for (const [key, value] of Object.entries(BathCalc)) {
+                                    if (value.type === data.type) {
+                                        dispatch(deletePriceFromCalculatorReducer({name: key, type: data.type}))
+                                    }
+                                }
+                            }}>
+                        <span className={'deleteIcon'}>
+                            <DeleteIcon fontSize="inherit"/>
+                        </span>
+                        </IconButton>
+                    </div>
+                </CSSTransition>
 
-            </div>
-        </CSSTransition>
+                ))}
+
+            {showElement.length >= 10 && <span style={{color: "#847C6", fontSize: 25}}>...</span>}
+</TransitionGroup>
     );
 }
 

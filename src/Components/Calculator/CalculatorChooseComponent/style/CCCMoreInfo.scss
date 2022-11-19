@@ -1,20 +1,22 @@
 .CCCMoreInfo {
-  position: absolute !important;
+  position: absolute;
   top: 0;
   right: 0;
-  display: grid !important;
-  grid-template-columns: 1fr !important;
-  grid-template-rows: 50px 1fr 100px 50px !important;
-  cursor: auto !important;
-  //width:  54.7% !important;
-  //max-width: 54.7%;
-  padding: 2% !important;
+  display: grid;
+  grid-template-columns: 1fr ;
+  grid-template-rows: 50px 1fr 100px 50px;
+  cursor: auto;
+  grid-gap: 10px;
+  width: 50%;
+  z-index: 4;
+  padding: 2% ;
   border: 1px solid black;
+  background: #fff;
   .CCCMoreInfo_name {
     font-size: 18px;
   }
   .CCCMoreInfo_description {
-    font-size: 13px !important;
+    font-size: 13px;
     text-align: left;
     line-height: 17px;
     font-weight: 500;

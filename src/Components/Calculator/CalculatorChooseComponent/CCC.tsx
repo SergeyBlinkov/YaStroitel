@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import {CSSTransition} from "react-transition-group";
 import './style/CCC.css'
 import './style/CCCTransition.css'
+import './style/MediaStyleCCC.css'
 import CCCDescription from "./CCC_description";
 import {H1Style} from "../../helperComponent/helperComponent";
 
@@ -16,11 +17,11 @@ type Variable = {
 type CCCType = {
     variable:Variable[],
     bool:boolean,
-    name:string,
+    name?:string,
     label:string
 }
 
-function CCC({variable,bool,name,label}:CCCType) {
+function CCC({variable,bool,label}:CCCType) {
     const nodeRef = useRef(null)
 
     return (
@@ -34,7 +35,6 @@ function CCC({variable,bool,name,label}:CCCType) {
             >
             <div
                 className="calculatorChooseComponent"
-                id={name}
                 ref={nodeRef}>
                 <H1Style>~ {label} ~</H1Style>
 
@@ -48,7 +48,7 @@ function CCC({variable,bool,name,label}:CCCType) {
                             src={data.img}
                             alt={data.img}
                             className={'calculatorChooseComponent_item__img'}/>
-                        <CCCDescription CCCItem={data} name={name}/>
+                        <CCCDescription CCCItem={data}/>
                     </div>
                 })}
             </div>

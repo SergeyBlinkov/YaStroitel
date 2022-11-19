@@ -1,61 +1,51 @@
 import React, {useRef, useState} from 'react';
-import {CSSTransition} from "react-transition-group";
-import {useAppDispatch} from "../../../Redux/ReduxConfigStore";
+import {CSSTransition, SwitchTransition} from "react-transition-group";
 import {Tooltip} from "@mui/material";
 
 type Variable = {
-    type:string,
-    img:string,
-    description:string,
-    label:string,
-    component:JSX.Element
+    type: string,
+    img: string,
+    description: string,
+    label: string,
+    component: JSX.Element
 }
 
-function CCCDescription({CCCItem,name}:{CCCItem:Variable,name:string}) {
+function CCCDescription({CCCItem}: { CCCItem: Variable }) {
 
-    const [showDescription,setShowDescription] = useState(true)
-    const dispatch = useAppDispatch()
+    const [showDescription, setShowDescription] = useState(true)
     const descriptionRefString = useRef(null)
-    const descriptionRefComponent = useRef(null)
-    return  <>
+    const openedRef = useRef(null)
+    const nodeRef = showDescription ? openedRef : descriptionRefString
+    return <SwitchTransition mode={'out-in'}>
         <CSSTransition
-            in={showDescription}
-            timeout={500}
-            nodeRef={descriptionRefString}
+            key={showDescription ? 'description' : 'opened'}
+            timeout={200}
+            nodeRef={nodeRef}
             classNames={'CCC_description'}
-            mountOnEnter
-            unmountOnExit
-        ><div
-                ref={descriptionRefString}
-                className={'calculatorChooseComponent_item__description'}
-                onClick={() => setShowDescription(false)}
-            >
-            <i className="fa-regular fa-hand"></i>
-            <h3>{CCCItem.label}</h3>
-            <span>~</span>
-            <p>{CCCItem.description}</p>
-            </div>
-        </CSSTransition>
-            <CSSTransition
-                in={!showDescription}
-                timeout={500}
-                nodeRef={descriptionRefComponent}
-                classNames={'CCC_description'}
-                mountOnEnter
-                unmountOnExit
-            >
-                <div
-                    ref={descriptionRefComponent}
+        >
+            <div ref={nodeRef} style={{display:'flex',alignContent:'center',justifyContent:'center'}}>
+                {showDescription ? <div
+                    ref={openedRef}
+                    className={'calculatorChooseComponent_item__description'}
+                    onClick={() => setShowDescription(false)}
+                >
+                    <i className="fa-regular fa-hand"></i>
+                    <h3>{CCCItem.label}</h3>
+                    <span>~</span>
+                    <p>{CCCItem.description}</p>
+                </div> : <div
+                    ref={descriptionRefString}
                     className={'calculatorChooseComponent_item__openedComponent'}
                 >
                     <Tooltip title={'Назад'}>
                         <i className="fa-regular fa-hand-point-left returnButton"
-                            onClick={() => setShowDescription(true)}></i>
+                           onClick={() => setShowDescription(true)}></i>
                     </Tooltip>
                     {CCCItem.component}
-                </div>
-            </CSSTransition>
-        </>
+                </div>}
+            </div>
+        </CSSTransition>
+    </SwitchTransition>
 
 }
 

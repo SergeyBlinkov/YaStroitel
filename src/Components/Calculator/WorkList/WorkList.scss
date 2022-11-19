@@ -1,32 +1,30 @@
 .WorkList {
+  max-height: 500px;
   display: grid;
-  height: auto;
+  margin-top: 12px;
   justify-items: center;
   justify-content: center;
-  padding: 10px;
-  grid-template-columns: 1fr;
-  position: fixed;
-  right: 25px;
-  bottom:25px;
-  background-color: #fff;
-  width: 155px;
-  border-radius: 8px;
-  box-shadow: 0 0 5px 4px gray;
-  z-index: 10;
+  width: 100%;
+  grid-gap: 5px;
+  transition: height 1s ease-in-out;
+  &::-webkit-scrollbar-thumb {
+
+  }
+
   .WorkList_item {
-    width: 140px;
+    width: 100%;
     display: grid;
     padding: 5px;
-    grid-template-columns: 115px 25px;
-    justify-self: center;
+    background: #847C6E;
+    color: #E5DCCB;
+    height: 45px;
     align-items: center;
-    border-bottom: 2.5px solid #BFA67A;
-    background-color: transparent;
-    height: auto;
-    font-family: 'Lobster', cursive;
+    grid-template-columns: 115px 25px;
     font-size: 14px;
     letter-spacing: 1px;
-    z-index: 10;
-    color: black;
+    z-index: 8;
+    .deleteIcon {
+      color: #E5DCCB;
+    }
   }
 }

@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
-import {ChangeEvent} from "../BathType";
 import CCC from "../../CalculatorChooseComponent/CCC";
-import {Checkbox, FormControlLabel, Tooltip} from "@mui/material";
+import {Button} from "@mui/material";
 import {
     CCCAdditionalTileItemsData,
     CCCAntiWaterData,
@@ -45,104 +44,105 @@ const init = {
 
 function СCCBathStorage() {
     const [storage, setStorage] = useState<Init>(init)
-    const handleChange = (e: ChangeEvent) => {
-        const {checked, name} = e.target
-        return setStorage((prevState) => ({...prevState, [name]: checked}))
-    }
+    const handleOpen = (name:string) => setStorage(prev=> ({
+        ...prev,[name]: !prev[name as keyof typeof prev]
+    }))
     return (
-        <>
-            <div className={'calculatorBath-additionalWork'}>
-                <Tooltip title={'Все елементы появятся внизу'} placement={'right'}><FormControlLabel
-                    control={<Checkbox
-                        checked={storage.bathType}
-                        onChange={handleChange}
-                        name={'bathType'}
-                    />}
-                    label={'Установка ванны'}
-                /></Tooltip>
-                <Tooltip title={'Все елементы появятся внизу'} placement={'right'}><FormControlLabel
-                    control={<Checkbox
-                        name={'toiletBoolean'}
-                        onChange={handleChange}
-                        checked={storage.toiletBoolean}
-                    />}
-                    label={'Установка туалета'}/>
-                </Tooltip>
-                <Tooltip title={'Все елементы появятся внизу'} placement={'right'}><FormControlLabel
-                    control={<Checkbox
-                        onChange={handleChange}
-                        checked={storage.showerTray}
-                        name={'showerTray'}
-                    />}
-                    label={'Установка душ поддона'}/></Tooltip>
-                <Tooltip title={'Все елементы появятся внизу'} placement={'right'}><FormControlLabel
-                    control={<Checkbox
-                        onChange={handleChange}
-                        checked={storage.dryWall}
-                        name={'dryWall'}
-                    />}
 
-                    label={'Установка коробов из гипсокартона'}/></Tooltip>
-                <Tooltip title={'Все елементы появятся внизу'} placement={'right'}><FormControlLabel
-                    control={<Checkbox
-                        onChange={handleChange}
-                        checked={storage.antiWater}
-                        name={'antiWater'}/>}
-
-                    label={'Гидроизоляция помещения'}/></Tooltip>
-                <Tooltip title={'Все елементы появятся внизу'} placement={'right'}><FormControlLabel
-                    control={<Checkbox
-                        name={'bathRoomSink'}
-                        onChange={handleChange}
-                        checked={storage.bathRoomSink}/>}
-                    label={'Установка раковины'}
-                /></Tooltip>
-            </div>
-            <div className={'calculatorBath-additionalWork_opened'}>
-                <CCC
-                    variable={CCCAdditionalTileItemsData}
-                    name={'additionalItems'}
-                    bool={true}
-                    label={'Дополнительные работы по плитке'}
-                />
-                <CCC
+            <div className={'calculatorBath-additionalWork_opened'} id={'additionalItems'}>
+                    <CCC
+                        variable={CCCAdditionalTileItemsData}
+                        name={'additionalItems'}
+                        bool={true}
+                        label={'Дополнительные работы по плитке'}
+                    />
+                <div className={'calculatorBath-additionalWork_opened__items'} >
+                    <Button
+                        id={'bath'}
+                        variant={'contained'}
+                        onClick={()=>handleOpen('bathType')}
+                        className={'calculatorBath-additionalWork_opened__button'}
+                        >Установка ванны</Button>
+                    <CCC
                     variable={CCCBathData}
                     name={'bath'}
                     bool={storage.bathType}
                     label={'Ванны'}
                 />
-                <CCC
-                    variable={CCCDryWallData}
-                    name={'dryWall'}
-                    bool={storage.dryWall}
-                    label={'Варианты установки гипсокартона'}
-                />
-                <CCC
-                    variable={CCCToiletData}
-                    name={'toilet'}
-                    bool={storage.toiletBoolean}
-                    label={'Два варианта унитаза в помещении'}
-                />
-                <CCC
-                    variable={CCCAntiWaterData}
-                    bool={storage.antiWater}
-                    name={'antiWater'}
-                    label={'Гидроизоляция помещения'}
-                />
-                <CCC
-                    variable={CCCShowerData}
-                    name={'showerType'}
-                    bool={storage.showerTray}
-                    label={'Душевой поддон'}
-                />
-                <CCC
-                    variable={CCCBathRoomSinkData}
-                    name={'BathRoomSink'}
-                    bool={storage.bathRoomSink}
-                    label={'Раковина'}
-                />
+                </div>
+                <div className="calculatorBath-additionalWork_opened__items" >
+                    <Button
+                        id={'dryWall'}
+                        variant={'contained'}
+                        onClick={()=>handleOpen('dryWall')}
+                        className={'calculatorBath-additionalWork_opened__button'}>
+                            ~ Установка коробов из гипсокартона ~</Button>
+                    <CCC
+                        variable={CCCDryWallData}
+                        name={'dryWall'}
+                        bool={storage.dryWall}
+                        label={'Варианты установки гипсокартона'}
+                    />
+                </div>
+                <div className="calculatorBath-additionalWork_opened__items" >
+                    <Button
+                        id={'toilet'}
+                        variant={'contained'}
+                        onClick={()=>handleOpen('toiletBoolean')}
+                        className={'calculatorBath-additionalWork_opened__button'}
+                    >Установка туалета</Button>
+                    <CCC
+                        variable={CCCToiletData}
+                        name={'toilet'}
+                        bool={storage.toiletBoolean}
+                        label={'Два варианта унитаза в помещении'}
+                    />
+                </div>
+                <div className="calculatorBath-additionalWork_opened__items" >
+                    <Button
+                        id={'antiWater'}
+                        variant={'contained'}
+                        onClick={()=>handleOpen('antiWater')}
+                        className={'calculatorBath-additionalWork_opened__button'}
+                    >Гидроизоляция помещения</Button>
+                    <CCC
+                        variable={CCCAntiWaterData}
+                        bool={storage.antiWater}
+                        name={'antiWater'}
+                        label={'Гидроизоляция помещения'}
+                    />
+                </div>
+                <div className="calculatorBath-additionalWork_opened__items" >
+                    <Button
+                        id={'showerType'}
+                        variant={'contained'}
+                        onClick={()=>handleOpen('showerTray')}
+                        className={'calculatorBath-additionalWork_opened__button'}
+                    >Установка душ поддона</Button>
+                    <CCC
+                        variable={CCCShowerData}
+                        name={'showerType'}
+                        bool={storage.showerTray}
+                        label={'Душевой поддон'}
+                    />
+                </div>
+                <div className="calculatorBath-additionalWork_opened__items" >
+                    <Button
+                        id={'BathRoomSink'}
+                        variant={'contained'}
+                        onClick={()=>handleOpen('bathRoomSink')}
+                        className={'calculatorBath-additionalWork_opened__button'}
+                    >Установка раковины</Button>
+                    <CCC
+                        variable={CCCBathRoomSinkData}
+                        name={'BathRoomSink'}
+                        bool={storage.bathRoomSink}
+                        label={'Раковина'}
+                    />
+                </div>
+
             </div>
-        </>
+
     );
 }
 

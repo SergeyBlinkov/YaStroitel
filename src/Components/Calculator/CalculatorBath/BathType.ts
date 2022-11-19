@@ -11,6 +11,7 @@ type MetresRoom = {
     wall: {label:string,amount:number}
 }
 type Hatch = {
+    hatchType:string,
     type:string,
     label:string,
     price:number
@@ -20,45 +21,48 @@ type LabelPrice = {
     label:string,
     price:number
 }
+type LabelPriceType = {
+    label:string,
+    price:number,
+    type:string
+}
 type LabelAmountPrice = {
     label:string,
     amount:number,
-    price:number
+    price:number,
 }
-type LabelCountPrice = {
+type LabelAmountPriceType = {
     label:string,
-    count:number,
-    price:number
+    amount:number,
+    price:number,
+    type:string
 }
-type LabelCount = {
-    label:string,
-    count:number
-}
+
    type DryWallBathType= {
         type:string,
         label:string,
-        shelf:LabelPrice,
+        shelf:LabelPriceType,
         hatch:Hatch,
-        bathroomScreen:LabelPrice,
+        bathroomScreen:LabelPriceType,
         bathLength:number,
-        spaceUnderBath:LabelPrice,
+        spaceUnderBath:LabelPriceType,
         price:number
     }
 type DryWallWallType= {
         type:string,
         label:string,
         wallLength:LabelAmountPrice,
-        doorBoolean:LabelPrice,
-        soundBoolean:LabelPrice,
-        socketCount:LabelAmountPrice
+        doorBoolean:LabelPriceType,
+        soundBoolean:LabelPriceType,
+        socketCount:LabelAmountPriceType
         price:number
     }
 type DryWallBoxType = {
         type:string,
         label:string,
-        angleCount:LabelAmountPrice,
-        twoAngleCount:LabelAmountPrice,
-        hatch:LabelPrice,
+        angleCount:LabelAmountPriceType,
+        twoAngleCount:LabelAmountPriceType,
+        hatch:LabelPriceType,
         price:number
     }
 type DryWallShowerType = {
@@ -83,7 +87,6 @@ type DryWallShowerType = {
     }
 
 export type ChangeEvent = React.ChangeEvent<HTMLInputElement>
-export type ButtonEvent = React.MouseEvent<HTMLButtonElement>;
 type Angle = {
     type:string,
     label:string,

@@ -15,8 +15,8 @@ import ToiletInstallation from "../CalculatorBathComponents/ToiletInstallation/T
 import AntiWaterComponent from "../CalculatorBathComponents/AntiWaterComponent/AntiWaterComponent";
 import antiWaterFloor from './imgStorage/antiwaterFloor.jpg'
 import ShowerStraight from './imgStorage/ShowerStraight.jpeg'
-import ShowerSquare from './imgStorage/ShowerSquare.jpg';
-import ShowerCircle from './imgStorage/ShowerCircle.jpg';
+import ShowerSquare from './imgStorage/ShowerSquare1.jpg';
+import ShowerCircle from './imgStorage/ShowerCircle1.jpg';
 import ShowerWithCab from './imgStorage/ShowerWithCab.jpg';
 import ShowerWithoutBorder from './imgStorage/ShowerWithoutBorder.jpg';
 import ShowerComponent from "../CalculatorBathComponents/ShowerComponent/ShowerComponent";

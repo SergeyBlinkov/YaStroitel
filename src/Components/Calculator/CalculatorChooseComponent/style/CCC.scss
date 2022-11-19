@@ -23,7 +23,7 @@
   margin: 0 auto;
   grid-gap: 50px;
   background: #E5DCCB;
-  max-width: 80% !important;
+  max-width: 1600px !important;
   min-width: 1200px;
   grid-template-rows: minmax(50px,auto) minmax(0, auto);
   .calculatorChooseComponent_h {
@@ -45,7 +45,7 @@
     display: grid;
     grid-row: min(2/3);
     height: 459px;
-    padding-left: 25px;
+    padding: 0 25px;
     grid-template-columns: 1fr 1fr;
     width: 100%;
     margin: 25px auto 30px auto;
@@ -101,20 +101,21 @@
   }
 }
 .CCCBigPicture{
-  display: grid;
-  grid-template-rows: 1fr 30px;
-  align-items: center;
-  grid-gap: 20px;
-  z-index: 10;
-  position: fixed;
-  width: 50%;
-  height: 70% !important;
-  min-width: 1050px;
-  background: #000 !important;
-  img {
-    width: 100% !important;
-    height: 100% !important;
-    max-height: 700px;
+  width: 70%;
+  height: 50%;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  position: absolute;
 
+  img {
+    align-self: center;
+    width: 100%;
+    height: 100%;
+  }
+  button {
+    margin: 25px auto;
+    justify-items: center;
+    width: 200px;
   }
 }

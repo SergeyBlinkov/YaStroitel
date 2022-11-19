@@ -23,6 +23,7 @@ const init:AntiWaterType = {
 }
 function AntiWaterComponent() {
     const [antiWaterType,setAntiWaterType] = useState(init)
+    const [err,setErr] = useState({isShow:false,message:''})
     const BathCalc = useAppSelector(state=>state.CalculatorBath)
     const dispatch = useAppDispatch()
     const handleChange = (e:ChangeEvent) => {
@@ -30,7 +31,13 @@ function AntiWaterComponent() {
         return setAntiWaterType((prevState) => ({...prevState,[name]:checked}))
     }
     const handleClickFloor = () => {
-        return dispatch(antiWaterPrice(antiWaterType))
+        if(!antiWaterType.floor && !antiWaterType.tape && !antiWaterType.wall) {
+            setErr(prev=> ({...prev,isShow: true,message: 'Выберите хотя бы один вариант гидроизоляции'}))
+        }
+         else {
+             setErr(prev => ({...prev,isShow: false,message: ''}))
+             dispatch(antiWaterPrice(antiWaterType))
+        }
     }
 
     return (
@@ -97,6 +104,7 @@ function AntiWaterComponent() {
                     inBool={BathCalc.MetresRoom.floor.amount === 0}
                     label={'Введите размеры вашей комнаты'}/>
             </div>
+            <AlertMessageHC inBool={err.isShow} label={err.message}/>
         <CCCNewButton
             label={'Добавить гидроизоляционные работы в смету'}
             click={handleClickFloor}/>

@@ -12,7 +12,7 @@ import pic7Size from './imgStore/120x60pic.jpg';
 import pic8Size from './imgStore/littleStonePic.jpg';
 import pic9Size from './imgStore/littleTile.jpg';
 import {Button, ButtonGroup} from "@mui/material";
-import {CSSTransition} from "react-transition-group";
+//import {CSSTransition} from "react-transition-group";
 import {H1Style} from "../../../helperComponent/helperComponent";
 const init = [
     {
@@ -85,16 +85,16 @@ export default function CeramicSizeBlock() {
                 <img src={data.img} alt={`pic${data.tile}`}/>
 
             </div>
-                <CSSTransition
-                    in={BathCalc.TileSize.size === data.tile}
-                    classNames={'Fast-Transition'}
-                    timeout={500}
-                    mountOnEnter
-                    unmountOnExit
-                    nodeRef={ButtonRef}
+                {/*<CSSTransition*/}
+                {/*    in={BathCalc.TileSize.size === data.tile}*/}
+                {/*    classNames={'Fast-Transition'}*/}
+                {/*    timeout={500}*/}
+                {/*    mountOnEnter*/}
+                {/*    unmountOnExit*/}
+                {/*    nodeRef={ButtonRef}*/}
 
-                >
-                    <div className={'calculator_tileSize__fillSeamBlock'} ref={ButtonRef} >
+                {/*>*/}
+                {BathCalc.TileSize.size === data.tile && <div className={'calculator_tileSize__fillSeamBlock'} ref={ButtonRef} >
                         <h3 >Какого вида будет затирка?</h3>
                         <ButtonGroup className={'MUIButtonBlock'}>
                             <Button
@@ -107,8 +107,8 @@ export default function CeramicSizeBlock() {
                                 variant={'contained'}
                                 color={BathCalc.fillSeam.type === 'epoxy' ? 'success' : 'primary'}
                             >Эпоксидная</Button>
-                        </ButtonGroup></div>
-                </CSSTransition>
+                        </ButtonGroup></div>}
+                {/*</CSSTransition>*/}
             <p className={'calculator_tileSize__label'}>{data.label}</p>
         </div>)})}
     </div>
