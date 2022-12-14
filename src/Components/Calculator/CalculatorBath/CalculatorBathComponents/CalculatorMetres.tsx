@@ -68,9 +68,9 @@ const CalculatorMetres = () => {
                     nodeRef={nodeRef}
                     classNames={'MoveToRight'}
                     >
-                    <div ref={nodeRef}>
+                    <div ref={nodeRef} className={showSize ? 'calculator_roomSize' : 'calculator_roomSize_chooseSize'}>
                         {showSize ?
-                            <div className={'calculator_roomSize'}>
+                            <>
                                 <div className={'calculator_roomSize_group'}>
                                     <div className={'calculator_roomSize_item'}>
                                         <p className={'calculator_roomSize_item__p'}>Ширина</p>
@@ -110,13 +110,13 @@ const CalculatorMetres = () => {
                                 </div>
 
 
-                            </div> :
-                            <div className={'calculator_roomSize_chooseSize'}>
+                            </> :
+                            <>
                                 <p>Мы поможем вам расчитать размер</p>
                                 <Button onClick={handleChangeBool} variant={'contained'} color={'success'}>
                                     Не знаете размер?
                                 </Button>
-                            </div>}
+                            </>}
                     </div>
                     </CSSTransition>
                 </SwitchTransition>

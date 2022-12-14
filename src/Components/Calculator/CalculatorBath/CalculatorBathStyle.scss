@@ -67,7 +67,6 @@ $fonts1 : 'Plus Jakarta Display';
   max-width: 1600px;
   min-width: 1200px;
   background: #E5DCCB;
-  height: 600px !important;
   width: 100%;
   grid-template-columns: 1fr 1fr;
   grid-gap: 10px;
@@ -75,7 +74,7 @@ $fonts1 : 'Plus Jakarta Display';
     align-self: center;
     padding-left: 50px;
     width: 100%;
-    height: 550px !important;
+    height: 95%;
   }
   .calculatorBathMetres-mainPic {
     position: relative;
@@ -84,10 +83,13 @@ $fonts1 : 'Plus Jakarta Display';
     grid-template-rows: 150px 100px min-content 1fr;
     justify-items: center;
     align-items: start;
+    height: 100%;
+    margin: 0 20px;
     grid-gap: 20px;
     align-content: start;
     .calculatorBathMetres-mainPic_inputField {
       width:400px;
+      grid-row: 2;
       align-self:center;
       input[type='text'] {
         font-size: 25px;
@@ -96,12 +98,14 @@ $fonts1 : 'Plus Jakarta Display';
     .calculator_roomSize_group {
       display: grid;
       align-content: center;
+      width: 100%;
       grid-gap: 10px;
     }
     .calculator_roomSize_chooseSize {
       padding-top: 20px;
       align-self: start;
-      grid-row: 3;
+      grid-column: 1;
+      grid-row: 4;
       display: grid;
       grid-gap: 15px;
       font-size: 19px;
@@ -141,10 +145,10 @@ $fonts1 : 'Plus Jakarta Display';
   }
   .calculator_roomSize {
     display: grid;
-    grid-template-rows: 1fr;
+    width: 100%;
     height: 100%;
     grid-template-columns: 1fr 1fr;
-    margin: 0 30px;
+    padding: 0 30px 30px 30px;
     grid-gap: 15px;
     .calculator_roomSize__button {
       grid-row: 1;
@@ -159,7 +163,7 @@ $fonts1 : 'Plus Jakarta Display';
     }
     .calculator_roomSize_item {
       display: grid;
-      width: 400px;
+      width: 100%;
       grid-template-columns: 70px 1fr;
       align-items: center;
 
