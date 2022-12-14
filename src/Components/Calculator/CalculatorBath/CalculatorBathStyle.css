@@ -64,7 +64,6 @@
   max-width: 1600px;
   min-width: 1200px;
   background: #E5DCCB;
-  height: 600px !important;
   width: 100%;
   grid-template-columns: 1fr 1fr;
   grid-gap: 10px;
@@ -73,7 +72,7 @@
   align-self: center;
   padding-left: 50px;
   width: 100%;
-  height: 550px !important;
+  height: 95%;
 }
 .calculatorBathMetres .calculatorBathMetres-mainPic {
   position: relative;
@@ -82,11 +81,14 @@
   grid-template-rows: 150px 100px min-content 1fr;
   justify-items: center;
   align-items: start;
+  height: 100%;
+  margin: 0 20px;
   grid-gap: 20px;
   align-content: start;
 }
 .calculatorBathMetres .calculatorBathMetres-mainPic .calculatorBathMetres-mainPic_inputField {
   width: 400px;
+  grid-row: 2;
   align-self: center;
 }
 .calculatorBathMetres .calculatorBathMetres-mainPic .calculatorBathMetres-mainPic_inputField input[type=text] {
@@ -95,12 +97,14 @@
 .calculatorBathMetres .calculatorBathMetres-mainPic .calculator_roomSize_group {
   display: grid;
   align-content: center;
+  width: 100%;
   grid-gap: 10px;
 }
 .calculatorBathMetres .calculatorBathMetres-mainPic .calculator_roomSize_chooseSize {
   padding-top: 20px;
   align-self: start;
-  grid-row: 3;
+  grid-column: 1;
+  grid-row: 4;
   display: grid;
   grid-gap: 15px;
   font-size: 19px;
@@ -135,10 +139,10 @@
 }
 .calculatorBathMetres .calculator_roomSize {
   display: grid;
-  grid-template-rows: 1fr;
+  width: 100%;
   height: 100%;
   grid-template-columns: 1fr 1fr;
-  margin: 0 30px;
+  padding: 0 30px 30px 30px;
   grid-gap: 15px;
 }
 .calculatorBathMetres .calculator_roomSize .calculator_roomSize__button {
@@ -153,7 +157,7 @@
 }
 .calculatorBathMetres .calculator_roomSize .calculator_roomSize_item {
   display: grid;
-  width: 400px;
+  width: 100%;
   grid-template-columns: 70px 1fr;
   align-items: center;
 }

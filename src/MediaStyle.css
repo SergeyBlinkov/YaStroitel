@@ -10,6 +10,12 @@
   .calculator_roomSize {
     grid-template-columns: 1fr !important;
     grid-column: 1 !important;
+    padding: 0 !important;
+    margin: 0;
+    max-width: 370px;
+  }
+  .calculatorChooseComponent_item__img {
+    height: 250px !important;
   }
   .header {
     max-width: 100% !important;
