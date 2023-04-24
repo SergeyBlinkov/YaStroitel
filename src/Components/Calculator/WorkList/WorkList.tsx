@@ -7,6 +7,7 @@ import {deletePriceFromCalculatorReducer} from "../../../Redux/CalculatorBathSli
 import {BathCalcType} from "../CalculatorBath/BathType";
 import CutWords from "../../helperComponent/CutWords";
 import {CSSTransition, TransitionGroup} from "react-transition-group";
+import {ICalculatorKeys} from "../../../Redux/TypesCalculatorBathSlice";
 
 
 
@@ -38,7 +39,7 @@ function WorkList() {
                             onClick={() => {
                                 for (const [key, value] of Object.entries(BathCalc)) {
                                     if (value.type === data.type) {
-                                        dispatch(deletePriceFromCalculatorReducer({name: key, type: data.type}))
+                                        dispatch(deletePriceFromCalculatorReducer({name: key as ICalculatorKeys, type: data.type}))
                                     }
                                 }
                             }}>

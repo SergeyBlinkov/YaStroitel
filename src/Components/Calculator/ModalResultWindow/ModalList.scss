@@ -1,3 +1,4 @@
+@import '../../../ui_local/ui_local.scss';
 .ButtonModalList {
   font-weight: 500;
   display: grid;
@@ -9,25 +10,24 @@
   align-items: center;
   justify-content: end;
   letter-spacing: 2.5px;
-  color: #E5DCCB;
+  color: $ui_colorText;
   .ButtonModalList_icon {
     margin-right: 25px;
     position: relative;
     width: 50px;
     height: 50px;
-    border: 1px solid #847C6E;
+    border: 1px solid $ui_colorTextDark;
 
     .ButtonModalList_icon__span {
-      width: 15px;
       position: absolute;
-      right: 8px;
+      right: 0;
       display: inline-block;
       line-height: 13px;
-      top: 8px;
-      height: 15px;
-      color: #fff;
-      border-radius: 50%;
-      background: red;
+      top: 0;
+      padding: 2px 5px;
+      color: $ui_colorText;
+      text-shadow: 0 0 5px #fff, 0 0 10px #fff;
+
     }
   }
 }

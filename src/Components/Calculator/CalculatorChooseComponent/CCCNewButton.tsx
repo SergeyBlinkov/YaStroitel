@@ -1,7 +1,8 @@
-import React, {useEffect, useRef, useState} from 'react';
-import {CSSTransition} from "react-transition-group";
+import React, { useRef } from 'react';
+import { CustomButton } from '../../../ui_local/materialUi_Theme/mui_local_theme';
 import './style/CCCTransition.css'
-
+import './style/CCCNewButton.css'
+import {toast} from "react-toastify";
 type CCCNewButtonType = {
     bool?:boolean,
     label:string,
@@ -9,20 +10,13 @@ type CCCNewButtonType = {
 }
 
 function CCCNewButton({label,click}:CCCNewButtonType) {
-     const [s,setS] = useState(false)
-    useEffect(() => setS(true),[])
      const NewButtonRef = useRef(null)
+    const handleClick = () => {
+        click()
+         return toast.success('Елемент добавлен в смету',)
+    }
     return (
-        <CSSTransition
-            in={s}
-            classNames={'CCCNewButton'}
-            timeout={1000}
-            nodeRef={NewButtonRef}
-            mountOnEnter
-            unmountOnExit
-        >
-            <button onClick={click} ref={NewButtonRef}>{label}</button>
-        </CSSTransition>
+            <CustomButton onClick={handleClick} ref={NewButtonRef} className={'ButtonAddNewItem'}>{label}</CustomButton>
     );
 }
 

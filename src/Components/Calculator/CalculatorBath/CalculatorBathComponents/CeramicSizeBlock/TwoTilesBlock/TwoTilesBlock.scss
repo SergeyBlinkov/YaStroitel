@@ -1,0 +1,68 @@
+@import '../../../../../../FontAndSize.scss';
+@import '../../../../../../ui_local/ui_local.scss';
+.TwoTilesBlock {
+  position: relative;
+  display: grid;
+  grid-gap: 15px;
+  margin: 0 5px;
+  &_hiddenBlock {
+    overflow: hidden;
+    max-height: 0;
+    height: auto;
+    transition: max-height 0.7s ease-in-out;
+  }
+  &_Items {
+    color: $ui_colorText;
+    display: grid;
+    grid-gap: 15px;
+    padding-top: 25px;
+
+    overflow: hidden;
+    height: auto;
+    //border-left: 1px solid black;
+    //border-right: 1px solid black;
+    //border-bottom: 1px solid black;
+    border-radius: 0 0 6px 6px;
+
+    justify-content: center;
+    width: 100%;
+    grid-template-columns: min-content min-content;
+    &__filler {
+      border-bottom: 1px solid $ui_colorText;
+      min-width: 250px;
+      padding-bottom: 25px;
+    }
+
+  }
+  &_rest {
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: $ui_colorText;
+    &__amount {
+      margin-left: 15px;
+      background: white;
+      padding:10px 15px;
+    }
+   }
+  &_rest__amount {
+    color: green;
+    font-weight: 600;
+  }
+}
+.TwoTilesBlockActive {
+  max-height: 500px;
+  transition: max-height 0.7s ease-in-out;
+}
+.TwoTilesItem {
+  display: flex;
+  min-width: 450px;
+  color: $ui_colorText;
+  align-items: center;
+  gap: 25px;
+  border-radius: 6px;
+  border: 1px solid $ui_colorText;
+  padding: 15px;
+}

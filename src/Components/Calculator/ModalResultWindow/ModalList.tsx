@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {useAppDispatch, useAppSelector} from "../../../Redux/ReduxConfigStore";
 import ModalBathList from "./ModalBathList";
 import {
-    Box,
+
     ButtonBase,
     Modal,
     Table,
@@ -18,51 +18,47 @@ import {resultCost} from "../../../Redux/CalculatorBathSlice";
 
 
 
-
-const style = {
-    position: 'absolute' as 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: 400,
-    bgcolor: '#847C6E',
-    border: '2px solid #E5DCCB',
-    boxShadow: 24,
-    pt: 2,
-    px: 4,
-    pb: 3,
-    color:"#484747",
-    fontSize:"15px",
-    fontWeight:"bold",
-};
+// const style = {
+//     position: 'absolute' as 'absolute',
+//     top: '50%',
+//     left: '50%',
+//     transform: 'translate(-50%, -50%)',
+//     width: 400,
+//     bgcolor: '#847C6E',
+//     border: '2px solid #E5DCCB',
+//     boxShadow: 24,
+//     pt: 2,
+//     px: 4,
+//     pb: 3,
+//     color:"#484747",
+//     fontSize:"15px",
+//     fontWeight:"bold",
+// };
 
 function ModalList() {
     const [modalShow, setModalShow] = useState(false)
     const BathCalc = useAppSelector(state=>state.CalculatorBath)
     const dispatch = useAppDispatch()
     const showElement = Object.values(BathCalc).filter(data => data.price > 0)
-    const ShowChecker = showElement.length > 0 && BathCalc.MetresRoom.floor.amount > 0 && BathCalc.TileSize.price > 0
-
-
     const handleShow = () => setModalShow(!modalShow)
 
 
-    const WrongComponent = () => (<Modal
-        open={modalShow}
-        onClose={handleShow}
-        aria-labelledby="parent-modal-title"
-        aria-describedby="parent-modal-description"
-    >
-        <Box sx={{...style,width: 400 }}>
-            <h2 id="parent-modal-title">Вы ничего не выбрали</h2>
-        </Box>
-    </Modal>)
+    // const WrongComponent = () => (<Modal
+    //     open={modalShow}
+    //     onClose={handleShow}
+    //     aria-labelledby="parent-modal-title"
+    //     aria-describedby="parent-modal-description"
+    // >
+    //     <Box sx={{...style,width: 400 }}>
+    //         <h2 id="parent-modal-title">Вы ничего не выбрали</h2>
+    //     </Box>
+    // </Modal>)
 
 
 
     return (
         <>
-        {ShowChecker ? <Modal open={modalShow} onClose={handleShow}>
+        {<Modal open={modalShow} onClose={handleShow}>
                 <TableContainer className={'ModalContainer'}>
             <Table className={'ModalTable'}>
                 <TableHead>
@@ -84,7 +80,8 @@ function ModalList() {
             </Table>
         </TableContainer>
         </Modal>
-            : <WrongComponent />}
+            // : <WrongComponent />
+            }
             <div className={'ButtonModalList'}>
                 <Tooltip title={'Смета'}>
                     <ButtonBase className={'ButtonModalList_icon'}

@@ -1,0 +1,73 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Raleway:wght@500&display=swap");
+.CeramicAmountTile {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin: 5px;
+  box-sizing: border-box;
+  min-height: 700px;
+  height: 700px;
+  grid-gap: 1px;
+  overflow: hidden;
+  position: relative;
+}
+.CeramicAmountTile .active {
+  bottom: 15px;
+  right: 15px;
+  position: absolute;
+}
+
+.CeramicAmountItem {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 1;
+  padding: 30px;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  cursor: pointer;
+  color: white;
+  font-size: 28px;
+  font-family: "Raleway", sans-serif;
+}
+.CeramicAmountItem img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: -1;
+}
+.CeramicAmountItem__background {
+  position: absolute;
+  z-index: 0;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.CeramicAmountItem__description, .CeramicAmountItem__label {
+  z-index: 1;
+}
+.CeramicAmountItem__label {
+  text-shadow: 1px 1px 2px black;
+}
+.CeramicAmountItem__description {
+  opacity: 0;
+  transition: all 1s ease-in-out;
+  font-size: 17px;
+}
+.CeramicAmountItem:active {
+  scale: 0.992;
+}
+.CeramicAmountItem:hover .CeramicAmountItem__background {
+  background: rgba(0, 0, 0, 0.3);
+}
+.CeramicAmountItem:hover .CeramicAmountItem__description {
+  transition: all 1s ease-in-out;
+  opacity: 1;
+  margin-top: 50px;
+}
+
+/*# sourceMappingURL=CeramicAmountTile.css.map */

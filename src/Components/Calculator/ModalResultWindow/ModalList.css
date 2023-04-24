@@ -19,16 +19,14 @@
   border: 1px solid #847C6E;
 }
 .ButtonModalList .ButtonModalList_icon .ButtonModalList_icon__span {
-  width: 15px;
   position: absolute;
-  right: 8px;
+  right: 0;
   display: inline-block;
   line-height: 13px;
-  top: 8px;
-  height: 15px;
-  color: #fff;
-  border-radius: 50%;
-  background: red;
+  top: 0;
+  padding: 2px 5px;
+  color: #E5DCCB;
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff;
 }
 
 .ModalContainer {

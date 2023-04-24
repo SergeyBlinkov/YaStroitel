@@ -1,10 +1,11 @@
 import React, {useRef, useState} from 'react';
-import {Button, TextField} from "@mui/material";
+import {Button} from "@mui/material";
 import {useAppDispatch, useAppSelector} from "../../../../Redux/ReduxConfigStore";
 import {fillMetres} from "../../../../Redux/CalculatorBathSlice";
-import {toPeriod} from "../../../helperComponent/helperComponent";
+import {H2Style, toPeriod} from "../../../helperComponent/helperComponent";
 import MainPic1 from './imgStore/mainpic1.jpg'
 import {CSSTransition, SwitchTransition} from "react-transition-group";
+import {CustomButton, CustomTextField} from '../../../../ui_local/materialUi_Theme/mui_local_theme';
 
 
 
@@ -14,7 +15,6 @@ type InputEvent = React.ChangeEvent<HTMLInputElement>;
 const CalculatorMetres = () => {
     const dispatch = useAppDispatch()
     const BathCalc = useAppSelector(state => state.CalculatorBath)
-    const ShowElement = Object.values(BathCalc).filter(data => data.price > 0)
     const [roomSize, setRoomSize] = useState(init)
     const [showSize, setShowSize] = useState(false)
     const roomSizeRef = useRef(null)
@@ -45,15 +45,14 @@ const CalculatorMetres = () => {
             <img src={MainPic1} alt={'mainPic1'}/>
             <div className={'calculatorBathMetres-mainPic'}>
 
-                <h2>Введите ниже квадратные метры вашей ванны</h2>
-                    <TextField
+                <H2Style>Введите ниже квадратные метры вашей ванны</H2Style>
+                    <CustomTextField
                         type={'text'} name={'metres'}
-                        error={ShowElement.length > 0 && BathCalc.MetresRoom.floor.amount === 0}
-                        label={'Квадратные метры вашей комнаты'}
-                        helperText={(ShowElement.length > 0 && BathCalc.MetresRoom.floor.amount === 0) && 'Введите сюда значение'}
+                        placeholder={'Квадратные метры вашей комнаты'}
                         onChange={handleChangeMetres}
                         className={'calculatorBathMetres-mainPic_inputField'}
                     />
+
                 <div className={'calculator-metres'}>
                     {BathCalc.MetresRoom.floor.amount > 0 && <p
                         className={'calculator-generalMetres'}
@@ -74,28 +73,25 @@ const CalculatorMetres = () => {
                                 <div className={'calculator_roomSize_group'}>
                                     <div className={'calculator_roomSize_item'}>
                                         <p className={'calculator_roomSize_item__p'}>Ширина</p>
-                                        <TextField
-                                            helperText={'Введите размер в Метрах'}
+                                        <CustomTextField
                                             name={'x'}
                                             onChange={handleSideMetres}
-                                            label={'Первая сторона'}
+                                            placeholder={'Первая сторона'}
                                         />
                                     </div>
                                     <div className={'calculator_roomSize_item'}>
                                         <p className={'calculator_roomSize_item__p'}>Длина</p>
-                                        <TextField
-                                            helperText={'Введите размер в Метрах'}
+                                        <CustomTextField
                                             name={'y'}
-                                            label={'Вторая сторона'}
+                                            placeholder={'Вторая сторона'}
                                             onChange={handleSideMetres}
                                         />
                                     </div>
                                     <div className={'calculator_roomSize_item'}>
                                         <p className={'calculator_roomSize_item__p'}>Высота</p>
-                                        <TextField
-                                            helperText={'Введите размер в Метрах * Не обязательно'}
+                                        <CustomTextField
                                             name={'z'}
-                                            label={'Высота Потолков *Стандартно 2.5'}
+                                            placeholder={'Высота Потолков *Стандартно 2.5'}
                                             onChange={handleSideMetres}
                                         />
                                     </div>
@@ -113,14 +109,13 @@ const CalculatorMetres = () => {
                             </> :
                             <>
                                 <p>Мы поможем вам расчитать размер</p>
-                                <Button onClick={handleChangeBool} variant={'contained'} color={'success'}>
+                                <CustomButton onClick={handleChangeBool} variant={'contained'}>
                                     Не знаете размер?
-                                </Button>
+                                </CustomButton>
                             </>}
                     </div>
                     </CSSTransition>
                 </SwitchTransition>
-
             </div>
 
 

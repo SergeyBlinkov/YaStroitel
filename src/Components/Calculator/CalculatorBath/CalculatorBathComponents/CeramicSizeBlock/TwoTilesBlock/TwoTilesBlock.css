@@ -1,0 +1,65 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Raleway:wght@500&display=swap");
+.TwoTilesBlock {
+  position: relative;
+  display: grid;
+  grid-gap: 15px;
+  margin: 0 5px;
+}
+.TwoTilesBlock_hiddenBlock {
+  overflow: hidden;
+  max-height: 0;
+  height: auto;
+  transition: max-height 0.7s ease-in-out;
+}
+.TwoTilesBlock_Items {
+  color: #E5DCCB;
+  display: grid;
+  grid-gap: 15px;
+  padding-top: 25px;
+  overflow: hidden;
+  height: auto;
+  border-radius: 0 0 6px 6px;
+  justify-content: center;
+  width: 100%;
+  grid-template-columns: min-content min-content;
+}
+.TwoTilesBlock_Items__filler {
+  border-bottom: 1px solid #E5DCCB;
+  min-width: 250px;
+  padding-bottom: 25px;
+}
+.TwoTilesBlock_rest {
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: #E5DCCB;
+}
+.TwoTilesBlock_rest__amount {
+  margin-left: 15px;
+  background: white;
+  padding: 10px 15px;
+}
+.TwoTilesBlock_rest__amount {
+  color: green;
+  font-weight: 600;
+}
+
+.TwoTilesBlockActive {
+  max-height: 500px;
+  transition: max-height 0.7s ease-in-out;
+}
+
+.TwoTilesItem {
+  display: flex;
+  min-width: 450px;
+  color: #E5DCCB;
+  align-items: center;
+  gap: 25px;
+  border-radius: 6px;
+  border: 1px solid #E5DCCB;
+  padding: 15px;
+}
+
+/*# sourceMappingURL=TwoTilesBlock.css.map */
