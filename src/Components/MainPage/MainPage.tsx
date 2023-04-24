@@ -29,7 +29,6 @@ const MainPage = () => {
                         <LogoComponent />
                         <ModalList />
                 </div>
-
                 {/*<ul className={'header_menu'}>*/}
                 {/*    <WhiteButton>Главная</WhiteButton>*/}
                 {/*    <WhiteButton>Калькулятор</WhiteButton>*/}

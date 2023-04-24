@@ -8,9 +8,11 @@ import {useAppDispatch, useAppSelector} from "../../../Redux/ReduxConfigStore";
 import ceramic from '../../../database/priceWork/FlooringInstalation/ceramic.json'
 import {deletePriceFromCalculatorReducer} from "../../../Redux/CalculatorBathSlice";
 import DeleteIcon from "@mui/icons-material/Delete";
+import {ICalculatorKeys} from "../../../Redux/TypesCalculatorBathSlice";
 
 
 type ItemComponentType = {
+    name:ICalculatorKeys
     mainType?:string,
     service: string,
     priceForPiece?: number,
@@ -19,32 +21,25 @@ type ItemComponentType = {
     price: number
 }
 type Data = {
+    name: ICalculatorKeys
+    type?: string ,
     mainType?:string,
-    type: string | undefined,
-    label: string
 }
 
 function ModalBathList() {
     const BathCalc = useAppSelector(state => state.CalculatorBath)
     const dispatch = useAppDispatch()
-    const MetresData = BathCalc.MetresRoom.floor.amount + BathCalc.MetresRoom.wall.amount
+    const MetresData:number = BathCalc.MetresRoom.floor.amount + BathCalc.MetresRoom.wall.amount
+    let TwoTilesAmount:number = 0
+    BathCalc.TileSize.tiles.forEach((tile) => TwoTilesAmount +=tile.amount)
+    let amount = BathCalc.TileSize.oneTile === 'oneTile' ? MetresData : TwoTilesAmount
     const deleteOnClickFunc = (data:Data) => {
-        for (const [key, value] of Object.entries(BathCalc)) {
-            if(value.label === data.label) {
-                console.log(key , data.type)
-             dispatch(deletePriceFromCalculatorReducer({name:key,type:data.type}))
-                }
-            if(value.type === data.mainType ){
-               if(value[data.type as keyof typeof value]?.type === data.type) {
-                   dispatch(deletePriceFromCalculatorReducer({name:data.type,type:data.mainType}))
-                }
-            }
-        }
+        const {name,type,mainType} = data
+        dispatch(deletePriceFromCalculatorReducer({name,type,mainType}))
     }
-    const ItemComponent = ({service, priceForPiece, amount, price,type,mainType}: ItemComponentType) => {
-
-        let data = {type,label:service,mainType}
-        return <>{price > 0 && <TableRow>
+    const ItemComponent = ({service, priceForPiece, amount, price,type,mainType,name}: ItemComponentType) => {
+        let data = {name,type,mainType}
+        return <>{price > 0 &&( <TableRow>
             <TableCell sx={{color:'#E5DCCB'}}>{service}</TableCell>
             <TableCell sx={{color:'#E5DCCB'}}>{priceForPiece || ''}</TableCell>
             <TableCell sx={{color:'#E5DCCB'}}>{amount || ''}</TableCell>
@@ -58,35 +53,64 @@ function ModalBathList() {
                         /></span>
             </IconButton></TableCell>
         </TableRow>
+           )
         }</>
     }
     return <>
+        {BathCalc.TileSize.tiles.map((tilesData,index) => {
+            const isOneTile = BathCalc.TileSize.oneTile === 'oneTile'
+            const amount:number = isOneTile ? MetresData : tilesData.amount
+           return amount > 0 && <ItemComponent
+               name={'TileSize'}
+               mainType={tilesData.size}
+               key={index}
+               service={tilesData.label}
+               priceForPiece={tilesData.singlePrice}
+               amount={amount}
+               price={tilesData.price}
+           />
+        })}
+        {BathCalc.TileSize.tiles.map((tilesData,index) => {
+            const type = tilesData.fillSeam.type
+            const isOneTile = BathCalc.TileSize.oneTile === 'oneTile'
+            const amount = isOneTile ? MetresData : tilesData.amount
+            let GroutPrice:number = 0
+            const groutData = ceramic.ceramicTiles.fillSeam
+            if(type.length > 0) GroutPrice = +groutData[type as keyof typeof groutData].price
+            else GroutPrice = 0
+            return tilesData.fillSeam.type.length > 0 && <ItemComponent
+                name={'TileSize'}
+                        key={index}
+                        type={'fillSeam'}
+                        service={tilesData.fillSeam.label}
+                        priceForPiece={GroutPrice}
+                        amount={amount}
+                        price={tilesData.fillSeam.price}
+                        mainType={tilesData.size}
+                    />
+
+        })}
         <ItemComponent
-            service={BathCalc.TileSize.label}
-            priceForPiece={BathCalc.TileSize.price}
-            amount={MetresData}
-            price={MetresData * BathCalc.TileSize.price}
-        />
-        <ItemComponent
-            type={BathCalc.fillSeam.type}
-            service={BathCalc.fillSeam.label}
-            amount={MetresData}
-            price={BathCalc.fillSeam.price}
-        />
-        <ItemComponent
+            name={'prime'}
             service={BathCalc.prime.label}
             priceForPiece={ceramic.ceramicTiles.prime}
-            amount={MetresData}
+            amount={amount}
             price={BathCalc.prime.price}
         />
+        {BathCalc.linearMetres.amount.map((tiles,index) => (
+            <ItemComponent
+                name={'linearMetres'}
+                key={index}
+                type={BathCalc.linearMetres.type}
+                service={tiles.label}
+                priceForPiece={tiles.price}
+                amount={tiles.amount}
+                price={tiles.price}
+                mainType={tiles.size}
+            />
+        ))}
         <ItemComponent
-            type={BathCalc.linearMetres.type}
-            service={BathCalc.linearMetres.label}
-            priceForPiece={BathCalc.TileSize.price / 2}
-            amount={BathCalc.linearMetres.amount}
-            price={BathCalc.linearMetres.price}
-        />
-        <ItemComponent
+            name={'hole'}
             type={BathCalc.hole.type}
             service={BathCalc.hole.label}
             priceForPiece={BathCalc.hole.priceForPie}
@@ -94,6 +118,7 @@ function ModalBathList() {
             price={BathCalc.hole.price}
         />
         <ItemComponent
+            name={'angle'}
             type={BathCalc.angle.type}
             service={BathCalc.angle.label}
             priceForPiece={BathCalc.angle.priceForPie}
@@ -101,6 +126,7 @@ function ModalBathList() {
             price={BathCalc.angle.price}
         />
         <ItemComponent
+            name={'antiWater'}
             type={BathCalc.antiWater.type}
             service={BathCalc.antiWater.label}
             priceForPiece={BathCalc.antiWater.priceForPie}
@@ -108,107 +134,110 @@ function ModalBathList() {
             price={BathCalc.antiWater.price}
         />
         <ItemComponent
+            name={'toilet'}
             type={BathCalc.toilet.type}
             service={BathCalc.toilet.label}
             amount={1}
             price={BathCalc.toilet.price}
         />
         <ItemComponent
+            name={'bath'}
             type={BathCalc.bath.type}
             service={BathCalc.bath.label}
             amount={1}
             price={BathCalc.bath.price}
         />
         <ItemComponent
-            mainType={"DryWallBath"}
-            type={BathCalc.DryWallBath.bathroomScreen.type}
+            name={'DryWallBath'}
+            type={'bathroomScreen'}
             service={BathCalc.DryWallBath.bathroomScreen.label}
             price={BathCalc.DryWallBath.bathroomScreen.price}
         />
         <ItemComponent
-            mainType={"DryWallBath"}
-            type={BathCalc.DryWallBath.hatch.type}
+            name={'DryWallBath'}
+            type={'hatch'}
             service={BathCalc.DryWallBath.hatch.label}
             amount={1}
             price={BathCalc.DryWallBath.hatch.price}
         />
         <ItemComponent
-            mainType={"DryWallBath"}
-            type={BathCalc.DryWallBath.spaceUnderBath.type}
+            name={'DryWallBath'}
+            type={'spaceUnderBath'}
             service={BathCalc.DryWallBath.spaceUnderBath.label}
             amount={`${BathCalc.DryWallBath.bathLength}м`}
             price={BathCalc.DryWallBath.spaceUnderBath.price}
 
         />
         <ItemComponent
-            mainType={"DryWallBath"}
-            type={BathCalc.DryWallBath.shelf.type}
+            name={'DryWallBath'}
+            type={'shelf'}
             service={BathCalc.DryWallBath.shelf.label}
             price={BathCalc.DryWallBath.shelf.price}
         />
         <ItemComponent
-            mainType={"DryWallBox"}
-            type={BathCalc.DryWallBox.angleCount.type}
+            name={'DryWallBox'}
+            type={'angleCount'}
             service={BathCalc.DryWallBox.angleCount.label}
             amount={BathCalc.DryWallBox.angleCount.amount}
             price={BathCalc.DryWallBox.angleCount.price}
         />
         <ItemComponent
-            mainType={"DryWallBox"}
-            type={BathCalc.DryWallBox.twoAngleCount.type}
+            name={'DryWallBox'}
+            type={'twoAngleCount'}
             service={BathCalc.DryWallBox.twoAngleCount.label}
             amount={BathCalc.DryWallBox.twoAngleCount.amount}
             price={BathCalc.DryWallBox.twoAngleCount.price}
         />
         <ItemComponent
-            mainType={"DryWallBox"}
-            type={BathCalc.DryWallBox.hatch.type}
+            name={'DryWallBox'}
+            type={'hatch'}
             service={BathCalc.DryWallBox.hatch.label}
             price={BathCalc.DryWallBox.hatch.price}
         />
         <ItemComponent
-            mainType={"DryWallShower"}
-            type={BathCalc.DryWallShower.showerBoard.type}
+            name={'DryWallShower'}
+            type={'showerBoard'}
             service={BathCalc.DryWallShower.showerBoard.label}
             amount={BathCalc.DryWallShower.showerBoard.amount}
             price={BathCalc.DryWallShower.showerBoard.price}
             priceForPiece={BathCalc.DryWallShower.showerBoard.priceForPie}
         />
         <ItemComponent
+            name={'showerType'}
             type={BathCalc.showerType.type}
             service={BathCalc.showerType.label}
             price={BathCalc.showerType.price}
             amount={1}
         />
         <ItemComponent
-            mainType={"DryWallWall"}
+            name={'DryWallWall'}
             type={"wallLength"}
             service={BathCalc.DryWallWall.wallLength.label}
             amount={`${BathCalc.DryWallWall.wallLength.amount}п/м`}
             price={BathCalc.DryWallWall.wallLength.price}
         />
         <ItemComponent
+            name={'DryWallWall'}
             mainType={"DryWallWall"}
-            type={BathCalc.DryWallWall.doorBoolean.type}
+            type={'doorBoolean'}
             service={BathCalc.DryWallWall.doorBoolean.label}
             price={BathCalc.DryWallWall.doorBoolean.price}
         />
         <ItemComponent
-            mainType={"DryWallWall"}
-            type={BathCalc.DryWallWall.soundBoolean.type}
+            name={'DryWallWall'}
+            type={'soundBoolean'}
             service={BathCalc.DryWallWall.soundBoolean.label}
             price={BathCalc.DryWallWall.soundBoolean.price}
         />
         <ItemComponent
-            mainType={"DryWallWall"}
-            type={BathCalc.DryWallWall.socketCount.type}
+            name={'DryWallWall'}
+            type={'socketCount'}
             service={BathCalc.DryWallWall.socketCount.label}
             amount={`${BathCalc.DryWallWall.socketCount.amount}шт`}
             price={BathCalc.DryWallWall.socketCount.price}
         />
         <ItemComponent
-            mainType={"BathRoomSink"}
-            type={BathCalc.BathRoomSink.type}
+            name={'BathRoomSink'}
             service={BathCalc.BathRoomSink.label}
             price={BathCalc.BathRoomSink.price}
             amount={1}

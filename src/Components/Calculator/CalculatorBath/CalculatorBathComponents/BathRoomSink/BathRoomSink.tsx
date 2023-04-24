@@ -3,11 +3,15 @@ import './BathRoomSink.css'
 import {Button} from "@mui/material";
 import {useAppDispatch} from "../../../../../Redux/ReduxConfigStore";
 import {bathRoomSink} from "../../../../../Redux/CalculatorBathSlice";
+import {toast} from "react-toastify";
 
 function BathRoomSink() {
 
     const dispatch = useAppDispatch()
-    const handleClick = ()=> dispatch(bathRoomSink())
+    const handleClick = ()=> {
+        toast.success('Элемент добавлен в смету')
+        dispatch(bathRoomSink())
+    }
     return (
         <div className={'BathRoomSink'}>
             <p className={'BathRoomSink_description'}>

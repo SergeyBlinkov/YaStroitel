@@ -1,10 +1,18 @@
 import React from "react";
 
-type tile = {
-    label:string,
+export type Tiles = {
+    label:string
     size:string,
     price:number
+    amount:number
+    singlePrice:number
+    fillSeam:LabelTypePrice
 }
+export type TilesObject = {
+    oneTile:string;
+    tiles:Tiles[]
+}
+
 type MetresRoom = {
     label:string,
     floor: {label:string,amount:number},
@@ -99,9 +107,15 @@ type LabelTypePrice ={
     label:string,
     price:number
 }
-type TypeLabelAmountPrice = {
+
+type LinearTypes = {
     label:string,
-    amount:number,
+    amount: Array<{
+        label:string
+        size:string,
+        price:number
+        amount:number
+    }>,
     type:string,
     price:number
 }
@@ -113,14 +127,13 @@ type AntiWaterType = {
     price:number
 }
 export interface BathCalcType {
-    TileSize:tile,
-    fillSeam:LabelTypePrice,
+    TileSize:TilesObject,
     prime:LabelPrice,
     angle:Angle,
     hole:Hole,
     finalResult:number,
     BathRoomSink:LabelTypePrice,
-    linearMetres:TypeLabelAmountPrice,
+    linearMetres:LinearTypes,
     MetresRoom:MetresRoom,
     antiWater:AntiWaterType,
     toilet:LabelTypePrice,

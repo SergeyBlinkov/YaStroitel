@@ -70,9 +70,47 @@
 //linear metres
 .AdditionalItemLinearMetres {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 1fr;
   width: 100%;
-  grid-template-rows: 80px 80px 110px 100px;
+  height: 100%;
+  overflow-y: scroll;
+  grid-template-rows: min-content min-content min-content;
+  &_label {
+    grid-column: span 2;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+  }
+  .AdditionalItemLinearMetres__h2 {
+    padding: 18px;
+    margin: 0;
+  }
+  .AdditionalItemLinearMetres_textFieldGroup {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-top: 18px;
+    grid-column: span 2;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    grid-gap: 25px;
+    .textFieldGroup_item {
+      display: grid;
+      text-align: left;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      justify-content: center;
+      gap: 25px;
+    }
+    .textFieldGroup {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      align-items: center;
+      justify-content: center;
+      justify-items: center;
+    }
+  }
   .AdditionalItemLinearMetres_img {
     display: grid;
     padding: 0 100px;

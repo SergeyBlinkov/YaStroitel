@@ -39,15 +39,27 @@ export const ListOfBenefitAndLimit = ({benefits,limitations}:ListOfBenefitAndLim
     </div>
 }
 
-export const H1Style = styled.h2`
+type H1StyleType = {
+    primary?:boolean
+}
+
+export const H1Style = styled.h2<H1StyleType>`
   width:100%;
-  
   margin: 0 auto;
   padding:25px;
-  background: #847C6E;
-  color: #E5DCCB;
   font-weight: 700;
+  background: transparent;
+  color: #E5DCCB;
   font-size: 30px;
   min-width: 1200px !important;
-  font-family: 'Plus Jakarta Display';
 `
+export const H2Style = styled.h2<H1StyleType>`
+  width: 80%;
+  align-self: center;
+  margin: 0 auto;
+  padding:25px;
+  font-weight: 700;
+  background: transparent;
+  color: #E5DCCB;
+  font-size: 35px;
+  `
